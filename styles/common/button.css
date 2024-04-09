@@ -1,0 +1,19 @@
+.trasparent-button {
+    background-color: transparent;
+    padding: 1em 5em 1em 5em;
+    color: var(--white);
+    border-radius: 10px;
+    border: solid white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.solid-button {
+    background-color: var(--orange-yellow);
+    padding: 1em 5em 1em 5em;
+    color: var(--dark-blue);
+    border-radius: 10px;
+    border: var(--orange-yellow) solid;
+    font-weight: bold;
+    font-size: large;
+}
