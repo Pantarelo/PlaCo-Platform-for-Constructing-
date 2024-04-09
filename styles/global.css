@@ -1,6 +1,6 @@
 @import "main_page_header.css";
 @import "hero_section.css";
-@import "common/button.css";
+@import "common/button.css"; 
 
 body {
     margin: 0;

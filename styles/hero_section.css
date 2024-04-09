@@ -26,9 +26,16 @@ h1 {
 h2 {
     width: 50%;
     font-size: 2em;
+    font-weight: lighter;
     color: var(--gray);
 }
 
 .hero-section > .content {
     margin-left: 5em;
+}
+
+.buttons {
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
 }
