@@ -1,0 +1,86 @@
+@font-face {
+    font-family: roboto-slab;
+    src: url(/assets/fonts/RobotoSlab-VariableFont_wght.ttf);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: roboto-slab;
+}
+
+h1 {
+    margin: 0;
+}
+
+.mainPageHeader {
+    background-color: #090834;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.burger-menu-icon {
+    display: none;
+}
+
+.linksHomePage {
+    display: flex;
+    margin-right: 30px;
+    gap: 50px;
+    font-size: 25px;
+}
+
+.linksHomePage a {
+    color: white;
+    display: flex;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    position: relative;
+}
+
+.linksHomePage a::before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: #F3CB04;
+    width: 0;
+    transition: 0.3s ease all;
+    bottom: 0;
+    border-radius: 50px;
+}
+
+.linksHomePage a:hover{
+    color: #F3CB04;
+}
+
+.linksHomePage a:hover::before{
+    width: 100%;
+}
+
+@media screen and (max-width: 40em) {
+    .burger-menu-icon {
+        display: flex;
+        width: 60px;
+        height: 60px;
+        padding: 5px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .linksHomePage {
+        display: none;
+        color: yellow;
+    }
+    
+}
+
