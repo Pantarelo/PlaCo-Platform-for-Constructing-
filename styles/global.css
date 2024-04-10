@@ -1,5 +1,7 @@
 @import "main_page_header.css";
 @import "hero_section.css";
+@import "common/button.css";
+@import "login.css";
 @import "top_companies.css";
 @import "site_details.css";
 @import "find_jobs.css";
