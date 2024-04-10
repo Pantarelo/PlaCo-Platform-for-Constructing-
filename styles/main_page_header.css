@@ -3,7 +3,6 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: roboto-slab;
 }
 
 h1 {
@@ -12,19 +11,21 @@ h1 {
 
 .mainPageHeader {
     background-color: var(--dark-blue);
+    top: 0;
+    position: sticky;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0em 5px 2em #02020f ;
+
 }
 
 .logo {
     width: 60px;
     height: 60px;
     border-radius: 100%;
-    padding: 5px;
-    margin-left: 30px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 1em 0em 1em 6em;
 }
 
 .burger-menu-icon {
@@ -65,7 +66,7 @@ h1 {
     width: 100%;
 }
 
-@media screen and (max-width: 40em) {
+@media screen and (max-width: 750px) {
     .burger-menu-icon {
         display: flex;
         width: 60px;

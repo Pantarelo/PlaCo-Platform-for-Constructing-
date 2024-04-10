@@ -2,6 +2,11 @@
 @import "hero_section.css";
 @import "common/button.css";
 @import "login.css";
+@import "top_companies.css";
+@import "site_details.css";
+@import "find_jobs.css";
+@import "footer.css";
+@import "common/button.css"; 
 
 @font-face {
     font-family: roboto-slab;
@@ -11,8 +16,14 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: roboto-slab;
+}
+
+a {
+    cursor: pointer;
 }
 
 h1 {
     margin: 0;
 }
+
