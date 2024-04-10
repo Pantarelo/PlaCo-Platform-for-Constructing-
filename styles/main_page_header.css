@@ -1,7 +1,4 @@
-@font-face {
-    font-family: roboto-slab;
-    src: url(/assets/fonts/RobotoSlab-VariableFont_wght.ttf);
-}
+@import 'colors.css';
 
 body {
     padding: 0;
@@ -14,7 +11,7 @@ h1 {
 }
 
 .mainPageHeader {
-    background-color: #090834;
+    background-color: var(--dark-blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,7 +39,7 @@ h1 {
 }
 
 .linksHomePage a {
-    color: white;
+    color: var(--white);
     display: flex;
     cursor: pointer;
     transition: 0.3s all ease;
@@ -53,7 +50,7 @@ h1 {
     content: '';
     position: absolute;
     height: 2px;
-    background-color: #F3CB04;
+    background-color: var(--orange-yellow);
     width: 0;
     transition: 0.3s ease all;
     bottom: 0;
@@ -61,7 +58,7 @@ h1 {
 }
 
 .linksHomePage a:hover{
-    color: #F3CB04;
+    color: var(--orange-yellow);
 }
 
 .linksHomePage a:hover::before{
@@ -79,7 +76,7 @@ h1 {
     }
     .linksHomePage {
         display: none;
-        color: yellow;
+        color: var(--orange-yellow);
     }
     
 }

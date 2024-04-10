@@ -6,6 +6,7 @@
     border: solid white;
     font-weight: bold;
     font-size: large;
+    cursor: pointer;
 }
 
 .solid-button {
@@ -16,4 +17,5 @@
     border: var(--orange-yellow) solid;
     font-weight: bold;
     font-size: large;
+    cursor: pointer;
 }

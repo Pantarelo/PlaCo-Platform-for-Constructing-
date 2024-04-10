@@ -1,6 +1,12 @@
 @import "main_page_header.css";
 @import "hero_section.css";
 @import "common/button.css";
+@import "login.css";
+
+@font-face {
+    font-family: roboto-slab;
+    src: url(/assets/fonts/RobotoSlab-VariableFont_wght.ttf);
+}
 
 body {
     margin: 0;
