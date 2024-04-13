@@ -6,7 +6,6 @@
 @import "site_details.css";
 @import "find_jobs.css";
 @import "footer.css";
-@import "common/button.css"; 
 @import "profile.css";
 
 @font-face {
@@ -27,5 +26,11 @@ a {
 
 h1 {
     margin: 0;
+}
+
+input {
+    outline: none;
+    border: 0;
+    /* background-color: transparent; */
 }
 
