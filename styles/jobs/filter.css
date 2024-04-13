@@ -1,5 +1,71 @@
 .filter-announcements {
-    width: 200px;
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    z-index: 0;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    /* height: ; */
     height: auto;
     background-color: var(--gray);
+    overflow-y: auto;
+    padding: 5px;
+}
+
+@media screen and (max-width:1000) {
+    .filter-announcements {
+        width: fit-content;
+    }
+}
+
+.salary, .location {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.salary .interval {
+    width: 100%;
+}
+
+.salary .option {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.salary h1 {
+    font-size: small;
+    color: aqua;
+}
+
+hr {
+    margin-top: 20px;
+}
+
+.filter-announcements form {
+    display: flex;
+    flex-direction: column;
+}
+
+form button {
+    display: flex;
+    justify-content: center;
+}
+
+select {
+    color: var(--dark-blue);
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 1300px) {
+    .filter-announcements {
+        width: 100%;
+        align-items: center;
+    }
 }

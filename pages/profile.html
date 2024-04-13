@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles\profile.css">
+    <link rel="stylesheet" href="/styles/profile/profile.css">
+    <link rel="stylesheet" href="/styles/global.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Profile</title>
 </head>
@@ -123,7 +124,7 @@
         </div>
         <div class="right_side_work">
           <div class="user_profile">
-            <img src="assets/images/profile_image.png" alt="Profile Picture!" class="imgProfileSmall">
+            <img src="/assets/images/profile_image.png" alt="Profile Picture!" class="imgProfileSmall">
             <h2 class="user_name">Pantaziu Andrei</h2>
           </div>
           <div class="message_input">
@@ -137,7 +138,7 @@
         <div class="center_settings">
           <div class="profile_edit">
             <h1 class="profileName">Edit Profile</h1>
-            <img src="assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
+            <img src="/assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
             <button class="btnProfile">Upload a new photo</button>
             <p class="praf">Upload a new avatar. Large image will be resized automatically. <br>
               Maximum upload size is <span class="highlight">1 MB.
@@ -161,7 +162,7 @@
       <script>
         function openPage(pageName,elmnt) {
             if (pageName == 'Home') {
-                window.location.href = "index.html";
+                window.location.href = "/index.html";
             }
 
             let i, tabcontent, tablinks;
