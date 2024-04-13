@@ -65,7 +65,7 @@
     padding-bottom: 5em;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1000px) {
     .ads {
         flex-direction: column;
         padding-top: 12em;
@@ -82,8 +82,8 @@
 }
 
 .ad_1 img {
-    width: 550px;
-    height: 400px;
+    width: 500px;
+    height: 350px;
     object-fit: cover;
 }
 
@@ -117,6 +117,7 @@
 .ad_2, .ad_3, .ad_4, .ad_5 {
     display: flex;
     flex-direction: column;
+    /* width: 100%; */
 }
 
 .ad_2 > .discover_section, .ad_3 > .discover_section, .ad_4 > .discover_section, .ad_5 > .discover_section {
@@ -133,9 +134,36 @@
 }
 
 .ad_2 img, .ad_3 img, .ad_4 img, .ad_5 img {
-    width: 300px;
-    height: 200px;
+    width: 280px;
+    height: 170px;
     object-fit: cover;
+}
+
+@media screen and (max-width: 1000px) {
+    .ad_2 img, .ad_3 img, .ad_4 img, .ad_5 img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .ad_1 img {
+        width: 400px;
+        height: 300px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .ad_2 img, .ad_3 img, .ad_4 img, .ad_5 img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .ad_1 img {
+        width: 200px;
+        height: 150px;
+    }
 }
 
 .ad_2 img:hover + .discover_section,

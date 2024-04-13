@@ -1,4 +1,5 @@
 .trasparent-button {
+    width: 300px;
     background-color: transparent;
     padding: 1em 5em 1em 5em;
     color: var(--white);
@@ -15,6 +16,7 @@
 }
 
 .solid-button {
+    width: 300px;
     background-color: var(--orange-yellow);
     padding: 1em 5em 1em 5em;
     color: var(--dark-blue);

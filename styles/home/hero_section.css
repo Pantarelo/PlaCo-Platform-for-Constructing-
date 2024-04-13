@@ -36,8 +36,8 @@ h2 {
 
 .buttons {
     display: flex;
-    width: 40%;
-    justify-content: space-around;
+    margin-left: 20px;
+    justify-content: left;
 }
 
 @media screen and (max-width: 900px) {
@@ -51,6 +51,7 @@ h2 {
 
     .buttons {
         flex-direction: column;
-        width: 70%;
+        margin-left: 20px;
+        /* width: 70%; */
     }
 }
