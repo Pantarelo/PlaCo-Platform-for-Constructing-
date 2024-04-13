@@ -112,6 +112,7 @@ form .btn {
     font-size: large;
     cursor: pointer;
     margin-bottom: 20px;
+    text-decoration: none;
 }
 
 
