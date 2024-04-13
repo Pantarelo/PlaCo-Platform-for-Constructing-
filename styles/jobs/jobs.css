@@ -1,3 +1,24 @@
 @import "/styles/jobs/header_jobs.css";
 @import "/styles/jobs/filter.css";
-@import "/styles/jobs/announcements.css"
+@import "/styles/jobs/announcements.css";
+@import "/styles/common/button.css";
+
+.grid-announcements {
+    background-color: var(--gray);
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+@media screen and (max-width: 1300px) {
+    .grid-announcements {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+
+hr {
+    color: var(--black);
+}
