@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles\register.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Register</title>
+</head>
+<body class="register-page">
+
+        <form action="">
+
+            <img src="/assets/images/logo.png" alt="Logo of the page" class="logo"> 
+            <h1>Register</h1>
+
+            <div class="input_box">
+                <h3>Email</h3>
+                <div class="wrapper">
+                    <input type="text" placeholder="Type your email" required>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+
+            <div class="input_box">
+                <h3>Phone</h3>
+                <div class="wrapper">
+                    <input type="phone" placeholder="Type your phone" required>
+                    <i class='bx bx-phone'></i>
+                </div>
+            </div>
+
+            <div class="input_box">
+                <h3>Password</h3>
+                <div class="wrapper">
+                    <input type="password" placeholder="Type your password" id="password" required>
+                    <i class='bx bx-lock-alt' id="lock1"></i>
+                </div>
+            </div>
+
+            <div class="input_box">
+                <h3>Password</h3>
+                <div class="wrapper">
+                    <input type="password" placeholder="Type your password" id="password" required>
+                    <i class='bx bx-lock-alt' id="lock2"></i>
+                </div>
+            </div>
+
+            <div class="btn">
+                <a href="login.html" class="solid-button">LOGIN</a>
+                <a href="register.html">
+                    <button class="trasparent-button">REGISTER</button>
+                </a>
+            </div>
+
+        </form>
+
+        <script>
+            let password = document.getElementById("password");
+            let lock1 = document.getElementById("lock1");
+            lock1.addEventListener("click", () => {
+                if (password.type == 'password') {
+                    lock1.className = 'bx bx-lock-open-alt';
+                    password.type = 'text';
+                }
+                else {
+                    lock1.className = 'bx bx-lock-alt';
+                    password.type = 'password';
+                }
+            });
+
+            let lock2 = document.getElementById("lock2");
+            lock2.addEventListener("click", () => {
+                if (password.type == 'password') {
+                    lock2.className = 'bx bx-lock-open-alt';
+                    password.type = 'text';
+                }
+                else {
+                    lock2.className = 'bx bx-lock-alt';
+                    password.type = 'password';
+                }
+            });
+        </script>
+    
+</body>
+</html>
