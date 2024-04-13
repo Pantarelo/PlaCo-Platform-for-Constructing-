@@ -22,5 +22,7 @@ h1 {
 
 input {
     outline: none;
+    border: 0;
+    /* background-color: transparent; */
 }
 

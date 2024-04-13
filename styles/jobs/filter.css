@@ -1,0 +1,5 @@
+.filter-announcements {
+    width: 200px;
+    height: auto;
+    background-color: var(--gray);
+}

@@ -16,10 +16,22 @@
 
     <div class="grid-announcements">
         <div class="filter-announcements">
-
+            <form>
+                <h1>Filters</h1>
+                <h1>Budgets</h1>
+                <input class="interval" placeholder="Min" type="number" min="0" value="0"/>
+                <input class="interval" placeholder="Max" type="number" min="0" value="0"/>
+                <script src="/scripts/interval.js"></script>
+                <h1>Location</h1>
+                <select>
+                    
+                </select>
+                <script type="module" src="/scripts/getLocations.js"></script>
+                <button type="submit">Filter</button>
+        </form>
         </div>
         <div class="list-announcements">
-
+            
         </div>
     </div>
 </body>
