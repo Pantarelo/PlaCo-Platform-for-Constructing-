@@ -313,3 +313,15 @@
   color: var(--dark-blue);
 }
 
+.btn_help {
+  position: fixed;
+  bottom: 20px; 
+  right: 70px; 
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
