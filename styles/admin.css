@@ -1,0 +1,202 @@
+@import 'global.css';
+
+.tablinkadmin {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 25px;
+    width: 33.33%;
+    border-bottom: 4px solid var(--orange-yellow);
+  }
+  
+.tabcontentadmin {
+    background-color: var(--white);
+    display: none;
+    height: calc(100vh - 55px);
+}
+
+.work_admin {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.work_admin .center_work_admin {
+    background-color: var(--gray);
+    height: 80%;
+    width: 90%;
+    overflow-y: auto;
+}
+
+.btn_admin_work_delete {
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: solid var(--gray);
+    margin: 0.5% 0%;
+    padding: 0% 2%;
+    font-weight: 1000;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn_admin_work_view {
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: solid var(--gray);
+    margin: 0.5% 0%;
+    padding: 0% 2%;
+    font-weight: 1000;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn_admin_work_delete:hover {
+    background-color: var(--error-color);  
+}
+
+.btn_admin_work_view:hover {
+    background-color: var(--orange-yellow);  
+}
+
+.inbox_admin {
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+.inbox_admin .left_side_admin {
+    background-color: var(--gray);
+    height: 80%;
+    width: 30%;
+    overflow-y: auto;
+}
+  
+.inbox_admin .right_side_admin {
+    background-color: var(--gray);
+    height: 80%;
+    width: 62%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user_admin {
+    height: auto;
+    width: 90%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.btn_admin_inbox_delete {
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: solid var(--gray);
+    font-weight: 1000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2.5% 0%;
+}
+
+.btn_admin_inbox_view {
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: solid var(--gray);
+    font-weight: 1000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2.5% 0%;
+}
+
+.btn_admin_inbox_delete:hover {
+    background-color: var(--error-color); 
+}
+
+.btn_admin_inbox_view:hover {
+    background-color: var(--orange-yellow);  
+}
+
+.profile_info_admin {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile_info_admin .profile_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.profile_info_admin .profile_name {
+    border-radius: 50%;
+    margin-top: 9%;
+    margin-left: 3%;
+    color: var(--white);
+}
+
+.user_info {
+    display: flex;
+    flex-direction: row;
+}
+
+.user_info .user_info_details{
+    display: flex;
+    margin-bottom: 10%;
+    flex-direction: column;
+    padding: 5% 5%; 
+    width: 25%;
+}
+
+.user_info_details .details{
+    color: var(--white);
+}
+
+.chat_admin {
+    width: 55%;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: end;
+    background-color: var(--white);
+    border-radius: 5px;
+    margin-left: 45px;
+}
+
+.message_input_field_admin {
+    flex: 1;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.send_button_admin {
+    background-color: var(--orange-yellow);
+    color: var(--dark-blue);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+
+
+
