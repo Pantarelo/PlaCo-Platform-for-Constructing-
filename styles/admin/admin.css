@@ -1,5 +1,3 @@
-@import 'global.css';
-
 .tablinkadmin {
     background-color: var(--dark-blue);
     color: var(--white);
@@ -31,6 +29,52 @@
     width: 90%;
     overflow-y: auto;
 }
+
+.search_bar_admin {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .search_input_admin {
+    border: none;
+    box-sizing: border-box;
+    width: 70%;
+    height: 20px;
+    color: var(--dark-blue);
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 2%;
+  }
+  
+  .search_icon_admin {
+    position: absolute;
+    left: 15.5%;
+    font-size: 1.2em;
+    color: var(--dark-blue);
+  }
+  
+  .mail_admin {
+    height: auto;
+    width: 90%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    
+  }
+  
+  .mail_subject_admin, .mail_description_admin, .mail_date_admin {
+    color: var(--dark-blue);
+  }
+
 
 .btn_admin_work_delete {
     background-color: transparent;
@@ -84,6 +128,33 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.search_bar_inbox_admin {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .search_input_admin_inbox {
+    border: none;
+    box-sizing: border-box;
+    width: 70%;
+    height: 20px;
+    color: var(--dark-blue);
+    height: 30px;
+    border-radius: 7px;
+    padding-left: 5%;
+  }
+  
+  .search_icon_admin_inbox {
+    position: absolute;
+    left: 15.5%;
+    font-size: 1.2em;
+    color: var(--dark-blue);
+  }
 
 .user_admin {
     height: auto;
@@ -143,7 +214,7 @@
     border-radius: 50%;
     margin-top: 9%;
     margin-left: 3%;
-    color: var(--white);
+    color: var(--dark-blue);
 }
 
 .user_info {
@@ -160,7 +231,7 @@
 }
 
 .user_info_details .details{
-    color: var(--white);
+    color: var(--dark-blue);
 }
 
 .chat_admin {
@@ -196,7 +267,3 @@
     margin-bottom: 20px;
     height: 40px;
 }
-
-
-
-
