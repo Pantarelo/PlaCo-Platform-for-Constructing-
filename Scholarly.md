@@ -1,8 +1,5 @@
 # Software Requirements Specification
 ## For PlaCo-Platform-for-Constructing
-Version 1.0 approved
-Prepared by Pricope Marius-Andrei
-14.04.2024
 
 Table of Contents
 =================
