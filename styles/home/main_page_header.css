@@ -79,6 +79,27 @@ h1 {
         display: none;
         color: var(--orange-yellow);
     }
-    
+}
+
+#linksHomePageHamburger {
+    display: none;
+    height: 100vh;
+    background-color: var(--dark-blue);
+    padding: 20px;
+    top: 90px;
+    right: 0;
+    flex-direction: column;
+}
+
+#linksHomePageHamburger a {
+    text-align: center;
+    padding: 20px;
+    color: var(--white);
+    font-size: x-large;
+}
+
+#linksHomePageHamburger a:hover {
+    background-color: var(--light-blue);
+    border-radius: 20px;
 }
 
