@@ -46,7 +46,7 @@
     color: var(--dark-blue);
     height: 30px;
     border-radius: 7px;
-    padding-left: 2%;
+    padding-left: 30px;
   }
   
   .search_icon_admin {
@@ -56,7 +56,7 @@
     color: var(--dark-blue);
   }
   
-  .mail_admin {
+.mail_admin {
     height: auto;
     width: 90%;
     background-color: var(--white);
@@ -69,14 +69,29 @@
     border-radius: 10px;
     cursor: pointer;
     
-  }
+}
+
+.three_things {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.two_things {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20%;
+}
   
-  .mail_subject_admin, .mail_description_admin, .mail_date_admin {
+.mail_subject_admin, .mail_description_admin, .mail_date_admin {
     color: var(--dark-blue);
-  }
+}
 
 
-.btn_admin_work_delete {
+
+.two_things .btn_admin_work_delete {
     background-color: transparent;
     color: var(--dark-blue);
     border: solid var(--gray);
@@ -87,11 +102,11 @@
     border-radius: 5px;
 }
 
-.btn_admin_work_view {
+.two_things .btn_admin_work_view {
     background-color: transparent;
     color: var(--dark-blue);
     border: solid var(--gray);
-    margin: 0.5% 0%;
+    margin: 1% 0%;
     padding: 0% 2%;
     font-weight: 1000;
     cursor: pointer;
@@ -146,7 +161,7 @@
     color: var(--dark-blue);
     height: 30px;
     border-radius: 7px;
-    padding-left: 5%;
+    padding-left: 30px;
   }
   
   .search_icon_admin_inbox {
@@ -176,7 +191,8 @@
     font-weight: 1000;
     cursor: pointer;
     border-radius: 5px;
-    margin: 2.5% 0%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .btn_admin_inbox_view {
@@ -186,7 +202,8 @@
     font-weight: 1000;
     cursor: pointer;
     border-radius: 5px;
-    margin: 2.5% 0%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .btn_admin_inbox_delete:hover {
@@ -242,6 +259,7 @@
     background-color: var(--white);
     border-radius: 5px;
     margin-left: 45px;
+    margin-bottom: 10%;
 }
 
 .message_input_field_admin {
@@ -266,4 +284,100 @@
     margin-right: 10px;
     margin-bottom: 20px;
     height: 40px;
+}
+
+@media screen and (max-width: 1200px) {
+    .mail_admin {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .three_things {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .two_things {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .two_things .btn_admin_work_delete {
+        background-color: transparent;
+        color: var(--dark-blue);
+        border: solid var(--gray);
+        margin: 0.5% 0%;
+        padding: 0% 2%;
+        font-weight: 1000;
+        cursor: pointer;
+        border-radius: 5px;
+        height: 45px;
+    }
+    
+    .two_things .btn_admin_work_view {
+        background-color: transparent;
+        color: var(--dark-blue);
+        border: solid var(--gray);
+        margin: 0.5% 0%;
+        padding: 0% 2%;
+        font-weight: 1000;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .btn_admin_work_delete:hover {
+        background-color: var(--error-color);  
+    }
+    
+    .btn_admin_work_view:hover {
+        background-color: var(--orange-yellow);  
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .inbox_admin {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .inbox_admin .left_side_admin {
+        margin-top: 20px;
+        background-color: var(--gray);
+        height: 1000px;
+        width: 90%;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .user_admin .name_of_user {
+        margin-top: 30px;
+    }
+
+    .user_admin .btn_admin_inbox_delete {
+        height: 40px;
+    }
+
+    .user_admin .btn_admin_inbox_view {
+        height: 40px;
+    }
+
+    .inbox_admin .right_side_admin {
+        background-color: var(--gray);
+        height: 1000px;
+        width: 90%;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+
+
 }
