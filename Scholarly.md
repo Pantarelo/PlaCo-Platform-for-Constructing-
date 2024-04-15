@@ -91,58 +91,42 @@ Actions: They can delete accounts, approve or delete job announcements, and acce
 * Frontend: HTML, CSS, JavaScript
 
 ### 2.6 User Documentation
-In case users encounter any difficulties while using this site, they can access the help button to consult this document which contains screenshots and information about the platform. 
+In case users encounter any difficulties while using this site, they can access the 'help' button to consult this document which contains screenshots and information about the platform. 
 
 ### 2.7 Assumptions and Dependencies
-The user knows how to use a web brower and solve a problem :D.
+The user knows how to use a web browser and they used some similar websites.
 
 ## External Interface Requirements
 
 ### 3.1 User Interfaces
 The user interface is composed of a web application. Some screenshots:\
-Register:\
-![Register1](frontend/assets/imgs/register.png)\
-![Register2](frontend/assets/imgs/registerexample.png)\
-Login:\
-![Login](frontend/assets/imgs/login.png)\
-Student profile: at /profile.html:\
-![ProfileStudent](frontend/assets/imgs/studentprofile.png)\
-Teacher profile: at /profile.html:\
-![ProfileTeacher](frontend/assets/imgs/profileteacher.png)\
-Admin profile: at /profile.html:\
-![ProfileAdmin1](frontend/assets/imgs/admin1.png)\
-![ProfileAdmin2](frontend/assets/imgs/adminprofile2.png)\
-Problem: at /problem.html#{id} (ex: /problem.html#2):\
-![Problem1](frontend/assets/imgs/problem1.png)\
-![Problem2](frontend/assets/imgs/problem2.png)\
-Solutions: at /solution.html#{id} (ex: /solution.html#2). You need to submit a solution to see it there:\
-![Solution](frontend/assets/imgs/solution.png)\
-Propose problem: at /proposeproblem.html:\
-![Propose1](frontend/assets/imgs/proposeproblem.png)\
-![Propose2](frontend/assets/imgs/proposeproblem2.png)\
-Classrooms: at /classrooms.html:\
-![Classroom](frontend/assets/imgs/classroomsteacher.png)\
-Classroom details: at /classroom.html#{id} (ex: classroom.html#2):\
-![ClassroomDetails](frontend/assets/imgs/classroom.png)\
-Homework: at /viewhomeworks.html#{id} (ex:/viewhomeworks.html#2):\
-![Homework](frontend/assets/imgs/homework1.png)\
-Homework submissions: at /viewhomeworksubmissions.html#{id} (ex: /viewhomeworksubmissions.html#2). You need to be logged as a teacher\
-![HomeworkSubmissions](frontend/assets/imgs/homework2.png)\
+Home page:\
+![Homepage](/assets/images/screenshots/home-header-hero.png)
+![Homepage](/assets/images/screenshots/home-top-companies.png)
+![Homepage](/assets/images/screenshots/home-details.png)
+![Homepage](/assets/images/screenshots/home-discover.png)
+![Homepage](/assets/images/screenshots/home-find-jobs.png)
 
+Register page:\
+![Register](/assets/images/screenshots/register.png)\
+Login page:\
+![Login](/assets/images/screenshots/login.png)\
+Find jobs page:\
+![FindJobs](/assets/images/screenshots/find-jobs-page.png)\
+Profile page
+![Profile](assets/images/screenshots/work-profile.png)\
+![Profile](assets/images/screenshots/inbox-profile.png)\
+![Profile](assets/images/screenshots/settings-profile.png)\
+Admin profile page:
+![Admin](assets/images/screenshots/admin.png)\
+About us page: 
+![Aboutus](/assets/images/screenshots/about-us-page.png)
 ### 3.2 Hardware Interfaces
 The hardware interface in this project is flexible, not being dependend on anything.
 
 ### 3.3 Software Interfaces
-The software will use the Model, View, Controller mode of operation being independent and open to modifications. The operating system is Debian GNU/Linux, the controller will use the database postgres for managing persistent data.
-The persistend data consists of:
-
-* algorithmic problems, rating, comments
-* username, password 
-
-The solution of the problem is stored on the local storage with the filename as the id of the problem in which the controller will use to compare the solution submitted by a student.
 
 ### 3.4 Communications Interfaces
-The communication between the frontend and backend takes place through the API provided by the backend docker container. 
 
 ## System Features
 
@@ -161,40 +145,14 @@ The communication between the frontend and backend takes place through the API p
 
 ### 4.2 Backend
 
-4.2.1   Description and Priority
- Create the backend of the site which will verify a solution provided by the user and display information for the user by creating generated pages for the user making the site dinamic.
- Priority: high
-
-4.2.2   Stimulus/Response Sequences
- 
- * User register with username (email maybe), password.
- * User login using username and password.
- * Teacher submission of problems and checking them with an administrator.
- * Teachers can create classrooms and manage the students in the classrooms.
- * Teachers can grade soultions (and solutions in homeworks).
- * Teachers can view/create/delete homeworks for their classes. 
- * Student submission of solution to problems(and problems in homeworks)
- * Students can see his previous submissions and correct submissions.
- * Students can rate and comment on a problem.
- * Students can see their homeworks.
- * Each user has a profile page with different information based on the user type(classes for teachers/students, statistics(number of users,problems etc) for admins).
-
-4.2.3   Functional Requirements
-
- * Should be open for extension.
- * Secure.
- * Fast.
-
 ## Other Nonfunctional Requirements
 
 ### 5.1 Performance Requirements
 Trying to limit the DOM manipulation just for the begginng of page loading. 
 
 ### 5.2 Safety Requirements
-Security and GDPR compliance.
 
 ### 5.3 Security Requirements
-Always use HTTPS with certbot.
 
 ### 5.4 Software Quality Attributes
 Adaptability, availability, maintainability.
