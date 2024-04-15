@@ -346,8 +346,51 @@
   cursor: pointer;
 }
 
+.tablinks {
+  display: flex;
+}
+
+#tablinksHamburger {
+  display: none;
+}
+
+.burger-menu-icon {
+  display: none;
+}
+
 
 @media screen and (max-width: 1000px) {
+
+  .tablinks {
+    display: none;
+  }
+
+  #tablinksHamburger {
+    display: none;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-blue);
+    left: 0;
+    z-index: 2;
+    flex-direction: column;
+  }
+
+  .burger-menu {
+    background-color: var(--dark-blue);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    cursor: pointer;
+  }
+
+  .burger-menu img {
+    height: 60px;
+    display: flex;
+  }
+
   .inbox {
     display: flex;
     flex-direction: column;

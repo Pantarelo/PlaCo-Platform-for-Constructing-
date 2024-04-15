@@ -1,7 +1,7 @@
-let burger = document.getElementById("burger");
+burger = document.getElementById("burger");
 
 burger.addEventListener("click", () => {
-    let listBurger = document.getElementById("linksHomePageHamburger");
+    let listBurger = document.getElementById("tablinksHamburger");
     if(listBurger.style.display == "flex")
     {
         listBurger.style.display = "none";
@@ -12,5 +12,3 @@ burger.addEventListener("click", () => {
         listBurger.style.position = "absolute";
     }
 });
-
-

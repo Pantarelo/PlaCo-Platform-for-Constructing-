@@ -11,11 +11,26 @@
 </head>
 <body class="profile_body">
 
-    <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-    <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpen">WORK</button>
-    <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
-    <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
-      
+
+    <div class="burger-menu" id="burger">
+      <img src="/assets/icons/burger-menu.svg" alt="Burger Menu Icon" class="burger-menu-icon">
+    </div>
+
+    <div class="tablinks">
+      <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
+      <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpen">WORK</button>
+      <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
+      <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
+    </div>
+
+    <div id="tablinksHamburger">
+      <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
+      <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpen">WORK</button>
+      <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
+      <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
+    </div>
+
+    <script src="/scripts/bugerProfile.js"></script>
       <div id="WORK" class="tabcontent work">
         <div class="center_work">
           <div class="search_bar">
@@ -167,10 +182,12 @@
             if (pageName == 'Home') {
                 window.location.href = "/index.html";
             }
-
+            
             let i, tabcontent, tablinks;
+            let tablinksHamburger;
             tabcontent = document.getElementsByClassName("tabcontent");
             tablinks = document.getElementsByClassName("tablink");
+            tablinksHamburger = document.getElementsByClassName("tablinksHamburger");
 
             for (i = 0; i < tabcontent.length; i++) {
                 tablinks[i + 1].style.backgroundColor = "";
