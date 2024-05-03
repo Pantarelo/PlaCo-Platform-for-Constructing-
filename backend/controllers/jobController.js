@@ -12,13 +12,14 @@ async function createJobAnnouncement(req,res) {
             img
         }
 
-        const newJob = await create(job);
-        
+        const newJob = await create(JSON.stringify(job));
+
         res.writeHead(202, {"Content-Type": "appliction/json"});
-        res.end(newJob);
+        res.end(JSON.stringify(newJob));
+
     } catch (error) {
         res.writeHead(400, {"Content-Type" : "application/json"});
-        res.end({message: "The job was not created!"});
+        res.end(JSON.stringify({message: "The job was not created!"}));
     }
 }
 
