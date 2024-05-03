@@ -2,7 +2,7 @@
     padding: 6em;
     height: 100%;
     color: var(--white);
-    background-image: url('/assets/images/hero_img.png');
+    background-image: url('../../assets/images/hero_img.png');
     background-size: cover; 
     /* background-position: center; */
     background-position: fixed;

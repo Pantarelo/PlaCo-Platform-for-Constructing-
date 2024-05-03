@@ -1,7 +1,7 @@
-@import "/styles/jobs/header_jobs.css";
-@import "/styles/jobs/filter.css";
-@import "/styles/jobs/announcements.css";
-@import "/styles/common/button.css";
+@import "./header_jobs.css";
+@import "./filter.css";
+@import "./announcements.css";
+@import "../common/button.css";
 
 .grid-announcements {
     background-color: var(--gray);

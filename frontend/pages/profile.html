@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/profile/profile.css">
-    <link rel="stylesheet" href="/styles/global.css">
-    <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="../styles/profile/profile.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Profile</title>
 </head>
@@ -13,7 +13,7 @@
 
 
     <div class="burger-menu" id="burger">
-      <img src="/assets/icons/burger-menu.svg" alt="Burger Menu Icon" class="burger-menu-icon">
+      <img src="../assets/icons/burger-menu.svg" alt="Burger Menu Icon" class="burger-menu-icon">
     </div>
 
     <div class="tablinks">
@@ -30,7 +30,7 @@
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
 
-    <script src="/scripts/bugerProfile.js"></script>
+    <script src="../scripts/bugerProfile.js"></script>
       <div id="WORK" class="tabcontent work">
         <div class="center_work">
           <div class="search_bar">
@@ -141,7 +141,7 @@
         </div>
         <div class="right_side_work">
           <div class="user_profile">
-            <img src="/assets/images/profile_image.png" alt="Profile Picture!" class="imgProfileSmall">
+            <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfileSmall">
             <h2 class="user_name">Pantaziu Andrei</h2>
           </div>
           <div class="message_input">
@@ -156,7 +156,7 @@
         <div class="center_settings">
           <div class="profile_edit">
             <h1 class="profileName">Edit Profile</h1>
-            <img src="/assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
+            <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
             <button class="btnProfile">Upload a new photo</button>
             <p class="praf">Upload a new avatar. Large image will be resized automatically. <br>
               Maximum upload size is <span class="highlight">1 MB.
@@ -180,7 +180,7 @@
       <script>
         function openPage(pageName,elmnt) {
             if (pageName == 'Home') {
-                window.location.href = "/index.html";
+                window.location.href = "../index.html";
             }
             
             let i, tabcontent, tablinks;

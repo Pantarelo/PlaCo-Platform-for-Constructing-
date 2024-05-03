@@ -1,4 +1,4 @@
-@import 'colors.css';
+@import '../styles/colors.css';
 
 .hero-section {
     width: fit-content;
@@ -10,7 +10,7 @@
     padding-right: 1em;
     padding-top: 2em;
     padding-bottom: 2em;
-    background-image: url('/assets/images/hero_img.png');
+    background-image: url('../../assets/images/hero_img.png');
     background-size: cover; 
     background-position: center;
     background-color: var(--dark-blue);
