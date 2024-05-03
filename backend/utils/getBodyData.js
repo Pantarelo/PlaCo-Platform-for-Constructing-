@@ -2,11 +2,11 @@ function getBodyData(req) {
     return new Promise((resolve, reject) => {
         try {
             let body = "";
-            req.on("data", (chuck) => {
+            req.on('data', (chuck) => {
                 body += chuck;
             })
 
-            req.end("end", () => {
+            req.on('end', () => {
                 resolve(JSON.parse(body));
             })
 
