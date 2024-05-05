@@ -1,5 +1,5 @@
 import {getBodyData} from "../utils/getBodyData.js"
-import { create } from "../models/jobModel.js";
+import { create, findAllJobs } from "../models/jobModel.js";
 
 async function createJobAnnouncement(req,res) {
     try {
@@ -23,4 +23,17 @@ async function createJobAnnouncement(req,res) {
     }
 }
 
-export {createJobAnnouncement}
+async function getAllJobs(req,res) {
+    try {
+        const jobs = await findAllJobs();
+
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(JSON.stringify(jobs));
+
+    } catch (error) {
+        res.writeHead(400, {"Content-Type" : "application/json"});
+        res.end(JSON.stringify({message: "The jobs was not find!"}));
+    }
+}
+
+export {createJobAnnouncement,getAllJobs}

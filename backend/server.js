@@ -1,36 +1,40 @@
 import {createServer} from "node:http";
-import { createJobAnnouncement } from "./controllers/jobController.js";
+import { createJobAnnouncement, getAllJobs } from "./controllers/jobController.js";
 import { getConnectionDb } from "./utils/getConnectionDb.js";
 import * as env from "dotenv"
 
 env.config();
 const port = 3000;
 
-const client = await getConnectionDb();
+// const client = await getConnectionDb();
 
-client
-    .connect()
-    .then(async () => {
-        console.log("The connection was established!")
+// client
+//     .connect()
+//     .then(async () => {
+//         console.log("The connection was established!")
 
-        console.log("All the ads from jobs table:");
-        const result = await client.query(`SELECT * FROM public."Jobs"`);
-        console.log(result.rows);
+//         console.log("All the ads from jobs table:");
+//         const result = await client.query(`SELECT * FROM public."Jobs"`);
+//         console.log(result.rows);
 
-        client
-            .end()
-            .then(() => {
-                console.log('Connection to PostgreSQL closed');
-            })
-            .catch((err) => {
-                console.error('Error closing connection', err);
-            });
+//         client
+//             .end()
+//             .then(() => {
+//                 console.log('Connection to PostgreSQL closed');
+//             })
+//             .catch((err) => {
+//                 console.error('Error closing connection', err);
+//             });
         
-    }) 
+//     }) 
 
 const server = createServer(async (req,res) => {
 
-    if(req.url === "/api/createJobAd" && req.method == "POST")
+    if(req.url === "/api/jobs" && req.method === "GET")
+    {
+        getAllJobs(req,res);   
+    }
+    else if(req.url === "/api/createJobAd" && req.method === "POST")
     {
         createJobAnnouncement(req,res);
     }
