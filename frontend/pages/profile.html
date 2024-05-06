@@ -18,7 +18,8 @@
 
     <div class="tablinks">
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-      <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpen">WORK</button>
+      <button class="tablink" onclick="openPage('CREATE AD', this)" id="defaultOpen">CREATE AD</button>
+      <button class="tablink" onclick="openPage('WORK', this)" >WORK</button>
       <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
@@ -28,6 +29,18 @@
       <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpen">WORK</button>
       <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
+    </div>
+
+    
+    <div id="CREATE AD" class="tabcontent create-ad">
+      <form>
+        <input type="file">
+        <input id="title-input" type="text" placeholder="Title">
+        <input id="description-input" type="text" placeholder="Description">
+        <input id="salary-input" type="number" placeholder="Salary">
+        <button id="create-ad-button" type="submit">Create Ad</button>
+        <script src="../scripts/createAd/index.js"></script>
+      </form>
     </div>
 
     <script src="../scripts/bugerProfile.js"></script>

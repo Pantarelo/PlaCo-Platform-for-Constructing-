@@ -11,8 +11,14 @@ async function createJobAnnouncement(req,res) {
             salary,
             img
         }
+        
+
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'POST');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
         const newJob = await create(JSON.stringify(job));
+
 
         res.writeHead(202, {"Content-Type": "appliction/json"});
         res.end(JSON.stringify(newJob));
@@ -28,7 +34,7 @@ async function getAllJobs(req,res) {
         const jobs = await findAllJobs();
 
         res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Methods', 'GET');
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
 
