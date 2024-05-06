@@ -27,6 +27,11 @@ async function getAllJobs(req,res) {
     try {
         const jobs = await findAllJobs();
 
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
         res.writeHead(200, {"Content-Type": "application/json"});
         res.end(JSON.stringify(jobs));
 

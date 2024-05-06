@@ -1,30 +1,26 @@
 .filter-announcements {
-    grid-row: 1;
-    grid-column: 1;
     display: flex;
+    flex: 30%;
+    height: fit-content;
     z-index: 0;
     flex-direction: column;
-    justify-content: center;
-    width: fit-content;
-    /* height: ; */
-    height: auto;
     background-color: var(--gray);
-    overflow-y: auto;
     padding: 5px;
+    width: 100%;
 }
 
 @media screen and (max-width:1000) {
     .filter-announcements {
-        width: fit-content;
+        width: 400px;
     }
 }
 
 .salary, .location {
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: var(--white);
     padding: 20px;
-    border-radius: 20px;
     margin-bottom: 10px;
 }
 
@@ -48,6 +44,7 @@ hr {
 
 .filter-announcements form {
     display: flex;
+    width: 100%;
     flex-direction: column;
 }
 
@@ -63,9 +60,14 @@ select {
     scroll-behavior: smooth;
 }
 
+.filter-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1300px) {
     .filter-announcements {
-        width: 100%;
         align-items: center;
     }
 }

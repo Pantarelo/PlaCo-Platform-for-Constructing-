@@ -6,28 +6,6 @@ import * as env from "dotenv"
 env.config();
 const port = 3000;
 
-// const client = await getConnectionDb();
-
-// client
-//     .connect()
-//     .then(async () => {
-//         console.log("The connection was established!")
-
-//         console.log("All the ads from jobs table:");
-//         const result = await client.query(`SELECT * FROM public."Jobs"`);
-//         console.log(result.rows);
-
-//         client
-//             .end()
-//             .then(() => {
-//                 console.log('Connection to PostgreSQL closed');
-//             })
-//             .catch((err) => {
-//                 console.error('Error closing connection', err);
-//             });
-        
-//     }) 
-
 const server = createServer(async (req,res) => {
 
     if(req.url === "/api/jobs" && req.method === "GET")
@@ -45,6 +23,6 @@ const server = createServer(async (req,res) => {
     }
 })
 
-server.listen(port, '127.0.0.1', () => {
-    console.log("Listening on 127.0.0.1")
+server.listen(port, () => {
+    console.log(`http://localhost:${port}`)
 })
