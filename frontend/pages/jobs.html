@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="../styles/jobs/jobs.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
     <script src="https://kit.fontawesome.com/135aab77de.js" crossorigin="anonymous"></script>
+    <script src="../scripts/findJobs/index.js"></script>
     <title>Jobs</title>
 </head>
 <body>
-    <div>
+    <div style="background-color: var(--gray);">
         <div class="header-jobs">
             <a href="../index.html" class="back-button"><i class="fa-solid fa-house fa-lg" style="color: #FFFAF5;"></i></a>
             <input class="search-input" type="search" placeholder="Search by keywords"/>
@@ -61,62 +62,25 @@
                     <select>
                     </select>
                 </div>
-                <script type="module" src="../scripts/getLocations.js"></script>
-                <button type="submit" class="solid-button">Filter</button>
+                <div class="filter-button">
+                    <script type="module" src="../scripts/getLocations.js"></script>
+                    <button type="submit" class="solid-button">Filter</button>
+                </div>
             </form>
             <div class="list-announcements">
-                <div class="announcement">
-                    <div class="view">
-                        <img src="../assets/images/ad_3.jpg" alt="image"/>
+            <!-- <div class="announcement">
+                <div class="view">
+                    <img src="../assets/images/ad_3.jpg" alt="image"/>
+                    <div class="info-container">
+                        <h1 class="title">Titlu</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, officia ratione maiores omnis itaque adipisci natus id modi, dignissimos quis, reprehenderit culpa soluta harum excepturi esse et eius. Aliquid, maiores.</p>
-                    </div>
-                    <div class="info">
-                        <h1>1300lei</h1>
-                        <button class="solid-button">Contact us</button>
-                    </div>
+                    </div>    
                 </div>
-                <div class="announcement">
-                    <div class="view">
-                        <img src="../assets/images/ad_3.jpg" alt="image"/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, officia ratione maiores omnis itaque adipisci natus id modi, dignissimos quis, reprehenderit culpa soluta harum excepturi esse et eius. Aliquid, maiores.</p>
-                    </div>
-                    <div class="info">
-                        <h1>1300lei</h1>
-                        <button class="solid-button">Contact us</button>
-                    </div>
-                </div>
-                <div class="announcement">
-                    <div class="view">
-                        <img src="../assets/images/ad_3.jpg" alt="image"/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, officia ratione maiores omnis itaque adipisci natus id modi, dignissimos quis, reprehenderit culpa soluta harum excepturi esse et eius. Aliquid, maiores.</p>
-                    </div>
-                    <div class="info">
-                        <h1>2500lei</h1>
-                        <button class="solid-button" alt="image">Contact us</button>
-                    </div>
-                </div>
-                <div class="announcement">
-                    <div class="view">
-                        <img src="../assets/images/ad_3.jpg" alt="image"/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, officia ratione maiores omnis itaque adipisci natus id modi, dignissimos quis, reprehenderit culpa soluta harum excepturi esse et eius. Aliquid, maiores.</p>
-                    </div>
-                    <div class="info">
-                        <h1>5000lei</h1>
-                        <button class="solid-button" alt="image">Contact us</button>
-                    </div>
-                </div>
-                <div class="announcement">
-                    <div class="view">
-                        <img src="../assets/images/ad_3.jpg" alt="image"/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, officia ratione maiores omnis itaque adipisci natus id modi, dignissimos quis, reprehenderit culpa soluta harum excepturi esse et eius. Aliquid, maiores.</p>
-                    </div>
-                    <div class="info">
-                        <h1>1300lei</h1>
-                        <button class="solid-button">Contact us</button>
-                    </div>
-                </div>
+                <div class="info">
+                    <h1>1300lei</h1>
+                    <button class="solid-button">Contact us</button>
+                </div> -->
             </div>
         </div>
-    </div>
 </body>
 </html>
