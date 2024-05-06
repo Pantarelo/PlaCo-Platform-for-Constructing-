@@ -66,6 +66,24 @@ h1 {
     width: 100%;
 }
 
+
+.showBurger {
+    display: flex;
+    align-items: end;
+    position: absolute;
+    height: 100vh;
+    background-color: var(--dark-blue);
+    padding: 20px;
+    top: 90px;
+    right: 0;
+    flex-direction: column;
+}
+
+.hideBurger {
+    display: none;
+}
+
+
 @media screen and (max-width: 750px) {
     .burger-menu-icon {
         display: flex;
@@ -81,26 +99,33 @@ h1 {
     }
 }
 
-#linksHomePageHamburger {
-    display: none;
-    height: 100vh;
-    background-color: var(--dark-blue);
-    padding: 20px;
-    top: 90px;
-    right: 0;
-    flex-direction: column;
-}
-
-#linksHomePageHamburger a {
-    text-align: center;
-    padding: 20px;
+.showBurger a {
     color: var(--white);
     font-size: x-large;
+    margin: 5px 0 5px 0;
+    display: flex;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    position: relative;
 }
 
-#linksHomePageHamburger a:hover {
-    background-color: var(--light-blue);
-    border-radius: 20px;
+.showBurger a::before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: var(--orange-yellow);
+    width: 0;
+    transition: 0.3s ease all;
+    bottom: 0;
+    border-radius: 50px;
+}
+
+.showBurger a:hover{
+    color: var(--orange-yellow);
+}
+
+.showBurger a:hover::before{
+    width: 100%;
 }
 
 

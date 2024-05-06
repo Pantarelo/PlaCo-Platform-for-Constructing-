@@ -2,14 +2,14 @@ let burger = document.getElementById("burger");
 
 burger.addEventListener("click", () => {
     let listBurger = document.getElementById("linksHomePageHamburger");
-    if(listBurger.style.display == "flex")
+
+    if(listBurger.className == "showBurger")
     {
-        listBurger.style.display = "none";
+        listBurger.className = "hideBurger";
     }
     else 
     {
-        listBurger.style.display = "flex";
-        listBurger.style.position = "absolute";
+        listBurger.className = "showBurger";
     }
 });
 
