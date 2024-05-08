@@ -40,6 +40,7 @@ function create(job) {
 function findAllJobs() {
     return new Promise(async(resolve, reject) => {
         const client = await getConnectionDb();
+
         client
             .connect()
             .then(async ()=> {
@@ -59,7 +60,7 @@ function findAllJobs() {
                         console.error('Error closing connection', err);
                     });
             })
-            .catch((error) => reject(error));
+            .catch((error) => {console.log(`Db connection error! ${error}`); return reject(error)});
     })
 }
 
