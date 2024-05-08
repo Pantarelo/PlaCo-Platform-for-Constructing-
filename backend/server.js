@@ -1,5 +1,6 @@
 import {createServer} from "node:http";
 import { createJobAnnouncement, getAllJobs } from "./controllers/jobController.js";
+import { createAccount } from "./controllers/authController.js";
 import { getConnectionDb } from "./utils/getConnectionDb.js";
 import * as env from "dotenv"
 
@@ -15,6 +16,10 @@ const server = createServer(async (req,res) => {
     else if(req.url === "/api/createJobAd" && req.method === "POST")
     {
         createJobAnnouncement(req,res);
+    }
+    else if (req.url === "/api/register" && req.method === "POST")
+    {
+        createAccount(req,res);
     }
     else 
     {
