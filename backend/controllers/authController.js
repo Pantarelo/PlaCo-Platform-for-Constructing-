@@ -13,10 +13,30 @@ async function createAccount(req, res) {
 
         console.log(password1);
         console.log(password2);
-        
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Adresa de email nu este valida' }));
+            return;
+        }
+
+        if (!/^\d{10}$/.test(phone)) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Numarul de telefon trebuie să aiba 10 cifre și să fie format doar din cifre' }));
+            return;
+        }
+
         if (password1 !== password2) {
             res.writeHead(400, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Parolele nu coincid' }));
+            return;   
+        }
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password1)) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Parola trebuie să contina cel putin o litera mare, o litera mica, o cifra, un caracter special si sa aiba minim 8 caractere' }));
             return;
         }
 
