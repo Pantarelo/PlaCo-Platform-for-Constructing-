@@ -3,8 +3,6 @@ const description = document.getElementById("description-input");
 const salary = document.getElementById("salary-input");
 const createAd = document.getElementById("create-ad-button");
 
-// console.log(createAd);
-
 async function createNewAd(url, data) {
     
     const response = await fetch(url, {
