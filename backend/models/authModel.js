@@ -1,4 +1,5 @@
 import { getConnectionDb } from "../utils/getConnectionDb.js"
+import bcrypt from 'bcrypt';
 
 function register(user) {
     return new Promise (async (resolve, reject) => {
@@ -9,6 +10,10 @@ function register(user) {
             console.log(phone);
             console.log(password1);
 
+            const salt = await bcrypt.genSalt(10);
+
+            const hashPasword = await bcrypt.hash(password1, salt);
+
             client
             .connect()
             .then(async () => {
@@ -16,7 +21,7 @@ function register(user) {
                 console.log("The connection was established!")
 
                 const text = `INSERT INTO public."User" (email, phone, password) VALUES ($1, $2, $3) RETURNING *`;
-                const values = [email, phone, password1];
+                const values = [email, phone, hashPasword];
 
                 const res = await client.query(text, values);
                 console.log(res.rows[0]);
