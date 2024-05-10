@@ -1,5 +1,5 @@
 import {getBodyData} from "../utils/getBodyData.js"
-import {register} from "../models/authModel.js"
+import {register, login} from "../models/authModel.js"
 
 async function createAccount(req, res) {
     try {
@@ -9,7 +9,7 @@ async function createAccount(req, res) {
             email, 
             phone, 
             password1
-        }
+        };
 
         console.log(password1);
         console.log(password2);
@@ -53,4 +53,25 @@ async function createAccount(req, res) {
     }
 }
 
-export { createAccount };
+async function authenticate(req, res) {
+    try {
+        const {email, password} = await getBodyData(req);
+
+        const details = {
+            email,
+            password
+        };
+
+        const user = await login(details);
+
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Autentificare reusita', user }));
+
+    } catch(error) {
+        console.error("Eroare la autentificare: ", error);
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Autentificare esuata' }));
+    }
+}
+
+export { createAccount, authenticate };
