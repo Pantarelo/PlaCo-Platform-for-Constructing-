@@ -78,5 +78,24 @@ function login(user) {
     })
 }
 
-export { register, login };
+function logout(email) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const client = await getConnectionDb();
+
+            const updateQuery = `UPDATE public."User" SET "logStatus" = false WHERE email = $1`;
+            const updateValues = [email];
+
+            await client.query(updateQuery, updateValues);
+
+            await client.end();
+
+            resolve("Logout reusit.");
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+export { register, login, logout };
 

@@ -1,5 +1,5 @@
 import {getBodyData} from "../utils/getBodyData.js"
-import {register, login} from "../models/authModel.js"
+import {register, login, logout} from "../models/authModel.js"
 
 async function createAccount(req, res) {
     try {
@@ -74,4 +74,19 @@ async function authenticate(req, res) {
     }
 }
 
-export { createAccount, authenticate };
+async function userLogout(req, res) {
+    try {
+        const { email } = await getBodyData(req);
+
+        await logout(email);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Logout reusit.' }));
+    } catch(error) {
+        console.error("Eroare la deconectare: ", error);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'A aparut o eroare la deconectare.' }));
+    }
+}
+
+export { createAccount, authenticate, userLogout };
