@@ -98,7 +98,7 @@ The user knows how to use a web browser and they used some similar websites.
 ### 3.1 User Interfaces
 The user interface is composed of a web application. Some screenshots:\
 Home page:\
-![Homepage](/assets/images/screenshots/home-header-hero.png)
+![Homepage](frontend/assets/images/screenshots/home-header-hero.png)
 ![Homepage](/assets/images/screenshots/home-top-companies.png)
 ![Homepage](/assets/images/screenshots/home-details.png)
 ![Homepage](/assets/images/screenshots/home-discover.png)
