@@ -18,7 +18,7 @@
 
     <div class="tablinks">
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-      <button class="tablink" onclick="openPage('CREATE AD', this)" id="defaultOpen">CREATE AD</button>
+      <button class="tablink" onclick="openPage('CREATE_AD', this)" id="defaultOpen">CREATE AD</button>
       <button class="tablink" onclick="openPage('WORK', this)" >WORK</button>
       <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
@@ -26,13 +26,13 @@
 
     <div id="tablinksHamburger">
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-      <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpen">WORK</button>
+      <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpenHamburger">WORK</button>
       <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
 
     
-    <div id="CREATE AD" class="tabcontent create-ad">
+    <div id="CREATE_AD" class="tabcontent create-ad">
       <form>
         <input type="file">
         <input id="title-input" type="text" placeholder="Title">
@@ -45,11 +45,11 @@
 
     <script src="../scripts/bugerProfile.js"></script>
       <div id="WORK" class="tabcontent work">
-        <div class="center_work">
+        <div class="center_work all_mails">
           <div class="search_bar">
             <input type="text" placeholder="Search work" class="search_input">
             <i class='bx bx-search search_icon'></i>
-          </div class="all_mails">
+          </div>
             <div class="mail">
                 <h3 class="mail_subject">Company: Marius Andrei</h3>
                 <p class="mail_description">Job: Oferta noua</p>
@@ -172,7 +172,7 @@
             <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
             <button class="btnProfile">Upload a new photo</button>
             <p class="praf">Upload a new avatar. Large image will be resized automatically. <br>
-              Maximum upload size is <span class="highlight">1 MB.
+              Maximum upload size is <span class="highlight">1 MB.</span>
             </p>
             
           </div>
@@ -211,6 +211,7 @@
         }
         
         document.getElementById("defaultOpen").click();
+        document.getElementById("defaultOpenHamburger").click();
         </script>
     
 </body>

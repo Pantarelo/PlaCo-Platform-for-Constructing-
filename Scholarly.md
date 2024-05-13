@@ -99,25 +99,25 @@ The user knows how to use a web browser and they used some similar websites.
 The user interface is composed of a web application. Some screenshots:\
 Home page:\
 ![Homepage](frontend/assets/images/screenshots/home-header-hero.png)
-![Homepage](/assets/images/screenshots/home-top-companies.png)
-![Homepage](/assets/images/screenshots/home-details.png)
-![Homepage](/assets/images/screenshots/home-discover.png)
-![Homepage](/assets/images/screenshots/home-find-jobs.png)
+![Homepage](frontend/assets/images/screenshots/home-top-companies.png)
+![Homepage](frontend/assets/images/screenshots/home-details.png)
+![Homepage](frontend/assets/images/screenshots/home-discover.png)
+![Homepage](frontend/assets/images/screenshots/home-find-jobs.png)
 
 Register page:\
-![Register](/assets/images/screenshots/register.png)\
+![Register](frontend/assets/images/screenshots/register.png)\
 Login page:\
-![Login](/assets/images/screenshots/login.png)\
+![Login](frontend/assets/images/screenshots/login.png)\
 Find jobs page:\
-![FindJobs](/assets/images/screenshots/find-jobs-page.png)\
+![FindJobs](frontend/assets/images/screenshots/find-jobs-page.png)\
 Profile page
-![Profile](assets/images/screenshots/work-profile.png)\
-![Profile](assets/images/screenshots/inbox-profile.png)\
-![Profile](assets/images/screenshots/settings-profile.png)\
+![Profile](frontend/assets/images/screenshots/work-profile.png)\
+![Profile](frontend/assets/images/screenshots/inbox-profile.png)\
+![Profile](frontend/assets/images/screenshots/settings-profile.png)\
 Admin profile page:
-![Admin](assets/images/screenshots/admin.png)\
+![Admin](frontend/assets/images/screenshots/admin.png)\
 About us page: 
-![Aboutus](/assets/images/screenshots/about-us-page.png)
+![Aboutus](frontend/assets/images/screenshots/about-us-page.png)
 ### 3.2 Hardware Interfaces
 The hardware interface in this project is flexible, not being dependend on anything.
 

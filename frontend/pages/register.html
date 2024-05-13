@@ -11,15 +11,14 @@
 </head>
 <body class="register-page">
 
-        <form action="">
-
+        <form action="/">
             <img src="../assets/images/logo.png" alt="Logo of the page" class="logo"> 
             <h1>Register</h1>
 
             <div class="input_box">
                 <h3>Email</h3>
                 <div class="wrapper">
-                    <input type="text" placeholder="Type your email" required>
+                    <input type="email" placeholder="Type your email" required>
                     <i class='bx bx-user'></i>
                 </div>
             </div>
@@ -27,7 +26,7 @@
             <div class="input_box">
                 <h3>Phone</h3>
                 <div class="wrapper">
-                    <input type="phone" placeholder="Type your phone" required>
+                    <input type="tel" placeholder="Type your phone" required>
                     <i class='bx bx-phone'></i>
                 </div>
             </div>
@@ -35,7 +34,7 @@
             <div class="input_box">
                 <h3>Password</h3>
                 <div class="wrapper">
-                    <input type="password" placeholder="Type your password" id="password" required>
+                    <input type="password" placeholder="Type your password" id="password_1" required>
                     <i class='bx bx-lock-alt' id="lock1"></i>
                 </div>
             </div>
@@ -43,22 +42,20 @@
             <div class="input_box">
                 <h3>Password</h3>
                 <div class="wrapper">
-                    <input type="password" placeholder="Type your password" id="password" required>
+                    <input type="password" placeholder="Type your password" id="password_2" required>
                     <i class='bx bx-lock-alt' id="lock2"></i>
                 </div>
             </div>
 
             <div class="btn">
                 <a href="login.html" class="solid-button">LOGIN</a>
-                <a href="register.html">
-                    <button class="trasparent-button">REGISTER</button>
-                </a>
+                <a href="register.html" class="trasparent-button">REGISTER</a>
             </div>
 
         </form>
 
         <script>
-            let password = document.getElementById("password");
+            let password = document.getElementById("password_1");
             let lock1 = document.getElementById("lock1");
             lock1.addEventListener("click", () => {
                 if (password.type == 'password') {
@@ -71,15 +68,16 @@
                 }
             });
 
+            let password2 = document.getElementById("password_2");
             let lock2 = document.getElementById("lock2");
             lock2.addEventListener("click", () => {
-                if (password.type == 'password') {
+                if (password2.type == 'password') {
                     lock2.className = 'bx bx-lock-open-alt';
-                    password.type = 'text';
+                    password2.type = 'text';
                 }
                 else {
                     lock2.className = 'bx bx-lock-alt';
-                    password.type = 'password';
+                    password2.type = 'password';
                 }
             });
         </script>
