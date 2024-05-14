@@ -76,16 +76,17 @@ async function authenticate(req, res) {
 
 async function userLogout(req, res) {
     try {
-        const { email } = await getBodyData(req);
+        const {email} = await getBodyData(req);
 
-        await logout(email);
+        console.log(email);
+        const user = await logout(email);
 
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ message: 'Logout reusit.' }));
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Logout reusit', user }));
     } catch(error) {
-        console.error("Eroare la deconectare: ", error);
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'A aparut o eroare la deconectare.' }));
+        console.error("Eroare la logout: ", error);
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Logout esuat' }));
     }
 }
 

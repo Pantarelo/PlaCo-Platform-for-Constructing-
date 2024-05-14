@@ -79,22 +79,33 @@ function login(user) {
 }
 
 function logout(email) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise (async (resolve, reject) => {
         try {
             const client = await getConnectionDb();
 
-            const updateQuery = `UPDATE public."User" SET "logStatus" = false WHERE email = $1`;
-            const updateValues = [email];
+            const query = `SELECT * FROM public."User" WHERE email = $1`;
+            const values = [email];
 
-            await client.query(updateQuery, updateValues);
+            console.log(email);
 
-            await client.end();
+            client.connect().then(async () => {
+                const result = await client.query(query, values);
 
-            resolve("Logout reusit.");
-        } catch (error) {
+                if (result.rows.length === 0) {
+                    reject("Emailul nu exista in baza de date.");
+                } else {
+                    const user = result.rows[0];
+
+                    const updateQuery = `UPDATE public."User" SET "logStatus" = false WHERE email = $1`;
+                    const updateValues = [email];
+                    await client.query(updateQuery, updateValues);
+                    resolve(user);
+                }
+            })
+        } catch(error) {
             reject(error);
         }
-    });
+    })
 }
 
 export { register, login, logout };
