@@ -1,4 +1,5 @@
 @import 'global.css';
+@import './create_ad.css';
 
 .tablink {
     background-color: var(--dark-blue);

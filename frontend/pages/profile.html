@@ -33,12 +33,14 @@
 
     
     <div id="CREATE_AD" class="tabcontent create-ad">
-      <form>
+      <form id="create-ad-form">
         <input type="file">
-        <input id="title-input" type="text" placeholder="Title">
-        <input id="description-input" type="text" placeholder="Description">
-        <input id="salary-input" type="number" placeholder="Salary">
-        <button id="create-ad-button" type="submit">Create Ad</button>
+        <div class="form-elements">
+          <input class="input-text" id="title-input" type="text" placeholder="Title">
+          <input class="input-text" id="description-input" type="text" placeholder="Description">
+          <input class="input-text" id="salary-input" type="number" placeholder="Salary">
+          <button id="create-ad-button" type="submit">CREATE AD</button>
+        </div>
         <script src="../scripts/createAd/index.js"></script>
       </form>
     </div>
