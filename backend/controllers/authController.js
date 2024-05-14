@@ -1,5 +1,5 @@
 import {getBodyData} from "../utils/getBodyData.js"
-import {register, login} from "../models/authModel.js"
+import {register, login, logout} from "../models/authModel.js"
 
 async function createAccount(req, res) {
     try {
@@ -74,4 +74,20 @@ async function authenticate(req, res) {
     }
 }
 
-export { createAccount, authenticate };
+async function userLogout(req, res) {
+    try {
+        const {email} = await getBodyData(req);
+
+        console.log(email);
+        const user = await logout(email);
+
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Logout reusit', user }));
+    } catch(error) {
+        console.error("Eroare la logout: ", error);
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Logout esuat' }));
+    }
+}
+
+export { createAccount, authenticate, userLogout };

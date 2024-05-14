@@ -78,5 +78,35 @@ function login(user) {
     })
 }
 
-export { register, login };
+function logout(email) {
+    return new Promise (async (resolve, reject) => {
+        try {
+            const client = await getConnectionDb();
+
+            const query = `SELECT * FROM public."User" WHERE email = $1`;
+            const values = [email];
+
+            console.log(email);
+
+            client.connect().then(async () => {
+                const result = await client.query(query, values);
+
+                if (result.rows.length === 0) {
+                    reject("Emailul nu exista in baza de date.");
+                } else {
+                    const user = result.rows[0];
+
+                    const updateQuery = `UPDATE public."User" SET "logStatus" = false WHERE email = $1`;
+                    const updateValues = [email];
+                    await client.query(updateQuery, updateValues);
+                    resolve(user);
+                }
+            })
+        } catch(error) {
+            reject(error);
+        }
+    })
+}
+
+export { register, login, logout };
 
