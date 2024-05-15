@@ -22,7 +22,10 @@ getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
             announcement.appendChild(view);
             
             const img = document.createElement('img');
-            img.src="../assets/images/ad_3.jpg";
+            let imgUrl = "/";
+            // console.log(job.img);
+            // console.log(imgUrl);
+            img.src= imgUrl;
             img.alt="img";
 
             const infoContainer = document.createElement('div');

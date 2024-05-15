@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/profile/profile.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
+    <script src="https://kit.fontawesome.com/135aab77de.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Profile</title>
 </head>
@@ -19,32 +20,41 @@
     <div class="tablinks">
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
       <button class="tablink" onclick="openPage('CREATE_AD', this)" id="defaultOpen">CREATE AD</button>
-      <button class="tablink" onclick="openPage('WORK', this)" >WORK</button>
-      <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
+      <button class="tablink" onclick="openPage('MY_ADS', this)" >MY ADS</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
 
     <div id="tablinksHamburger">
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-      <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpenHamburger">WORK</button>
-      <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
+      <button class="tablink" onclick="openPage('CREATE_AD', this)" id="defaultOpen">CREATE AD</button>
+      <button class="tablink" onclick="openPage('MY_ADS', this)" id="defaultOpenHamburger">MY ADS</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
 
     
     <div id="CREATE_AD" class="tabcontent create-ad">
-      <form>
-        <input type="file">
-        <input id="title-input" type="text" placeholder="Title">
-        <input id="description-input" type="text" placeholder="Description">
-        <input id="salary-input" type="number" placeholder="Salary">
-        <button id="create-ad-button" type="submit">Create Ad</button>
+      <form id="create-ad-form">
+        <label for="upload-photo" id="drop-area">
+          <input id="upload-photo" type="file" accept="image/*" hidden>
+          <div id="img-view">
+            <span>
+              <i class="fa-solid fa-cloud-arrow-up fa-2xl" style="color: #f0f2f4;"></i>
+            </span>
+            <p>Drag and drop an image or click here to upload</p>
+          </div>
+        </label>
+        <div class="form-elements">
+          <input class="input-text" id="title-input" type="text" placeholder="Title">
+          <input class="input-text" id="description-input" type="text" placeholder="Description">
+          <input class="input-text" id="salary-input" type="number" placeholder="Salary">
+          <button id="create-ad-button" type="submit">CREATE AD</button>
+        </div>
         <script src="../scripts/createAd/index.js"></script>
       </form>
     </div>
 
     <script src="../scripts/bugerProfile.js"></script>
-      <div id="WORK" class="tabcontent work">
+      <div id="MY_ADS" class="tabcontent my_ads">
         <div class="center_work all_mails">
           <div class="search_bar">
             <input type="text" placeholder="Search work" class="search_input">
@@ -211,7 +221,7 @@
         }
         
         document.getElementById("defaultOpen").click();
-        document.getElementById("defaultOpenHamburger").click();
+        // document.getElementById("defaultOpenHamburger").click();
         </script>
     
 </body>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/profile/profile.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
+    <script src="https://kit.fontawesome.com/135aab77de.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Profile</title>
+</head>
+<body class="profile_body">
+
+
+    <div class="burger-menu" id="burger">
+      <img src="../assets/icons/burger-menu.svg" alt="Burger Menu Icon" class="burger-menu-icon">
+    </div>
+
+    <div class="tablinks">
+      <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
+      <button class="tablink" onclick="openPage('CREATE_AD', this)" id="defaultOpen">CREATE AD</button>
+      <button class="tablink" onclick="openPage('WORK', this)" >WORK</button>
+      <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
+      <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
+    </div>
+
+    <div id="tablinksHamburger">
+      <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
+      <button class="tablink" onclick="openPage('WORK', this)" id="defaultOpenHamburger">WORK</button>
+      <button class="tablink" onclick="openPage('INBOX', this)">INBOX</button>
+      <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
+    </div>
+
+    
+    <div id="CREATE_AD" class="tabcontent create-ad">
+      <form id="create-ad-form">
+        <label for="upload-photo" id="drop-area">
+          <input id="upload-photo" type="file" accept="image/*" hidden>
+          <div id="img-view">
+            <span>
+              <i class="fa-solid fa-cloud-arrow-up fa-2xl" style="color: #f0f2f4;"></i>
+            </span>
+            <p>Drag and drop an image or click here to upload</p>
+          </div>
+        </label>
+        <div class="form-elements">
+          <input class="input-text" id="title-input" type="text" placeholder="Title">
+          <input class="input-text" id="description-input" type="text" placeholder="Description">
+          <input class="input-text" id="salary-input" type="number" placeholder="Salary">
+          <button id="create-ad-button" type="submit">CREATE AD</button>
+        </div>
+        <script src="../scripts/createAd/index.js"></script>
+      </form>
+    </div>
+
+    <script src="../scripts/bugerProfile.js"></script>
+      <div id="WORK" class="tabcontent work">
+        <div class="center_work all_mails">
+          <div class="search_bar">
+            <input type="text" placeholder="Search work" class="search_input">
+            <i class='bx bx-search search_icon'></i>
+          </div>
+            <div class="mail">
+                <h3 class="mail_subject">Company: Marius Andrei</h3>
+                <p class="mail_description">Job: Oferta noua</p>
+                <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+            <div class="mail">
+              <h3 class="mail_subject">Company: Marius Andrei</h3>
+              <p class="mail_description">Job: Oferta noua</p>
+              <p class="mail_date">Date: April 13, 2024</p>
+            </div>
+        </div>
+        <button class="btn_help_work">Help</button>
+      </div>
+
+      <div id="INBOX" class="tabcontent inbox">
+        <div class="left_side_work">
+          <div class="search_bar_inbox">
+            <input type="text" placeholder="Search chat" class="search_input_chat">
+            <i class='bx bx-search search_icon_chat'></i>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Pantaziu Andrei</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Victor Marian</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Mihai George</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Pantaziu Andrei</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Pantaziu Andrei</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Pantaziu Andrei</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Pantaziu Andrei</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Pantaziu Andrei</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          <div class="chat">
+            <h5 class="name_of_user">Pantaziu Andrei</h5>
+            <p class="part_of_mess">Am primit oferta</p>
+            <p class="date_of_chat">1:56 pm</p>
+          </div>
+          
+        </div>
+        <div class="right_side_work">
+          <div class="user_profile">
+            <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfileSmall">
+            <h2 class="user_name">Pantaziu Andrei</h2>
+          </div>
+          <div class="message_input">
+            <input type="text" placeholder="Type your message..." class="message_input_field">
+            <button class="send_button">Send</button>
+        </div>
+        </div>
+        <button class="btn_help_inbox">Help</button>
+      </div>
+      
+      <div id="SETTING" class="tabcontent settings">
+        <div class="center_settings">
+          <div class="profile_edit">
+            <h1 class="profileName">Edit Profile</h1>
+            <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
+            <button class="btnProfile">Upload a new photo</button>
+            <p class="praf">Upload a new avatar. Large image will be resized automatically. <br>
+              Maximum upload size is <span class="highlight">1 MB.</span>
+            </p>
+            
+          </div>
+          <div class="profile_details">
+            <h3 class="fullName">Full Name</h3>
+            <input type="text" placeholder="Enter your full name" class="enterFullName">
+            <h3 class="changePassword">Change Password</h3>
+            <input type="text" placeholder="Enter your current password" class="currentPass">
+            <input type="text" placeholder="Enter your new password" class="newPass">
+            <button class="btnSave">Save Changes</button>
+          </div>
+
+        </div>
+        <button class="btn_help_setting">Help</button>
+      </div>
+
+
+      <script>
+        function openPage(pageName,elmnt) {
+            if (pageName == 'Home') {
+                window.location.href = "../index.html";
+            }
+            
+            let i, tabcontent, tablinks;
+            let tablinksHamburger;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            tablinks = document.getElementsByClassName("tablink");
+            tablinksHamburger = document.getElementsByClassName("tablinksHamburger");
+
+            for (i = 0; i < tabcontent.length; i++) {
+                tablinks[i + 1].style.backgroundColor = "";
+                tabcontent[i].style.display = "none";
+            }
+            document.getElementById(pageName).style.display = "flex";
+            elmnt.style.backgroundColor = "var(--orange-yellow)";
+        }
+        
+        document.getElementById("defaultOpen").click();
+        // document.getElementById("defaultOpenHamburger").click();
+        </script>
+    
+</body>
+</html>
