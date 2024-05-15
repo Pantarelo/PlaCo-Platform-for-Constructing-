@@ -18,7 +18,7 @@
             <div class="input_box">
                 <h3>Email</h3>
                 <div class="wrapper">
-                    <input type="email" placeholder="Type your email" required>
+                    <input type="email" placeholder="Type your email" required id="emailRegister">
                     <i class='bx bx-user'></i>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="input_box">
                 <h3>Phone</h3>
                 <div class="wrapper">
-                    <input type="tel" placeholder="Type your phone" required>
+                    <input type="tel" placeholder="Type your phone" required id="phoneRegister">
                     <i class='bx bx-phone'></i>
                 </div>
             </div>
@@ -47,37 +47,49 @@
                 </div>
             </div>
 
+            <div class="select_type">
+                <select>
+                    <option value="Choose your type">Choose your type</option>
+                    <option value="Client">Client</option>
+                    <option value="Worker">Worker</option>
+                </select>
+            </div>
+
             <div class="btn">
                 <a href="login.html" class="solid-button">LOGIN</a>
-                <a href="register.html" class="trasparent-button">REGISTER</a>
+                <a href="register.html" class="trasparent-button" id="registerButton">REGISTER</a>
             </div>
 
         </form>
 
+        <script src="../scripts/register/index.js"></script>
+
         <script>
             let password = document.getElementById("password_1");
-            let lock1 = document.getElementById("lock1");
-            lock1.addEventListener("click", () => {
+            let lock = document.getElementById("lock1");
+
+            let passworda = document.getElementById("password_2");
+            let locka = document.getElementById("lock2");
+
+            lock.addEventListener("click", () => {
                 if (password.type == 'password') {
-                    lock1.className = 'bx bx-lock-open-alt';
+                    lock.className = 'bx bx-lock-open-alt';
                     password.type = 'text';
                 }
                 else {
-                    lock1.className = 'bx bx-lock-alt';
+                    lock.className = 'bx bx-lock-alt';
                     password.type = 'password';
                 }
             });
 
-            let password2 = document.getElementById("password_2");
-            let lock2 = document.getElementById("lock2");
-            lock2.addEventListener("click", () => {
-                if (password2.type == 'password') {
-                    lock2.className = 'bx bx-lock-open-alt';
-                    password2.type = 'text';
+            locka.addEventListener("click", () => {
+                if (passworda.type == 'password') {
+                    locka.className = 'bx bx-lock-open-alt';
+                    passworda.type = 'text';
                 }
                 else {
-                    lock2.className = 'bx bx-lock-alt';
-                    password2.type = 'password';
+                    locka.className = 'bx bx-lock-alt';
+                    passworda.type = 'password';
                 }
             });
         </script>
