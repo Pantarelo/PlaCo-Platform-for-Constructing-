@@ -1,0 +1,13 @@
+#welcome-section {
+    height: fit-content;
+}
+
+#welcome-msg {
+    color: var(--white);
+    width: 100%;
+    text-align: left;
+    font-size: 100px;
+    padding: 10px;
+    margin-left: 100px;
+    font-weight: bold;
+}

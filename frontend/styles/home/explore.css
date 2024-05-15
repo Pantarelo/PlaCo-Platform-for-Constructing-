@@ -1,4 +1,4 @@
-.jobs {
+.explore {
     display: flex;
     width: 100%;
     background: var(--white);
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 1050px) {
-    .recommanded-jobs {
+    .recommanded-explore {
         flex-direction: column;
     }
 
@@ -19,7 +19,7 @@
     
 }
 
-.recommanded-jobs {
+.recommanded-explore {
     margin-top: 100px;
     margin-bottom: 100px;
     padding: 30px;
@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.title-jobs {
+.title-explore {
     display: flex;
     /* width: 100%; */
     margin-top: 100px;
@@ -71,7 +71,7 @@
     height: 100%;
   }
   
-  .jobs-content {
+  .explore-content {
     color: white;
     font-size: 20px;
     position: absolute;
@@ -83,7 +83,7 @@
     text-align: center;
   }
 
-.jobs-content h1 {
+.explore-content h1 {
     font-size: x-large;
     width: 100%;
 }
