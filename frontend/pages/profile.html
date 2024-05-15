@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/profile/profile.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
+    <script src="https://kit.fontawesome.com/135aab77de.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Profile</title>
 </head>
@@ -34,7 +35,15 @@
     
     <div id="CREATE_AD" class="tabcontent create-ad">
       <form id="create-ad-form">
-        <input type="file">
+        <label for="upload-photo" id="drop-area">
+          <input id="upload-photo" type="file" accept="image/*" hidden>
+          <div id="img-view">
+            <span>
+              <i class="fa-solid fa-cloud-arrow-up fa-2xl" style="color: #f0f2f4;"></i>
+            </span>
+            <p>Drag and drop an image or click here to upload</p>
+          </div>
+        </label>
         <div class="form-elements">
           <input class="input-text" id="title-input" type="text" placeholder="Title">
           <input class="input-text" id="description-input" type="text" placeholder="Description">
@@ -213,7 +222,7 @@
         }
         
         document.getElementById("defaultOpen").click();
-        document.getElementById("defaultOpenHamburger").click();
+        // document.getElementById("defaultOpenHamburger").click();
         </script>
     
 </body>

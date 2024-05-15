@@ -2,6 +2,9 @@ const title = document.getElementById("title-input");
 const description = document.getElementById("description-input");
 const salary = document.getElementById("salary-input");
 const createAd = document.getElementById("create-ad-button");
+const dropArea = document.getElementById("drop-area");
+const inputPhoto = document.getElementById("upload-photo");
+const imgView = document.getElementById("img-view");
 
 async function createNewAd(url, data) {
     
@@ -31,4 +34,22 @@ createAd.addEventListener('click', async (e) => {
 
         console.log(res);
     }
+})
+
+inputPhoto.addEventListener("change", uploadPhoto);
+
+function uploadPhoto() {
+    let imgLink = URL.createObjectURL(inputPhoto.files[0]);
+    dropArea.style.backgroundImage = `url(${imgLink})`;
+    imgView.textContent = "";
+}
+
+dropArea.addEventListener("dragover", function (e)  {
+    e.preventDefault();
+})
+
+dropArea.addEventListener("drop", function (e) {
+    e.preventDefault();
+    inputPhoto.files = e.dataTransfer.files;
+    uploadPhoto();
 })

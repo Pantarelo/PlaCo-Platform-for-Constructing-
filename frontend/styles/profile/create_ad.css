@@ -14,8 +14,9 @@
 #create-ad-form {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+
 }
 
 .form-elements {
@@ -36,4 +37,26 @@
     font-size: x-large;
     font-weight: normal;
     cursor: pointer;
+}
+
+#drop-area {
+    background-color: var(--dark-blue);
+    border-radius: 40px;
+    background-position: center;
+    background-size: cover;
+}
+
+#drop-area:hover {
+   background-color: var(--light-blue);
+}
+
+#img-view {
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    height: 500px;
+    width: 700px;
+    justify-content: center;
+    align-items: center;
+    
 }
