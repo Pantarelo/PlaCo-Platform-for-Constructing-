@@ -3,16 +3,14 @@ import {register, login, logout} from "../models/authModel.js"
 
 async function createAccount(req, res) {
     try {
-        const {email, phone, password1, password2} = await getBodyData(req);
+        const {email, phone, password1, password2, type} = await getBodyData(req);
 
         const user = {
             email, 
             phone, 
-            password1
+            password1,
+            type
         };
-
-        console.log(password1);
-        console.log(password2);
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
@@ -33,7 +31,7 @@ async function createAccount(req, res) {
             return;   
         }
 
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&><,.?/:;"'{}\[\]\-_+=])[A-Za-z\d@$!%*?&><,.?/:;"'{}\[\]\-_+=]{8,}$/;
         if (!passwordRegex.test(password1)) {
             res.writeHead(400, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Parola trebuie să contina cel putin o litera mare, o litera mica, o cifra, un caracter special si sa aiba minim 8 caractere' }));
