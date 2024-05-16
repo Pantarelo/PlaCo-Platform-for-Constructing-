@@ -5,10 +5,7 @@ function register(user) {
     return new Promise (async (resolve, reject) => {
         try {
             const client = await getConnectionDb();
-            const {email, phone, password1} = user;
-            console.log(email);
-            console.log(phone);
-            console.log(password1);
+            const {email, phone, password1, type} = user;
 
             const salt = await bcrypt.genSalt(10);
 
@@ -20,8 +17,8 @@ function register(user) {
 
                 console.log("The connection was established!")
 
-                const text = `INSERT INTO public."User" (email, phone, password) VALUES ($1, $2, $3) RETURNING *`;
-                const values = [email, phone, hashPasword];
+                const text = `INSERT INTO public."User" (email, phone, password, type) VALUES ($1, $2, $3, $4) RETURNING *`;
+                const values = [email, phone, hashPasword, type];
 
                 const res = await client.query(text, values);
                 console.log(res.rows[0]);

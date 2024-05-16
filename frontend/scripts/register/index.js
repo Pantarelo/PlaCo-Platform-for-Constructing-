@@ -15,7 +15,7 @@ async function createNewAccount(url, data) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.getElementById('registerButton');
-
+    const selectType = document.getElementById('userType');
 
     registerButton.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -24,12 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneText = phone.value;
         const password1Text = password1.value;
         const password2Text = password2.value;
-        if(emailText && phoneText && password1Text && password2Text) {
+        const selectedType = selectType.value;
+
+        let typeValue;
+        if (selectedType === 'Client') {
+            typeValue = 1;
+        } else if (selectedType === 'Worker') {
+            typeValue = 2;
+        }
+        console.log(typeValue);
+
+
+        if(emailText && phoneText && password1Text && password2Text && selectedType) {
             const data = {
                 "email": emailText,
                 "phone": phoneText,
                 "password1": password1Text,
-                "password2" : password2Text
+                "password2": password2Text,
+                "type": typeValue
             }
 
             const res = await createNewAccount("http://localhost:3000/api/register", data);
