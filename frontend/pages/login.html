@@ -18,7 +18,7 @@
             <div class="input_box">
                 <h3>Email</h3>
                 <div class="wrapper">
-                    <input type="text" placeholder="Type your email" required>
+                    <input type="text" placeholder="Type your email" required id="emailLogin">
                     <i class='bx bx-user'></i>
                 </div>
             </div>
@@ -36,11 +36,13 @@
             </div>
 
             <div class="btn">
-                <button type="submit" class="solid-button">LOGIN</button>
+                <button type="submit" class="solid-button" id="loginButton">LOGIN</button>
                 <a href="register.html" class="trasparent-button" id="register_button">REGISTER</a>
             </div>
 
         </form>
+
+        <script src="../scripts/login/index.js"></script>
 
         <script>
             let password = document.getElementById("password");
