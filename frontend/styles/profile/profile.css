@@ -1,5 +1,6 @@
 @import './../global.css';
 @import './create_ad.css';
+@import './my_ads.css';
 
 .tablink {
     background-color: var(--dark-blue);
@@ -18,70 +19,6 @@
     background-color: var(--white);
     display: none;
     height: calc(100vh - 55px);
-}
-
-.inbox {
-  width: 100%;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.inbox .left_side_work {
-  background-color: var(--gray);
-  height: 80%;
-  width: 40%;
-  overflow-y: auto;
-}
-
-.inbox .right_side_work {
-  background-color: var(--gray);
-  height: 80%;
-  width: 52%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.search_bar_inbox {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.search_bar_inbox .search_input_chat {
-  border: none;
-  box-sizing: border-box;
-  width: 70%;
-  height: 20px;
-  color: var(--dark-blue);
-  height: 30px;
-  border-radius: 7px;
-  padding-left: 25px;
-}
-
-.search_bar_inbox .search_icon_chat {
-  position: absolute;
-  left: 15.5%;
-  font-size: 1.2em;
-  color: var(--dark-blue);
-}
-
-.chat {
-  height: auto;
-  width: 90%;
-  background-color: var(--white);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 20px;
-  margin-left: 5%;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 .user_profile {
@@ -132,19 +69,6 @@
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 20px;
-}
-
-.my_ads {
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.my_ads .center_work {
-  background-color: var(--gray);
-  height: 80%;
-  width: 90%;
-  overflow-y: auto;
 }
 
 .settings {
@@ -349,6 +273,8 @@
 
 .tablinks {
   display: flex;
+  position: fixed;
+  width: 100%;
 }
 
 #tablinksHamburger {
