@@ -20,7 +20,7 @@ h1 {
     margin: 0;
 }
 
-input {
+input,textarea {
     outline: none;
     border: 0;
     /* background-color: transparent; */

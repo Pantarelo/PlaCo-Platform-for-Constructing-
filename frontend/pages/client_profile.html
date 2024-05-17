@@ -44,9 +44,11 @@
           </div>
         </label>
         <div class="form-elements">
-          <input class="input-text" id="title-input" type="text" placeholder="Title">
-          <input class="input-text" id="description-input" type="text" placeholder="Description">
-          <input class="input-text" id="salary-input" type="number" placeholder="Salary">
+          <div style="display: flex; flex-direction: column;">
+            <input style="margin-bottom: 10px;" class="input-text" id="title-input" type="text" placeholder="Title">
+            <input style="margin-bottom: 10px;" class="input-text" id="description-input" type="text" placeholder="Description">
+            <input style="margin-bottom: 10px;" class="input-text" id="description-input" type="text" placeholder="Category">
+          </div>
           <button id="create-ad-button" type="submit">CREATE AD</button>
         </div>
         <script src="../scripts/createAd/index.js"></script>
@@ -54,127 +56,17 @@
     </div>
 
     <script src="../scripts/bugerProfile.js"></script>
-      <div id="MY_ADS" class="tabcontent my_ads">
-        <div class="center_work all_mails">
-          <div class="search_bar">
-            <input type="text" placeholder="Search work" class="search_input">
-            <i class='bx bx-search search_icon'></i>
-          </div>
-            <div class="mail">
-                <h3 class="mail_subject">Company: Marius Andrei</h3>
-                <p class="mail_description">Job: Oferta noua</p>
-                <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
-            <div class="mail">
-              <h3 class="mail_subject">Company: Marius Andrei</h3>
-              <p class="mail_description">Job: Oferta noua</p>
-              <p class="mail_date">Date: April 13, 2024</p>
-            </div>
+      <div id="MY_ADS" class="tabcontent my_ads" style="display: flex; flex-direction: column;">
+        <div class="search_bar">
+          <input type="text" placeholder="Search work" class="search_input">
+          <i class='bx bx-search search_icon'></i>
+        </div>
+        <div id="ads_list" class="center_work all_mails">
+            <script src="./../scripts/clientProfile/index.js"></script>
         </div>
         <button class="btn_help_work">Help</button>
       </div>
 
-      <div id="INBOX" class="tabcontent inbox">
-        <div class="left_side_work">
-          <div class="search_bar_inbox">
-            <input type="text" placeholder="Search chat" class="search_input_chat">
-            <i class='bx bx-search search_icon_chat'></i>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Pantaziu Andrei</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Victor Marian</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Mihai George</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Pantaziu Andrei</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Pantaziu Andrei</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Pantaziu Andrei</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Pantaziu Andrei</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Pantaziu Andrei</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          <div class="chat">
-            <h5 class="name_of_user">Pantaziu Andrei</h5>
-            <p class="part_of_mess">Am primit oferta</p>
-            <p class="date_of_chat">1:56 pm</p>
-          </div>
-          
-        </div>
-        <div class="right_side_work">
-          <div class="user_profile">
-            <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfileSmall">
-            <h2 class="user_name">Pantaziu Andrei</h2>
-          </div>
-          <div class="message_input">
-            <input type="text" placeholder="Type your message..." class="message_input_field">
-            <button class="send_button">Send</button>
-        </div>
-        </div>
-        <button class="btn_help_inbox">Help</button>
-      </div>
-      
       <div id="SETTING" class="tabcontent settings">
         <div class="center_settings">
           <div class="profile_edit">

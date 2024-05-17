@@ -2,7 +2,7 @@
 const userType = {ADMIN: 0, CLIENT: 1, WORKER: 2};
 
 let logged = true;
-let typeOfUser = userType.WORKER;
+let typeOfUser = userType.CLIENT;
 
 if(logged === true)
 {
