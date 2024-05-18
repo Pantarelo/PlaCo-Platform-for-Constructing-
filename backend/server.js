@@ -2,9 +2,12 @@ import {createServer} from "node:http";
 import { createJobAnnouncement, getAllJobs } from "./controllers/jobController.js";
 import { createAccount, authenticate, userLogout } from "./controllers/authController.js";
 import { getConnectionDb } from "./utils/getConnectionDb.js";
-import * as env from "dotenv"
+import authMiddleware from "./middleware/authMiddleware.js";
+import dotenv from "dotenv"
+import jwt from 'jsonwebtoken';
 
-env.config();
+//env.config();
+dotenv.config();
 const port = 3000;
 
 const server = createServer(async (req,res) => {
@@ -27,7 +30,21 @@ const server = createServer(async (req,res) => {
     }
     else if (req.url === "/api/logout" && req.method === "POST")
     {
-        userLogout(req, res);
+        //userLogout(req, res);
+        const token = req.headers['authorization']?.split(' ')[1];
+        if (!token) {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Access denied. No token provided.' }));
+            return;
+        }
+        try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            req.user = decoded;
+            userLogout(req, res);
+        } catch (ex) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Invalid token.' }));
+        }
     }
     else 
     {
