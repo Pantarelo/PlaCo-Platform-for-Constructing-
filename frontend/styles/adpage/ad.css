@@ -11,10 +11,17 @@
 
 #description {
     height: 200px;
+    width: 100%;
     overflow-x: auto;
     overflow-y: scroll;
 }
 
 #category_input {
     margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    #ad_img {
+        height: 150px;
+    }
 }

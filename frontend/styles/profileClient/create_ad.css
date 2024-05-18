@@ -22,16 +22,23 @@
     
     #create-ad-form {
         flex-direction: column;
-        margin-top: 20px;
+        margin-top: 50px;
+    }
+
+    #drop-area {
+        display: flex;
+        width: 500px;
+        height: 500px;
     }
 }
 
+
 .form-elements {
     display: flex;
-    height: 30%;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 40px;
 }
 
 .form-elements button {

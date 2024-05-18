@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/profile/profile.css">
+    <link rel="stylesheet" href="../styles/profileClient/profile.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
     <script src="https://kit.fontawesome.com/135aab77de.js" crossorigin="anonymous"></script>
@@ -68,26 +68,18 @@
       </div>
 
       <div id="SETTING" class="tabcontent settings">
-        <div class="center_settings">
-          <div class="profile_edit">
-            <h1 class="profileName">Edit Profile</h1>
-            <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
-            <button class="btnProfile">Upload a new photo</button>
-            <p class="praf">Upload a new avatar. Large image will be resized automatically. <br>
-              Maximum upload size is <span class="highlight">1 MB.</span>
-            </p>
-            
-          </div>
           <div class="profile_details">
-            <h3 class="fullName">Full Name</h3>
-            <input type="text" placeholder="Enter your full name" class="enterFullName">
-            <h3 class="changePassword">Change Password</h3>
-            <input type="text" placeholder="Enter your current password" class="currentPass">
-            <input type="text" placeholder="Enter your new password" class="newPass">
+            <div class="input_settings">
+              <label for="changeEmail" class="email">Email</label>
+              <input type="email" placeholder="Enter new email" class="changeEmail">
+            </div>
+            <div class="input_settings">
+              <label for="currentPass" class="changePassword">Change Password</label>
+              <input type="text" placeholder="Enter your current password" class="currentPass">
+              <input type="text" placeholder="Enter your new password" class="newPass">
+            </div>
             <button class="btnSave">Save Changes</button>
           </div>
-
-        </div>
         <button class="btn_help_setting">Help</button>
       </div>
 
