@@ -1,5 +1,7 @@
 import { getConnectionDb } from "../utils/getConnectionDb.js"
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
 function register(user) {
     return new Promise (async (resolve, reject) => {
@@ -21,13 +23,22 @@ function register(user) {
                 const values = [email, phone, hashPasword, type];
 
                 const res = await client.query(text, values);
+                const newUser = res.rows[0];
                 console.log(res.rows[0]);
     
+                const token = jwt.sign(
+                    { id: newUser.id, email: newUser.email, type: newUser.type },
+                    process.env.JWT_SECRET,
+                    { expiresIn: process.env.JWT_EXPIRES_IN }
+                );
+                console.log(token);
+
                 await client.end();
     
                 console.log('Connection to PostgreSQL closed');
     
-                resolve(res.rows[0]);
+                //resolve(res.rows[0]);
+                resolve({ user: newUser, token });
             })
         } catch (error) {
             reject(error);
@@ -61,7 +72,16 @@ function login(user) {
                             const updateQuery = `UPDATE public."User" SET "logStatus" = true WHERE email = $1`;
                             const updateValues = [email];
                             await client.query(updateQuery, updateValues);
-                            resolve(user);
+
+                            const token = jwt.sign(
+                                { id: user.id, email: user.email, type: user.type },
+                                process.env.JWT_SECRET,
+                                { expiresIn: process.env.JWT_EXPIRES_IN }
+                            );
+                            console.log(token);
+
+                            resolve({ user, token });
+                            //resolve(user);
                         } else {
                             reject("Parola incorecta.");
                         }

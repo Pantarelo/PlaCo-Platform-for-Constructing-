@@ -28,7 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const res = await accountLogin("http://localhost:3000/api/login", data);
 
-            console.log(res);
+            if (res.token) {
+                localStorage.setItem('token', res.token);
+                console.log('Autentificare reusita:', res);
+            } else {
+                console.error('Autentificare esuata:', res);
+            }
         }
     });
 });

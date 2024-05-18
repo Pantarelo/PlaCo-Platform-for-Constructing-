@@ -46,7 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const res = await createNewAccount("http://localhost:3000/api/register", data);
 
-            console.log(res);
+            if (res.token) {
+                localStorage.setItem('token', res.token);
+                console.log('Autentificare reusita:', res);
+            } else {
+                console.error('Autentificare esuata:', res);
+            }
         }
     });
 });

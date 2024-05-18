@@ -38,10 +38,10 @@ async function createAccount(req, res) {
             return;
         }
 
-        await register(user);
+        const { uuser, token } = await register(user);
 
         res.writeHead(201, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ message: 'Contul a fost creat cu succes' }));
+        res.end(JSON.stringify({ message: 'Contul a fost creat cu succes', uuser, token }));
 
     } catch(error) {
         console.error("Eroare la crearea contului: ", error);
@@ -60,10 +60,11 @@ async function authenticate(req, res) {
             password
         };
 
-        const user = await login(details);
+        //const user = await login(details);
+        const { user, token } = await login(details);
 
         res.writeHead(201, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ message: 'Autentificare reusita', user }));
+        res.end(JSON.stringify({ message: 'Autentificare reusita', token, user }));
 
     } catch(error) {
         console.error("Eroare la autentificare: ", error);
