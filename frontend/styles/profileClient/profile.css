@@ -1,6 +1,7 @@
 @import './../global.css';
 @import './create_ad.css';
 @import './my_ads.css';
+@import './settings.css';
 
 .tablink {
     background-color: var(--dark-blue);
@@ -71,124 +72,9 @@
   margin-bottom: 20px;
 }
 
-.settings {
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
 
-.settings .center_settings {
-  background-color: var(--gray);
-  height: 80%;
-  width: 90%;
-  overflow-y: auto;
-  display: flex;
-  justify-content: space-around;
-}
 
-.profile_edit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 4%;
-}
 
-.profile_edit .profileName {
-  margin-bottom: 50px;
-  margin-top: 30px;
-  font-size: 50px;
-  color: var(--dark-blue);
-}
-
-.profile_edit .imgProfile {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
-.profile_edit .btnProfile {
-  margin-top: 35px;
-  background-color: transparent;
-  padding: 0.5em 2em 0.5em 2em;
-  color: var(--dark-blue);
-  border-radius: 10px;
-  border: solid 2px var(--dark-blue);
-  font-weight: bold;
-  font-size: large;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.profile_edit .praf {
-  color: var(--dark-blue);
-  margin-top: 50px;
-}
-
-.profile_edit .praf .highlight {
-  color: var(--dark-blue); 
-  font-weight: bold; 
-  margin-top: -50px;
-}
-
-.profile_details {
-  display: flex;
-  flex-direction: column;
-  margin-right: 50px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 50px;
-  color: var(--white);
-  background-color: var(--white);
-}
-
-.profile_details .fullName {
-  font-size: 30px;
-  border-radius: 50px;
-  color: var(--dark-blue);
-}
-
-.profile_details .enterFullName {
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--gray);
-  padding: 5px;
-}
-
-.profile_details .changePassword {
-  font-size: 30px;
-  color: var(--dark-blue);
-}
-
-.profile_details .currentPass {
-  height: 40px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--gray);
-  padding: 5px;
-}
-
-.profile_details .newPass {
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--gray);
-  padding: 5px;
-}
-
-.profile_details .btnSave {
-    background-color: var(--orange-yellow);
-    padding: 1em 5em 1em 5em;
-    color: var(--dark-blue);
-    border-radius: 10px;
-    border: var(--orange-yellow) solid;
-    font-weight: bold;
-    font-size: large;
-    margin: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-}
 
 .search_bar {
   position: relative;
