@@ -6,7 +6,7 @@ for(let i = 0 ; i < 10; i++) {
     workerContainer.className = "worker_container";
 
     const anchorTag = document.createElement('a');
-    anchorTag.href="#";
+    anchorTag.href=`../pages/public_worker_profile.html?id=${i}`;
 
     const workerImg = document.createElement('img');
     workerImg.className="worker_img"
