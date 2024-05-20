@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/profile/profile.css">
+    <link rel="stylesheet" href="../styles/profileWorker/profile.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
     <script src="https://kit.fontawesome.com/135aab77de.js" crossorigin="anonymous"></script>
@@ -19,44 +19,67 @@
 
     <div class="tablinks">
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-      <button class="tablink" onclick="openPage('CREATE_AD', this)" id="defaultOpen">CREATE AD</button>
-      <button class="tablink" onclick="openPage('MY_ADS', this)" >MY ADS</button>
+      <button class="tablink" onclick="openPage('DETAILS', this)" id="defaultOpen">DETAILS</button>
+      <button class="tablink" onclick="openPage('SKILLS', this)">SKILLS</button>
+      <button class="tablink" onclick="openPage('MY_WORK', this)">MY WORK</button>
+      <button class="tablink" onclick="openPage('NOTIFICATIONS', this)">NOTIFICATIONS</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
 
     <div id="tablinksHamburger">
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-      <button class="tablink" onclick="openPage('CREATE_AD', this)" id="defaultOpen">CREATE AD</button>
-      <button class="tablink" onclick="openPage('MY_ADS', this)" id="defaultOpenHamburger">MY ADS</button>
+      <button class="tablink" onclick="openPage('DETAILS', this)" id="defaultOpen">DETAILS</button>
+      <button class="tablink" onclick="openPage('SKILLS', this)">SKILLS</button>
+      <button class="tablink" onclick="openPage('MY_WORK', this)" id="defaultOpenHamburger">MY WORK</button>
+      <button class="tablink" onclick="openPage('NOTIFICATIONS', this)">NOTIFICATIONS</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
 
     
-    <div id="CREATE_AD" class="tabcontent create-ad">
-      <form id="create-ad-form">
-        <label for="upload-photo" id="drop-area">
-          <input id="upload-photo" type="file" accept="image/*" hidden>
-          <div id="img-view">
-            <span>
-              <i class="fa-solid fa-cloud-arrow-up fa-2xl" style="color: #f0f2f4;"></i>
-            </span>
-            <p>Drag and drop an image or click here to upload</p>
-          </div>
-        </label>
-        <div class="form-elements">
-          <div style="display: flex; flex-direction: column;">
-            <input style="margin-bottom: 10px;" class="input-text" id="title-input" type="text" placeholder="Title">
-            <input style="margin-bottom: 10px;" class="input-text" id="description-input" type="text" placeholder="Description">
-            <input style="margin-bottom: 10px;" class="input-text" id="description-input" type="text" placeholder="Category">
-          </div>
-          <button id="create-ad-button" type="submit">CREATE AD</button>
+    <div id="DETAILS" class="tabcontent details">
+      <label for="upload-photo" id="drop-area">
+        <input id="upload-photo" type="file" accept="image/*" hidden>
+        <div id="img-view">
+          <span>
+            <i class="fa-solid fa-cloud-arrow-up fa-2xl" style="color: #f0f2f4;"></i>
+          </span>
+          <p>Drag and drop an image or click here to upload</p>
         </div>
-        <script src="../scripts/createAd/index.js"></script>
-      </form>
+      </label>
+      <script src="../scripts/dragAndDrop.js"></script>
+      <div id="update_details">
+        <input class="input-text" id="contact" style="color: black;" placeholder="Add contact">
+        <textarea placeholder="Add description" class="input-text textarea-style"></textarea>
+        <button class="solid-button">Save changes</button>
+      </div>
+    </div>
+
+    <div id="SKILLS" class="tabcontent skills">
+      <div id="content">
+        <section id="skills">
+          <h1 style="margin-bottom: 50px;">Skills</h1>
+          <div id="skills_list">
+              <script src="../scripts/publicWorkerProfile/skills.js"></script>
+              <div class="skill">
+                  <h2>Category</h2>
+                  <p>Description</p>
+              </div>
+          </div>
+        </section>
+
+        <div id="new_skill_section">
+          <input class="input-text" placeholder="Add category">
+          <textarea class="input-text textarea-style" placeholder="Add a description"></textarea>
+          <input id="upload-photo" class="input-upload-photo" type="file" accept="image/*">
+          </label>
+          
+          <button id="new_skill" class="solid-button">Add new skill</button>
+        </div> 
+      </div>
     </div>
 
     <script src="../scripts/bugerProfile.js"></script>
-      <div id="MY_ADS" class="tabcontent my_ads" style="display: flex; flex-direction: column;">
+      <div id="MY_WORK" class="tabcontent my_ads" style="display: flex; flex-direction: column;">
         <div class="search_bar">
           <input type="text" placeholder="Search work" class="search_input">
           <i class='bx bx-search search_icon'></i>
@@ -67,30 +90,31 @@
         <button class="btn_help_work">Help</button>
       </div>
 
-      <div id="SETTING" class="tabcontent settings">
-        <div class="center_settings">
-          <div class="profile_edit">
-            <h1 class="profileName">Edit Profile</h1>
-            <img src="../assets/images/profile_image.png" alt="Profile Picture!" class="imgProfile">
-            <button class="btnProfile">Upload a new photo</button>
-            <p class="praf">Upload a new avatar. Large image will be resized automatically. <br>
-              Maximum upload size is <span class="highlight">1 MB.</span>
-            </p>
-            
+      <div id="NOTIFICATIONS" class="tabcontent notifications">
+        <section id="notifications">
+          <h1>Notifications</h1>
+          <div id="notifications_list">
+              <script src="../scripts/workerProfile/notifications.js"></script>
+              <p class="notify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem hic sint quia. Obcaecati quaerat accusamus alias nostrum molestias praesentium dignissimos quibusdam veniam, aliquid cumque, quis iusto animi placeat odit suscipit!</p>
           </div>
-          <div class="profile_details">
-            <h3 class="fullName">Full Name</h3>
-            <input type="text" placeholder="Enter your full name" class="enterFullName">
-            <h3 class="changePassword">Change Password</h3>
-            <input type="text" placeholder="Enter your current password" class="currentPass">
-            <input type="text" placeholder="Enter your new password" class="newPass">
-            <button class="btnSave">Save Changes</button>
-          </div>
-
-        </div>
-        <button class="btn_help_setting">Help</button>
+      </section>
       </div>
 
+      <div id="SETTING" class="tabcontent settings">
+          <div class="profile_details">
+            <div class="input_settings">
+              <label for="changeEmail" class="email">Email</label>
+              <input type="email" placeholder="Enter new email" class="changeEmail">
+            </div>
+            <div class="input_settings">
+              <label for="currentPass" class="changePassword">Change Password</label>
+              <input type="text" placeholder="Enter your current password" class="currentPass">
+              <input type="text" placeholder="Enter your new password" class="newPass">
+            </div>
+            <button class="btnSave">Save Changes</button>
+          </div>
+        <button class="btn_help_setting">Help</button>
+      </div>
 
       <script>
         function openPage(pageName,elmnt) {
