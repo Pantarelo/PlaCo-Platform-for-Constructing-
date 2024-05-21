@@ -1,8 +1,16 @@
 
 const userType = {ADMIN: 0, CLIENT: 1, WORKER: 2};
 
-let logged = true;
-let typeOfUser = userType.WORKER;
+//let logged = true;
+//let typeOfUser = userType.CLIENT;
+
+let logged = localStorage.getItem('logged');
+let typeOfUser = parseInt(localStorage.getItem('typeOfUser'), 10);
+
+console.log(logged + "sda" + typeOfUser);
+
+logged = true;
+typeOfUser = userType.WORKER;
 
 if(logged === true)
 {

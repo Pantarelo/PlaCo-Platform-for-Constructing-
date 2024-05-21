@@ -10,7 +10,25 @@ async function createNewAccount(url, data) {
         body: JSON.stringify(data),
     })
 
-    return response.json();
+    //return response.json();
+    const res = response.json();
+    return res;
+}
+
+function handleSuccessfulAuth(res) {
+    localStorage.setItem('token', res.token);
+    console.log('Autentificare reusita:', res);
+
+    const tokenData = JSON.parse(atob(res.token.split('.')[1]));
+    localStorage.setItem('logged', 'true');
+    localStorage.setItem('typeOfUser', tokenData.type);
+
+    let logged = localStorage.getItem('logged');
+    let typeOfUser = parseInt(localStorage.getItem('typeOfUser'), 10);
+
+    console.log("datekleeeeeee: " + logged + typeOfUser);
+
+    window.location.href = "../index.html";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         console.log(typeValue);
 
-
         if(emailText && phoneText && password1Text && password2Text && selectedType) {
             const data = {
                 "email": emailText,
@@ -45,10 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const res = await createNewAccount("http://localhost:3000/api/register", data);
+            console.log("MAAAAAAAAAAAAAAAAA");
 
             if (res.token) {
-                localStorage.setItem('token', res.token);
-                console.log('Autentificare reusita:', res);
+                console.log("Poof");
+                handleSuccessfulAuth(res);
             } else {
                 console.error('Autentificare esuata:', res);
             }
