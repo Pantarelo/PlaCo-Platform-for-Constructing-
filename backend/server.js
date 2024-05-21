@@ -3,6 +3,7 @@ import { createJobAnnouncement, getAllJobs } from "./controllers/jobController.j
 import { createAccount, authenticate, userLogout } from "./controllers/authController.js";
 import { getConnectionDb } from "./utils/getConnectionDb.js";
 import authMiddleware from "./middleware/authMiddleware.js";
+import corsMiddleware from "./middleware/crosMiddleware.js"
 import dotenv from "dotenv"
 import jwt from 'jsonwebtoken';
 
@@ -11,46 +12,47 @@ dotenv.config();
 const port = 3000;
 
 const server = createServer(async (req,res) => {
-
-    if(req.url === "/api/jobs" && req.method === "GET")
-    {
-        getAllJobs(req,res);   
-    }
-    else if(req.url === "/api/createJobAd" && req.method === "POST")
-    {
-        createJobAnnouncement(req,res);
-    }
-    else if (req.url === "/api/register" && req.method === "POST")
-    {
-        createAccount(req, res);
-    }
-    else if (req.url === "/api/login" && req.method === "POST")
-    {
-        authenticate(req, res);
-    }
-    else if (req.url === "/api/logout" && req.method === "POST")
-    {
-        //userLogout(req, res);
-        const token = req.headers['authorization']?.split(' ')[1];
-        if (!token) {
-            res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: 'Access denied. No token provided.' }));
-            return;
+    corsMiddleware(req, res, () => {
+        if(req.url === "/api/jobs" && req.method === "GET")
+        {
+            getAllJobs(req,res);   
         }
-        try {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            req.user = decoded;
-            userLogout(req, res);
-        } catch (ex) {
-            res.writeHead(400, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: 'Invalid token.' }));
+        else if(req.url === "/api/createJobAd" && req.method === "POST")
+        {
+            createJobAnnouncement(req,res);
         }
-    }
-    else 
-    {
-        res.writeHead(404, {'Content-Type': "application/json"})
-        res.end(JSON.stringify({message: "Route not found!"}));
-    }
+        else if (req.url === "/api/register" && req.method === "POST")
+        {
+            createAccount(req, res);
+        }
+        else if (req.url === "/api/login" && req.method === "POST")
+        {
+            authenticate(req, res);
+        }
+        else if (req.url === "/api/logout" && req.method === "POST")
+        {
+            //userLogout(req, res);
+            const token = req.headers['authorization']?.split(' ')[1];
+            if (!token) {
+                res.writeHead(401, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Access denied. No token provided.' }));
+                return;
+            }
+            try {
+                const decoded = jwt.verify(token, process.env.JWT_SECRET);
+                req.user = decoded;
+                userLogout(req, res);
+            } catch (ex) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Invalid token.' }));
+            }
+        }
+        else 
+        {
+            res.writeHead(404, {'Content-Type': "application/json"})
+            res.end(JSON.stringify({message: "Route not found!"}));
+        }
+    });
 })
 
 server.listen(port, () => {

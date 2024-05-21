@@ -1,7 +1,7 @@
 
 const userType = {ADMIN: 0, CLIENT: 1, WORKER: 2};
 
-let logged = true;
+let logged = false;
 let typeOfUser = userType.WORKER;
 
 if(logged === true)
