@@ -10,7 +10,19 @@ async function createNewAccount(url, data) {
         body: JSON.stringify(data),
     })
 
-    return response.json();
+    const res = response.json();
+    return res;
+}
+
+function handleSuccessfulAuth(res) {
+    localStorage.setItem('token', res.token);
+    console.log('Autentificare reusita:', res);
+
+    const tokenData = JSON.parse(atob(res.token.split('.')[1]));
+    localStorage.setItem('logged', 1);
+    localStorage.setItem('typeOfUser', tokenData.type);
+
+    window.location.href = "../index.html";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         console.log(typeValue);
 
-
         if(emailText && phoneText && password1Text && password2Text && selectedType) {
             const data = {
                 "email": emailText,
@@ -47,8 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await createNewAccount("http://localhost:3000/api/register", data);
 
             if (res.token) {
-                localStorage.setItem('token', res.token);
-                console.log('Autentificare reusita:', res);
+                handleSuccessfulAuth(res);
             } else {
                 console.error('Autentificare esuata:', res);
             }

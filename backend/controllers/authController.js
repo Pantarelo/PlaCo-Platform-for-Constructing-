@@ -12,8 +12,6 @@ async function createAccount(req, res) {
             type
         };
 
-
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             res.writeHead(400, { 'Content-Type': 'application/json' });

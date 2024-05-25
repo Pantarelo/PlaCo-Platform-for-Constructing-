@@ -11,6 +11,17 @@ async function accountLogin(url, data) {
     return response.json();
 }
 
+function handleSuccessfulAuth(res) {
+    localStorage.setItem('token', res.token);
+    console.log('login reusita:', res);
+
+    const tokenData = JSON.parse(atob(res.token.split('.')[1]));
+    localStorage.setItem('logged', 1);
+    localStorage.setItem('typeOfUser', tokenData.type);
+
+    window.location.href = "../index.html";
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.getElementById('loginButton');
 
@@ -29,10 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await accountLogin("http://localhost:3000/api/login", data);
 
             if (res.token) {
-                localStorage.setItem('token', res.token);
-                console.log('Autentificare reusita:', res);
+                handleSuccessfulAuth(res);
             } else {
-                console.error('Autentificare esuata:', res);
+                console.error('Login esuat:', res);
             }
         }
     });
