@@ -17,6 +17,7 @@ if (isTokenExpired(token)) {
     localStorage.removeItem('token');
     localStorage.removeItem('logged');
     localStorage.removeItem('typeOfUser');
+    localStorage.removeItem('userId');
 }
 else {
 

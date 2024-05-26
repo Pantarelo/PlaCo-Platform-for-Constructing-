@@ -16,6 +16,7 @@ function handleSuccessfulAuth(res) {
     console.log('login reusita:', res);
 
     const tokenData = JSON.parse(atob(res.token.split('.')[1]));
+    localStorage.setItem('userId', tokenData.id);
     localStorage.setItem('logged', 1);
     localStorage.setItem('typeOfUser', tokenData.type);
 
