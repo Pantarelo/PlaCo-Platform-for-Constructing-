@@ -4,7 +4,8 @@ import jwt from 'jsonwebtoken';
 
 async function createAdClient(req, res) {
     try {
-        const {title, description, category} = await getBodyData(req);
+        const {title, description, category, img} = await getBodyData(req);
+        console.log(title, description, category, img);
         const token = req.headers.authorization.split(' ')[1];
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         const id_client = decodedToken.id;
@@ -13,7 +14,8 @@ async function createAdClient(req, res) {
             title,
             description,
             category, 
-            id_client
+            id_client,
+            img
         };
 
         const valid = await addAd(add);

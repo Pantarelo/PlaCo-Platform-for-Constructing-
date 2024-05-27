@@ -5,13 +5,13 @@ function addAd(add) {
         try {
             const addDB = await getConnectionDb();
 
-            const { title, description, category, id_client } = add;
+            const { title, description, category, id_client, img } = add;
 
             addDB.connect()
             .then(async () => {
 
-                const query = `INSERT INTO public."ClientAdd" (title, description, category, id_client) VALUES ($1, $2, $3, $4) RETURNING *`;
-                const values = [title, description, category, id_client];
+                const query = `INSERT INTO public."ClientAdd" (title, description, category, id_client, img) VALUES ($1, $2, $3, $4, $5) RETURNING *`;
+                const values = [title, description, category, id_client, img];
 
                 const res = await addDB.query(query, values);
                 const newAd = res.rows[0];
