@@ -5,7 +5,11 @@ import jwt from 'jsonwebtoken';
 async function createAdClient(req, res) {
     try {
         const {title, description, category, img} = await getBodyData(req);
-        console.log(title, description, category, img);
+        
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+
         const token = req.headers.authorization.split(' ')[1];
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         const id_client = decodedToken.id;
@@ -31,6 +35,10 @@ async function createAdClient(req, res) {
 
 async function getClientAds(req, res) {
     try{
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+
         const token = req.headers.authorization.split(' ')[1];
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         const id_client = decodedToken.id;

@@ -39,7 +39,10 @@ function getAdsByClientId(id_client) {
                 const values = [id_client];
 
                 const res = await addDB.query(query, values);
-                const ads = res.rows;
+                const ads = res.rows.map(row => ({
+                    ...row,
+                    img: `data:image/jpeg;base64,${row.img_base64}`
+                }));
                 console.log(ads);
 
                 await addDB.end();
