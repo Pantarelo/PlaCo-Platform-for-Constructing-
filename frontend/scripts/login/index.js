@@ -12,13 +12,14 @@ async function accountLogin(url, data) {
 }
 
 function handleSuccessfulAuth(res) {
-    localStorage.setItem('token', res.token);
+    // localStorage.setItem('token', res.token);
+    document.cookie = "token=" + res.token + "; path=/";
     console.log('login reusita:', res);
 
     const tokenData = JSON.parse(atob(res.token.split('.')[1]));
-    localStorage.setItem('userId', tokenData.id);
-    localStorage.setItem('logged', 1);
-    localStorage.setItem('typeOfUser', tokenData.type);
+    document.cookie = 'userId='+ tokenData.id + "; path=/";
+    document.cookie = 'logged='+ 1 + "; path=/";
+    document.cookie = 'typeOfUser='+ tokenData.type + "; path=/";
 
     window.location.href = "../index.html";
 }
