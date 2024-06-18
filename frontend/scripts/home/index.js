@@ -1,8 +1,12 @@
+import { getCookie } from "../utils/cookies.js";
+
+
 const userType = {ADMIN: 0, CLIENT: 1, WORKER: 2};
 
 function isTokenExpired(token) {
     if (!token) return true;
-
+    
+    console.log("It works!");
     const tokenData = JSON.parse(atob(token.split('.')[1]));
     const exp = tokenData.exp;
     const currentTime = Math.floor(Date.now() / 1000);
@@ -10,19 +14,20 @@ function isTokenExpired(token) {
     return currentTime > exp;
 }
 
-const token = localStorage.getItem('token');
+
+const token = getCookie('token');
 if (isTokenExpired(token)) {
     console.log(isTokenExpired(token));
 
-    localStorage.removeItem('token');
-    localStorage.removeItem('logged');
-    localStorage.removeItem('typeOfUser');
-    localStorage.removeItem('userId');
+    document.cookie = "token=";
+    document.cookie = "logged=";
+    document.cookie = "typeOfUser=";
+    document.cookie = "userId=";
 }
 else {
 
-    let logged = localStorage.getItem('logged');
-    let typeOfUser = parseInt(localStorage.getItem('typeOfUser'), 10);
+    let logged = getCookie('logged');
+    let typeOfUser = parseInt(getCookie('typeOfUser'), 10);
 
     console.log(logged + ": " + typeOfUser);
 
@@ -95,7 +100,6 @@ else {
             findWorkers.innerText = "Find jobs";
             linksHomePage[0].append(findWorkers);
             linksHomePage[0].append(profile);
-            
         }
     }
 }

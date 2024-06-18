@@ -1,7 +1,7 @@
 const email = document.getElementById("emailRegister");
 const phone = document.getElementById("phoneRegister");
-const password1 = document.getElementById("password_1");
-const password2 = document.getElementById("password_2");
+const password1 = document.getElementById("password_first");
+const password2 = document.getElementById("password_second");
 
 async function createNewAccount(url, data) {
     
@@ -15,14 +15,13 @@ async function createNewAccount(url, data) {
 }
 
 function handleSuccessfulAuth(res) {
-    localStorage.setItem('token', res.token);
+    document.cookie = 'token='+ res.token + "; path=/";
     console.log('Autentificare reusita:', res);
 
     const tokenData = JSON.parse(atob(res.token.split('.')[1]));
-    localStorage.setItem('userId', tokenData.id);
-    localStorage.setItem('logged', 1);
-    localStorage.setItem('typeOfUser', tokenData.type);
-
+    document.cookie = 'userId='+ tokenData.id + "; path=/";
+    document.cookie = 'logged='+ 1 + "; path=/";
+    document.cookie = 'typeOfUser='+ tokenData.type + "; path=/";
     window.location.href = "../index.html";
 }
 
