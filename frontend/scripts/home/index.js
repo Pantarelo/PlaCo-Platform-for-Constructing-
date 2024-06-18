@@ -95,7 +95,6 @@ else {
             findWorkers.innerText = "Find jobs";
             linksHomePage[0].append(findWorkers);
             linksHomePage[0].append(profile);
-            
         }
     }
 }

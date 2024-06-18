@@ -34,7 +34,7 @@
             <div class="input_box">
                 <h3>Password</h3>
                 <div class="wrapper">
-                    <input type="password" placeholder="Type your password" id="password_1" required>
+                    <input autocomplete="on" type="password" placeholder="Type your password" id="password_first" required>
                     <i class='bx bx-lock-alt' id="lock1"></i>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="input_box">
                 <h3>Password</h3>
                 <div class="wrapper">
-                    <input type="password" placeholder="Type your password" id="password_2" required>
+                    <input autocomplete="on" type="password" placeholder="Type your password" id="password_second" required>
                     <i class='bx bx-lock-alt' id="lock2"></i>
                 </div>
             </div>
@@ -65,10 +65,10 @@
         <script src="../scripts/register/index.js"></script>
 
         <script>
-            let password = document.getElementById("password_1");
+            let password = document.getElementById("password_first");
             let lock = document.getElementById("lock1");
 
-            let passworda = document.getElementById("password_2");
+            let passworda = document.getElementById("password_second");
             let locka = document.getElementById("lock2");
 
             lock.addEventListener("click", () => {

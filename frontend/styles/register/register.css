@@ -1,5 +1,3 @@
-@import 'colors.css';
-
 .register-page {
     display: flex;
     justify-content: center;
@@ -12,7 +10,7 @@ form {
     box-shadow: 7px 7spx 5px var(--gray);
     width: 420px;
     color: var(--white);
-    background-image: url('../assets/images/hero_img.png');
+    background-image: url('../../assets/images/hero_img.png');
     background-size: cover; 
     background-position: center;
     background-color: var(--dark-blue);
