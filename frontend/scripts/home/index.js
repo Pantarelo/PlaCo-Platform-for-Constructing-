@@ -18,11 +18,6 @@ function isTokenExpired(token) {
 const token = getCookie('token');
 if (isTokenExpired(token)) {
     console.log(isTokenExpired(token));
-
-    document.cookie = "token=";
-    document.cookie = "logged=";
-    document.cookie = "typeOfUser=";
-    document.cookie = "userId=";
 }
 else {
 
