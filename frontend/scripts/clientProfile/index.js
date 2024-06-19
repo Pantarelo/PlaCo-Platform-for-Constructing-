@@ -1,8 +1,11 @@
+console.log("asdasdasdas");
+import { getCookie } from "../utils/cookies.js";
+
 document.addEventListener('DOMContentLoaded', async () => {
     const adsList = document.getElementById("ads_list");
 
     async function fetchAds() {
-        const token = localStorage.getItem('token');
+        const token = getCookie('token');
         const response = await fetch("http://localhost:3000/api/client", {
             method: "GET",
             headers: {

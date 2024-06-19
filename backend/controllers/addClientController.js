@@ -35,6 +35,7 @@ async function createAdClient(req, res) {
 
 async function getClientAds(req, res) {
     try{
+
         if (!req.headers.authorization) {
             throw new Error('Authorization header missing');
         }

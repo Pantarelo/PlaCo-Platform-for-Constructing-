@@ -1,10 +1,12 @@
+import { getCookie } from "../utils/cookies.js";
+
 const title = document.getElementById("title-input");
 const description = document.getElementById("description-input");
 const category = document.getElementById("category-input");
 const addPhoto = document.getElementById("upload-photo");
 
 async function createNewAd(url, data) {
-    const token = localStorage.getItem('token'); 
+    const token = getCookie('token');
     const response = await fetch(url, {
         method: "POST",
         headers: {
