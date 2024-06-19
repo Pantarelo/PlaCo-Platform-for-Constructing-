@@ -1,4 +1,3 @@
-console.log("asdasdasdas");
 import { getCookie } from "../utils/cookies.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         const ads = await response.json();
-        console.log("Anunt: ", ads); 
         return ads;
     }
 
