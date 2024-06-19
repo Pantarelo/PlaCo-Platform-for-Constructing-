@@ -64,7 +64,7 @@ else {
             profile.href = "./pages/client_profile.html";
             profile.innerText = "Profile";
             const findWorkers = document.createElement("a");
-            findWorkers.href = "./pages/explore.html";
+            findWorkers.href = "./pages/find_workers.html";
             findWorkers.innerText = "Find workers";
             linksHomePage[0].append(findWorkers);
             linksHomePage[0].append(profile);
@@ -91,7 +91,7 @@ else {
             profile.href = "./pages/worker_profile.html";
             profile.innerText = "Profile";
             const findWorkers = document.createElement("a");
-            findWorkers.href = "./pages/explore.html";
+            findWorkers.href = "./pages/find_jobs.html";
             findWorkers.innerText = "Find jobs";
             linksHomePage[0].append(findWorkers);
             linksHomePage[0].append(profile);

@@ -8,23 +8,23 @@ async function getAllJobs(url) {
 }
 
 
-getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
+getAllJobs("http://localhost:3000/api/user/worker").then((data)=> {
 
     const listAnnouncements = document.getElementsByClassName("list-announcements");
     console.log(listAnnouncements[0]);
-    data.map((job) =>
+    data.map((worker) =>
         {
-            const announcement = document.createElement('div');
-            announcement.className = "announcement";
+            const profile = document.createElement('div');
+            profile.id = worker.id;
+            profile.className = "profile";
             
             const view = document.createElement('div');
             view.className = "view";
-            announcement.appendChild(view);
+            profile.appendChild(view);
             
             const img = document.createElement('img');
             let imgUrl = "/";
-            // console.log(job.img);
-            // console.log(imgUrl);
+
             img.src= imgUrl;
             img.alt="img";
 
@@ -32,11 +32,11 @@ getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
             infoContainer.className = "info-container";
 
             const title = document.createElement('h1');
-            title.textContent = job.title;
+            title.textContent = worker.title;
             title.className = "title"
             
             const description = document.createElement('p');
-            description.textContent = job.description;
+            description.textContent = worker.description;
 
             view.appendChild(img);
             infoContainer.appendChild(title);
@@ -48,7 +48,7 @@ getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
             info.className = "info";
 
             // const salary = document.createElement('span');
-            // salary.textContent = job.salary + " lei";
+            // salary.textContent = worker.salary + " lei";
 
             const contactUs = document.createElement('button');
             contactUs.className = "solid-button";
@@ -57,9 +57,9 @@ getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
             // info.appendChild(salary);
             info.appendChild(contactUs);
 
-            announcement.appendChild(info);
+            profile.appendChild(info);
 
-            listAnnouncements[0].appendChild(announcement)
+            listAnnouncements[0].appendChild(profile)
         }
     )
 })

@@ -2,6 +2,7 @@ import {createServer} from "node:http";
 import { createJobAnnouncement, getAllJobs } from "./controllers/jobController.js";
 import { createAccount, authenticate, userLogout } from "./controllers/authController.js";
 import { createAdClient, getClientAds } from "./controllers/addClientController.js"
+import {getClients, getWorkers} from "./controllers/userController.js";
 import { getConnectionDb } from "./utils/getConnectionDb.js";
 import authMiddleware from "./middleware/authMiddleware.js";
 import corsMiddleware from "./middleware/crosMiddleware.js"
@@ -14,7 +15,14 @@ const port = 3000;
 
 const server = createServer(async (req,res) => {
     corsMiddleware(req, res, () => {
-        if(req.url === "/api/jobs" && req.method === "GET")
+        if(req.url === "/api/user/worker" && req.method === "GET") {
+            getWorkers(req,res);
+        }
+        else if(req.url === "/api/user/client" && req.method === "GET")
+        {
+            getClients(req,res);
+        }
+        else if(req.url === "/api/jobs" && req.method === "GET")
         {
             getAllJobs(req,res);   
         }
