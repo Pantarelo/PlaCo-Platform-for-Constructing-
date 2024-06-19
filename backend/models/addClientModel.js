@@ -1,5 +1,9 @@
 import { getConnectionDb } from "../utils/getConnectionDb.js"
 
+function byteArrayToBase64(byteArray) {
+    return Buffer.from(byteArray).toString('base64');
+}
+
 function addAd(add) {
     return new Promise(async (resolve, reject) => {
         try {
@@ -39,7 +43,11 @@ function getAdsByClientId(id_client) {
                 const values = [id_client];
 
                 const res = await addDB.query(query, values);
-                const ads = res.rows;
+                //const ads = res.rows;
+                const ads = res.rows.map(ad => ({
+                    ...ad,
+                    img: ad.img ? `data:image/png;base64,${byteArrayToBase64(ad.img)}` : null
+                }));
                 console.log(ads);
 
                 await addDB.end();
