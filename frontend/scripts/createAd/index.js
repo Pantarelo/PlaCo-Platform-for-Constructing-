@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const res = await createNewAd("http://localhost:3000/api/client", data);
-
-            console.log(res);
         }
     })
 });

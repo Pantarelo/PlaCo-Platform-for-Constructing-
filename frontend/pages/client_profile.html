@@ -72,17 +72,19 @@
           <div class="profile_details">
             <div class="input_settings">
               <label for="changeEmail" class="email">Email</label>
-              <input type="email" placeholder="Enter new email" class="changeEmail">
+              <input type="email" placeholder="Enter new email" class="changeEmail" id="email-input">
             </div>
             <div class="input_settings">
               <label for="currentPass" class="changePassword">Change Password</label>
-              <input type="text" placeholder="Enter your current password" class="currentPass">
-              <input type="text" placeholder="Enter your new password" class="newPass">
+              <input type="text" placeholder="Enter your current password" class="currentPass" id="currentPass-input">
+              <input type="text" placeholder="Enter your new password" class="newPass" id="newPass-input">
             </div>
-            <button class="btnSave">Save Changes</button>
+            <button class="btnSave" id="btnSave">Save Changes</button>
           </div>
         <button class="btn_help_setting">Help</button>
       </div>
+
+      <script type="module" src="../scripts/changePass/client/index.js"></script>
 
 
       <script>
