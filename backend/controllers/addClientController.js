@@ -44,6 +44,7 @@ async function getClientAds(req, res) {
         const id_client = decodedToken.id;
 
         const ads = await getAdsByClientId(id_client);
+        console.log("Client ads:", ads);
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(ads));

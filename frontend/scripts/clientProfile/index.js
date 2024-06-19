@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         const ads = await response.json();
+        console.log("Anunt: ", ads); 
         return ads;
     }
 
