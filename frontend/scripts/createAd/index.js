@@ -46,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // console.log(data.img);
 
             const res = await createNewAd("http://localhost:3000/api/client", data);
-
-            console.log("Result:" + JSON.stringify(res));
         }
     })
 });
