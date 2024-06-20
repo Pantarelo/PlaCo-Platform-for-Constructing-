@@ -7,6 +7,8 @@ const addPhoto = document.getElementById("upload-photo");
 
 async function createNewAd(url, data) {
     const token = getCookie('token');
+
+    console.log(data.img);
     const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -30,17 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const categoryText = category.value;
         const imageInput = addPhoto.files[0];
 
+        const binaryImg = new Blob([imageInput], {type: imageInput.type});
+
+
         if(titleText && descriptionText && categoryText && imageInput) {
             const data = {
                 "title": titleText,
                 "description": descriptionText,
                 "category": categoryText,
-                "img" : new Blob([imageInput], {type: imageInput.type})
+                "img" : binaryImg
             }
+
+            // console.log(data.img);
 
             const res = await createNewAd("http://localhost:3000/api/client", data);
 
-            console.log(res);
+            console.log("Result:" + JSON.stringify(res));
         }
     })
 });

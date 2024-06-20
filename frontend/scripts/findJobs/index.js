@@ -8,7 +8,7 @@ async function getAllJobs(url) {
 }
 
 
-getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
+getAllJobs("http://localhost:3000/api/client/ads").then((data)=> {
 
     const listAnnouncements = document.getElementsByClassName("list-announcements");
     console.log(listAnnouncements[0]);
@@ -16,6 +16,7 @@ getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
         {
             const announcement = document.createElement('div');
             announcement.className = "announcement";
+            announcement.id = job.id_add;
             
             const view = document.createElement('div');
             view.className = "view";
@@ -50,12 +51,17 @@ getAllJobs("http://localhost:3000/api/jobs").then((data)=> {
             // const salary = document.createElement('span');
             // salary.textContent = job.salary + " lei";
 
-            const contactUs = document.createElement('button');
-            contactUs.className = "solid-button";
-            contactUs.textContent= "Add to project"
+            const applyButton = document.createElement('button');
+            applyButton.className = "solid-button";
+            applyButton.textContent= "Apply"
+
+            const detailsButton = document.createElement('a');
+            detailsButton.href = `adpage.html?id=${job.id_add}`;
+            detailsButton.textContent = "View more";
 
             // info.appendChild(salary);
-            info.appendChild(contactUs);
+            info.appendChild(applyButton);
+            info.appendChild(detailsButton);
 
             announcement.appendChild(info);
 

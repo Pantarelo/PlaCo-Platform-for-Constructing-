@@ -1,10 +1,7 @@
 import {createServer} from "node:http";
-import { createJobAnnouncement, getAllJobs } from "./controllers/jobController.js";
 import { createAccount, authenticate, userLogout } from "./controllers/authController.js";
-import { createAdClient, getClientAds } from "./controllers/addClientController.js"
+import { createAdClient, getClientAds,getAllAds, getAdById } from "./controllers/adClientController.js"
 import {getClients, getWorkers} from "./controllers/userController.js";
-import { getConnectionDb } from "./utils/getConnectionDb.js";
-import authMiddleware from "./middleware/authMiddleware.js";
 import corsMiddleware from "./middleware/crosMiddleware.js"
 import dotenv from "dotenv"
 import jwt from 'jsonwebtoken';
@@ -21,14 +18,6 @@ const server = createServer(async (req,res) => {
         else if(req.url === "/api/user/client" && req.method === "GET")
         {
             getClients(req,res);
-        }
-        else if(req.url === "/api/jobs" && req.method === "GET")
-        {
-            getAllJobs(req,res);   
-        }
-        else if(req.url === "/api/createJobAd" && req.method === "POST")
-        {
-            createJobAnnouncement(req,res);
         }
         else if (req.url === "/api/register" && req.method === "POST")
         {
@@ -56,11 +45,19 @@ const server = createServer(async (req,res) => {
                 res.end(JSON.stringify({ error: 'Invalid token.' }));
             }
         }
+        else if(req.url === "/api/client/ads" && req.method === "GET")
+        {
+            getAllAds(req,res);
+        }
         else if (req.url === "/api/client" && req.method === "POST") {
             createAdClient(req, res);
         }
         else if (req.url === "/api/client" && req.method === "GET") {
             getClientAds(req, res);
+        }
+        else if(req.url.startsWith("/api/ad/") && req.method === "GET") {
+            const id = req.url.split("/")[3];
+            getAdById(req,res,id);
         }
         else 
         {

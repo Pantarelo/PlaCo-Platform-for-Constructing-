@@ -1,10 +1,12 @@
 import {getBodyData} from "../utils/getBodyData.js"
-import { addAd, getAdsByClientId } from "../models/addClientModel.js"
+import { addAd, getAdsByClientId, getAllClientAds, getClientAdById } from "../models/adClientModel.js"
 import jwt from 'jsonwebtoken';
 
 async function createAdClient(req, res) {
     try {
         const {title, description, category, img} = await getBodyData(req);
+
+        console.log(img);
         
         if (!req.headers.authorization) {
             throw new Error('Authorization header missing');
@@ -56,4 +58,32 @@ async function getClientAds(req, res) {
     }
 }
 
-export { createAdClient, getClientAds };
+async function getAllAds(req, res) {
+    try {
+        const ads = await getAllClientAds();
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(ads));
+    } catch (error) {
+        console.error("Eroare la obtinerea anunturilor: ", error);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Nu s-au putut obtine anunturile' }));
+    }
+}
+
+async function getAdById(req, res, id) {
+    try {
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+        const ad = await getClientAdById(id);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(ad));
+    } catch (error) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Nu s-a putut obtine anuntul!' }));
+    }
+}
+
+export { createAdClient, getClientAds, getAllAds, getAdById };
