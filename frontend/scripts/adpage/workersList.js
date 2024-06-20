@@ -1,5 +1,5 @@
-const workerList = document.getElementById('list')
 
+const workerList = document.getElementById('list')
 
 for(let i = 0 ; i < 10; i++) {
     const workerContainer = document.createElement('div');

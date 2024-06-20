@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         ads.forEach((ad, index) => {
             const adElement = document.createElement('div');
             adElement.className = "ad";
-            adElement.id = ad.id;
+            adElement.id = ad.id_add;
 
             const imgAd = document.createElement('img');
             imgAd.className = "img_ad";
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const viewButton = document.createElement('a');
             viewButton.className = "solid-button";
             viewButton.innerText = "View";
-            viewButton.href = `./adpage.html?id=${ad.id}`;
+            viewButton.href = `./adpage.html?id=${adElement.id}`;
 
             adElement.appendChild(imgAd);
             adElement.appendChild(titleAd);
