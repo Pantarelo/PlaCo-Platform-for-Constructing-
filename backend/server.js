@@ -1,11 +1,7 @@
 import {createServer} from "node:http";
 import { createAccount, authenticate, userLogout } from "./controllers/authController.js";
-import { createAdClient, getClientAds,getAllAds, getAdById } from "./controllers/adClientController.js"
-import {getClients, getWorkers} from "./controllers/userController.js";
-import { createAdClient, getClientAds } from "./controllers/addClientController.js"
+import { createAdClient, getClientAds,getAllAds, getAdById } from "./controllers/adClientController.js";
 import {getClients, getWorkers, changePassword} from "./controllers/userController.js";
-import { getConnectionDb } from "./utils/getConnectionDb.js";
-import authMiddleware from "./middleware/authMiddleware.js";
 import corsMiddleware from "./middleware/crosMiddleware.js"
 import dotenv from "dotenv"
 import jwt from 'jsonwebtoken';
