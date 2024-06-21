@@ -1,4 +1,4 @@
-import { details, getDetailsById } from "../models/workerModel.js";
+import { details, getDetailsById, skills, getSkillsById } from "../models/workerModel.js";
 import { getBodyData } from "../utils/getBodyData.js";
 import jwt from 'jsonwebtoken';
 
@@ -53,4 +53,55 @@ async function getDetails(req, res) {
     }
 }
 
-export { putDetails, getDetails };
+async function newSkill(req, res) {
+    try {
+        const {category, description, img} = await getBodyData(req);
+
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+
+        const token = req.headers.authorization.split(' ')[1];
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        const id_client = decodedToken.id;
+
+        const addSkill = {
+            category, 
+            description,
+            img,
+            id_client
+        }
+
+        const valid = await skills(addSkill);
+
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Skill adaugat cu succes', valid }));
+    } catch (error) {
+        res.writeHead(400, {"Content-Type" : "application/json"});
+        res.end(JSON.stringify({message: "Eroare in adaugarea acestui skill!"}));
+    }
+}
+
+async function getSkills(req, res) {
+    try{
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+
+        const token = req.headers.authorization.split(' ')[1];
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        const id_client = decodedToken.id;
+
+        const detail = await getSkillsById(id_client);
+        console.log("Worker skills:", detail);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(detail));
+    } catch(error) {
+        console.error("Eroare la obtinerea detaliilor: ", error);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Nu s-au putut obtine skill-urile' }));
+    }
+}
+
+export { putDetails, getDetails, newSkill, getSkills };
