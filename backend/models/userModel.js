@@ -12,7 +12,7 @@ function getAllWorkers() {
                 
                 console.log("The connection was established!")
 
-                const query = `SELECT * FROM public."User" WHERE TYPE='1';` 
+                const query = `SELECT * FROM public."User" WHERE TYPE='2';` 
                 const res = await client.query(query);
 
                 resolve(res.rows);
@@ -45,7 +45,7 @@ function getAllClients() {
                 
                 console.log("The connection was established!")
 
-                const query = `SELECT * FROM public."User" WHERE TYPE='2';` 
+                const query = `SELECT * FROM public."User" WHERE TYPE='1';` 
                 const res = await client.query(query);
 
                 resolve(res.rows);

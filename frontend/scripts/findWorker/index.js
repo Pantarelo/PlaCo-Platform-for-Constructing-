@@ -32,14 +32,18 @@ getAllJobs("http://localhost:3000/api/user/worker").then((data)=> {
              * img, name, description
              */
 
+            const description = document.createElement('p');
+            description.textContent = worker.id;
+
             view.appendChild(img);
-            // infoContainer.appendChild(title);
+            view.appendChild(description);
             // infoContainer.appendChild(description);
 
             // view.appendChild(infoContainer);
 
             const info = document.createElement('div');
             info.className = "info";
+            
 
             // const salary = document.createElement('span');
             // salary.textContent = worker.salary + " lei";

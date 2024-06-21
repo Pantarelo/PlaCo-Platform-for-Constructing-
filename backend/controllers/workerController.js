@@ -53,4 +53,21 @@ async function getDetails(req, res) {
     }
 }
 
-export { putDetails, getDetails };
+async function getDetailsByPathParam(req, res, id) {
+    try {
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+        
+        const detail = await getDetailsById(id);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(detail));
+
+    } catch (error) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Nu s-au putut obtine detaliile' }));
+    }
+}
+
+export { putDetails, getDetails, getDetailsByPathParam };
