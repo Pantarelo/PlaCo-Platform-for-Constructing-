@@ -53,6 +53,23 @@ async function getDetails(req, res) {
     }
 }
 
+async function getDetailsByPathParam(req, res, id) {
+    try {
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+        
+        const detail = await getDetailsById(id);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(detail));
+
+    } catch (error) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Nu s-au putut obtine detaliile' }));
+    }
+}
+
 async function newSkill(req, res) {
     try {
         const {category, description, img} = await getBodyData(req);
@@ -104,4 +121,4 @@ async function getSkills(req, res) {
     }
 }
 
-export { putDetails, getDetails, newSkill, getSkills };
+export { putDetails, getDetails, newSkill, getSkills , getDetailsByPathParam };
