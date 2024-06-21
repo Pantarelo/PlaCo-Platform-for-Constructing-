@@ -2,6 +2,7 @@
 @import "./skills.css";
 @import "./comments.css";
 @import "./../global.css";
+@import "./../common/button.css";
 
 #public_profile {
     height: 100%;
