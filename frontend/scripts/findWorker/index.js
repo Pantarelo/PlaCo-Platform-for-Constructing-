@@ -23,26 +23,20 @@ getAllJobs("http://localhost:3000/api/user/worker").then((data)=> {
             profile.appendChild(view);
             
             const img = document.createElement('img');
-            let imgUrl = "/";
 
-            img.src= imgUrl;
+            // img.src= worker.img != null ? worker.img : "../../assets/logo.png";
+            img.src = "../assets/images/logo.png";
             img.alt="img";
-
-            const infoContainer = document.createElement('div');
-            infoContainer.className = "info-container";
-
-            const title = document.createElement('h1');
-            title.textContent = worker.title;
-            title.className = "title"
             
-            const description = document.createElement('p');
-            description.textContent = worker.description;
+            /**
+             * img, name, description
+             */
 
             view.appendChild(img);
-            infoContainer.appendChild(title);
-            infoContainer.appendChild(description);
+            // infoContainer.appendChild(title);
+            // infoContainer.appendChild(description);
 
-            view.appendChild(infoContainer);
+            // view.appendChild(infoContainer);
 
             const info = document.createElement('div');
             info.className = "info";
@@ -50,12 +44,13 @@ getAllJobs("http://localhost:3000/api/user/worker").then((data)=> {
             // const salary = document.createElement('span');
             // salary.textContent = worker.salary + " lei";
 
-            const contactUs = document.createElement('button');
-            contactUs.className = "solid-button";
-            contactUs.textContent= "Add to project"
+            const notifyWorker = document.createElement('a');
+            notifyWorker.className = "solid-button";
+            notifyWorker.href=`public_worker_profile.html?id=${worker.id}`;
+            notifyWorker.textContent= "View profile"
 
             // info.appendChild(salary);
-            info.appendChild(contactUs);
+            info.appendChild(notifyWorker);
 
             profile.appendChild(info);
 
