@@ -1,5 +1,9 @@
 import { getConnectionDb } from "../utils/getConnectionDb.js";
 
+function byteArrayToBase64(byteArray) {
+    return Buffer.from(byteArray).toString('base64');
+}
+
 function details(addDetails) {
     return new Promise(async (resolve, reject) => {
         try {
@@ -76,4 +80,62 @@ function getDetailsById(id_client) {
     })
 }
 
-export { details, getDetailsById };
+function skills(addSkill) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const addDB = await getConnectionDb();
+            const { category, description, img, id_client } = addSkill;
+
+            addDB.connect()
+                .then(async () => {
+
+                    const text = `INSERT INTO public."WorkerSkills" (img, category, description, id_client) VALUES ($1, $2, $3, $4) RETURNING *`;
+                    const values = [img, category, description, id_client];
+                    const insertedProfile = await addDB.query(text, values);
+                    console.log(insertedProfile.rows[0]);
+                        
+                    resolve("Operation successful");
+                    await addDB.end();
+                })
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+function getSkillsById(id_client) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const adDB = await getConnectionDb();
+
+            adDB.connect()
+            .then(async () => {
+
+                const query = `SELECT * FROM public."WorkerSkills" WHERE id_client = $1`;
+                const values = [id_client];
+
+                const res = await adDB.query(query, values);
+                
+                if (res.rows.length === 0) {
+                    reject(new Error('No details found for the given client ID'));
+                    return;
+                }
+
+                const skills = res.rows.map(ad => ({
+                    ...ad,
+                    img: ad.img ? `data:image/png;base64,${byteArrayToBase64(ad.img)}` : null
+                }));
+    
+                await adDB.end();
+    
+                resolve(skills);
+
+            })
+        } catch(error) {
+            reject(error);
+        }
+    })
+}
+
+
+export { details, getDetailsById, skills, getSkillsById };
