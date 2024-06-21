@@ -59,18 +59,18 @@
         <section id="skills">
           <h1 style="margin-bottom: 50px;">Skills</h1>
           <div id="skills_list">
-              <script src="../scripts/publicWorkerProfile/skills.js"></script>
-              <div class="skill">
+              <script type="module" src="../scripts/workerSkills/getSkills.js"></script>
+              <!-- <div class="skill">
                   <h2>Category</h2>
                   <p>Description</p>
-              </div>
+              </div> -->
           </div>
         </section>
 
         <div id="new_skill_section">
-          <input class="input-text" placeholder="Add category">
-          <textarea class="input-text textarea-style" placeholder="Add a description"></textarea>
-          <input id="upload-photo" class="input-upload-photo" type="file" accept="image/*">
+          <input class="input-text" placeholder="Add category" id="category-input">
+          <textarea class="input-text textarea-style" placeholder="Add a description" id="skills-description-input"></textarea>
+          <input id="skills-upload-photo" class="input-upload-photo" type="file" accept="image/*">
           </label>
           
           <button id="new_skill" class="solid-button">Add new skill</button>
@@ -119,6 +119,8 @@
       <script type="module" src="../scripts/changePass/worker/index.js"></script>
       <script type="module" src="../scripts/workerDetails/getDetails.js"></script>
       <script type="module" src="../scripts/workerDetails/index.js"></script>
+      <script type="module" src="../scripts/workerSkills/postSkill.js"></script>
+      <script type="module" src="../scripts/workerSkills/getSkills.js"></script>
 
       <script>
         function openPage(pageName,elmnt) {
