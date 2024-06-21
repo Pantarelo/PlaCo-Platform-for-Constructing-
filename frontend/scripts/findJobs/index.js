@@ -51,17 +51,14 @@ getAllJobs("http://localhost:3000/api/client/ads").then((data)=> {
             // const salary = document.createElement('span');
             // salary.textContent = job.salary + " lei";
 
-            const applyButton = document.createElement('button');
+            const applyButton = document.createElement('a');
             applyButton.className = "solid-button";
-            applyButton.textContent= "Apply"
-
-            const detailsButton = document.createElement('a');
-            detailsButton.href = `adpage.html?id=${job.id_add}`;
-            detailsButton.textContent = "View more";
+            applyButton.href = `public_adpage.html?id=${job.id_add}`;
+            applyButton.textContent= "View more";
 
             // info.appendChild(salary);
             info.appendChild(applyButton);
-            info.appendChild(detailsButton);
+            // info.appendChild(detailsButton);
 
             announcement.appendChild(info);
 

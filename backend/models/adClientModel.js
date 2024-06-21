@@ -103,7 +103,6 @@ function getClientAdById(adId) {
                     ...ad,
                     img: ad.img ? `data:image/png;base64,${byteArrayToBase64(ad.img)}` : null
                 }));
-                console.log(ads);
 
                 resolve(ads);
 

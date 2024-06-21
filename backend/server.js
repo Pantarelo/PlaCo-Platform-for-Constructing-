@@ -6,6 +6,7 @@ import {putDetails, getDetails} from "./controllers/workerController.js";
 import corsMiddleware from "./middleware/crosMiddleware.js";
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken';
+import { createNewWorkOffer } from "./controllers/offerController.js";
 
 //env.config();
 dotenv.config();
@@ -75,6 +76,9 @@ const server = createServer(async (req,res) => {
         else if(req.url.startsWith("/api/ad/") && req.method === "GET") {
             const id = req.url.split("/")[3];
             getAdById(req,res,id);
+        }
+        else if(req.url === "/api/offer" && req.method === "PUT") {
+            createNewWorkOffer(req,res);
         }
         else 
         {
