@@ -49,8 +49,8 @@
       <script src="../scripts/dragAndDrop.js"></script>
       <div id="update_details">
         <input class="input-text" id="contact" style="color: black;" placeholder="Add contact">
-        <textarea placeholder="Add description" class="input-text textarea-style"></textarea>
-        <button class="solid-button">Save changes</button>
+        <textarea placeholder="Add description" class="input-text textarea-style" id="description-input"></textarea>
+        <button class="solid-button" id="saveButton">Save changes</button>
       </div>
     </div>
 
@@ -117,6 +117,8 @@
       </div>
 
       <script type="module" src="../scripts/changePass/worker/index.js"></script>
+      <script type="module" src="../scripts/workerDetails/getDetails.js"></script>
+      <script type="module" src="../scripts/workerDetails/index.js"></script>
 
       <script>
         function openPage(pageName,elmnt) {

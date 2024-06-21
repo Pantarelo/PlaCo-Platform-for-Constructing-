@@ -6,7 +6,7 @@ async function createAdClient(req, res) {
     try {
         const {title, description, category, img} = await getBodyData(req);
 
-        console.log(img);
+        //console.log(img);
         
         if (!req.headers.authorization) {
             throw new Error('Authorization header missing');
