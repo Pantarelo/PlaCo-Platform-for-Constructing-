@@ -10,17 +10,12 @@ function details(addDetails) {
             const addDB = await getConnectionDb();
             const { contact, description, img, id_client } = addDetails;
 
-            //console.log("Asta e imaginea" + img);
-
             const imgBuffer = Buffer.from(img, 'base64');
-
-            //console.log("Asta e imaginea cu buffer" + imgBuffer);
 
             addDB.connect()
                 .then(async () => {
                     try {
                         const res = await addDB.query('SELECT 1 FROM public."WorkerDetails" WHERE id_client = $1', [id_client]);
-                        //console.log(res);
 
                         if (res.rows.length > 0) {
                             await addDB.query(
@@ -70,8 +65,6 @@ function getDetailsById(id_client) {
                 const workerDetails = res.rows[0];
                 const imgBase64 = workerDetails.img.toString('base64');
 
-                //console.log("Asta e imaginea din GET" + imgBase64);
-
                 const details = {
                     ...workerDetails,
                     img: imgBase64
@@ -94,13 +87,14 @@ function skills(addSkill) {
             const addDB = await getConnectionDb();
             const { category, description, img, id_client } = addSkill;
 
+            const imgBuffer = Buffer.from(img, 'base64');
+
             addDB.connect()
                 .then(async () => {
 
                     const text = `INSERT INTO public."WorkerSkills" (img, category, description, id_client) VALUES ($1, $2, $3, $4) RETURNING *`;
-                    const values = [img, category, description, id_client];
+                    const values = [imgBuffer, category, description, id_client];
                     const insertedProfile = await addDB.query(text, values);
-                    console.log(insertedProfile.rows[0]);
                         
                     resolve("Operation successful");
                     await addDB.end();
@@ -129,9 +123,9 @@ function getSkillsById(id_client) {
                     return;
                 }
 
-                const skills = res.rows.map(ad => ({
-                    ...ad,
-                    img: ad.img ? `data:image/png;base64,${byteArrayToBase64(ad.img)}` : null
+                const skills = res.rows.map(workerSkill => ({
+                    ...workerSkill,
+                    img: workerSkill.img ? workerSkill.img.toString('base64') : null
                 }));
     
                 await adDB.end();

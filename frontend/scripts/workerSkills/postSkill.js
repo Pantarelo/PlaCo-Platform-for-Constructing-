@@ -26,18 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const categoryText = category.value;
         const detailsText = details.value;
-        const imgText = img.files[0];
+        const imgFile = img.files[0];
 
-        const binaryImg = new Blob([imgText], {type: imgText.type});
+        if(categoryText && detailsText && imgFile) {
+            const reader = new FileReader();
 
-        if(categoryText && detailsText && imgText) {
-            const data = {
-                "category": categoryText,
-                "description": detailsText,
-                "img": binaryImg
-            }
+            reader.onloadend = async () => {
 
-            const res = await skillsWorker("http://localhost:3000/api/worker/skills", data);
+                const imgBase64 = reader.result.split(',')[1];
+
+                const data = {
+                    "category": categoryText,
+                    "description": detailsText,
+                    "img": imgBase64
+                }
+
+                const res = await skillsWorker("http://localhost:3000/api/worker/skills", data);
+            };
+            reader.readAsDataURL(imgFile);
         }
     })
 });

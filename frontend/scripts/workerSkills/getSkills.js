@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const imgSkill = document.createElement('img');
             imgSkill.className = "img-skill";
-            imgSkill.innerText = skill.img;
+            imgSkill.src = `data:image/jpeg;base64,${skill.img}`;
+            imgSkill.style.width = "100%";
 
             skillElement.appendChild(categorySkill);
             skillElement.appendChild(descriptionSkill);
