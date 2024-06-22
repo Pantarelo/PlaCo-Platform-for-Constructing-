@@ -19,13 +19,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function populateAds(ads) {
         ads.forEach((ad, index) => {
+            
             const adElement = document.createElement('div');
             adElement.className = "ad";
             adElement.id = ad.id_add;
 
             const imgAd = document.createElement('img');
             imgAd.className = "img_ad";
-            imgAd.src = ad.img;  
+            imgAd.src = `data:image/jpeg;base64,${ad.img}`; 
 
             const titleAd = document.createElement('h1');
             titleAd.className = "title_ad";

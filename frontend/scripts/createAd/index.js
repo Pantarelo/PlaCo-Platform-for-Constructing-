@@ -32,20 +32,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const categoryText = category.value;
         const imageInput = addPhoto.files[0];
 
-        const binaryImg = new Blob([imageInput], {type: imageInput.type});
-
-
         if(titleText && descriptionText && categoryText && imageInput) {
-            const data = {
-                "title": titleText,
-                "description": descriptionText,
-                "category": categoryText,
-                "img" : binaryImg
-            }
+            const reader = new FileReader();
 
-            // console.log(data.img);
+            reader.onloadend = async () => {
 
-            const res = await createNewAd("http://localhost:3000/api/client", data);
+                const imgBase64 = reader.result.split(',')[1];
+
+                const data = {
+                    "title": titleText,
+                    "description": descriptionText,
+                    "category": categoryText,
+                    "img" : imgBase64
+                }
+
+                const res = await createNewAd("http://localhost:3000/api/client", data);
+            };
+            reader.readAsDataURL(imageInput);
         }
     })
 });
