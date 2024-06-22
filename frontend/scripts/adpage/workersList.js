@@ -40,33 +40,49 @@ document.addEventListener("DOMContentLoaded", async () => {
         const workerOffer = document.createElement('span');
         workerOffer.className = "worker_offer";
         workerOffer.innerText = offer.offerValue;
-    
-        const divButtons = document.createElement('div');
-    
-        const iconAccept = document.createElement('i');
-        iconAccept.className = "fa-solid fa-circle-check fa-2xl";
-        iconAccept.style = "color: #ffffff;"
-    
-        const acceptButton = document.createElement('button');
-        acceptButton.className = "accept_button";
-        acceptButton.appendChild(iconAccept);
-    
-    
-        const iconReject = document.createElement('i');
-        iconReject.style = "color: #ffffff;"
-        iconReject.className ="fa-solid fa-eraser fa-2xl";
-    
-        const rejectButton = document.createElement('button'); 
-    
-        rejectButton.className = "reject_button";
-        rejectButton.appendChild(iconReject);
-    
-        divButtons.appendChild(acceptButton);
-        divButtons.appendChild(rejectButton);
-    
+
+        
         workerContainer.appendChild(anchorTag);
         workerContainer.appendChild(workerOffer);
-        workerContainer.appendChild(divButtons);
+    
+        const divButtons = document.createElement('div');
+        if(offer.offerValue !== null) {
+        
+            const iconAccept = document.createElement('i');
+            iconAccept.className = "fa-solid fa-circle-check fa-2xl";
+            iconAccept.style = "color: #ffffff;"
+        
+            const acceptButton = document.createElement('button');
+            acceptButton.className = "accept_button";
+            acceptButton.appendChild(iconAccept);
+        
+        
+            const iconReject = document.createElement('i');
+            iconReject.style = "color: #ffffff;"
+            iconReject.className ="fa-solid fa-eraser fa-2xl";
+        
+            const rejectButton = document.createElement('button'); 
+        
+            rejectButton.className = "reject_button";
+            rejectButton.appendChild(iconReject);
+        
+            divButtons.appendChild(acceptButton);
+            divButtons.appendChild(rejectButton);
+            workerContainer.appendChild(divButtons);
+        }
+        else {
+            const iconPending = document.createElement('i');
+            iconPending.style = "color: #ffffff;"
+            iconPending.className ="fa-solid fa-clock fa-2xl";
+        
+            const pendingButton = document.createElement('button');
+        
+            pendingButton.className = "pending_button";
+            pendingButton.appendChild(iconPending);
+        
+            divButtons.appendChild(pendingButton);
+            workerContainer.appendChild(divButtons);
+        }
     
         workerList.appendChild(workerContainer);
     })
