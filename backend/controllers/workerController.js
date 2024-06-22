@@ -121,4 +121,20 @@ async function getSkills(req, res) {
     }
 }
 
-export { putDetails, getDetails, newSkill, getSkills , getDetailsByPathParam };
+async function getSkillsByWorkerId(req, res, id) {
+    try {
+        if(!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+
+        const skills = await getSkillsById(id);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(skills));
+    } catch (error) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Nu s-au putut obtine skill-urile' }));
+    }
+}
+
+export { putDetails, getDetails, newSkill, getSkills , getDetailsByPathParam, getSkillsByWorkerId };

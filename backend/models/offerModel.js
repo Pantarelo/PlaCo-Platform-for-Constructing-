@@ -4,14 +4,14 @@ function createNewOffer(offer) {
     return new Promise(async (resolve,reject) => {
         try {
             const db = await getConnectionDb();
-            const {idWorker, idAd, offerValue, pending} = offer;
+            const {idWorker, idAd, offerValue} = offer;
 
             // console.log(idWorker);  
 
             db.connect().then(
                 async () => {
-                    const query = `INSERT INTO public."WorkersOffers" ("idAd", "idWorker", "offerValue", pending) VALUES ($1, $2, $3, $4) RETURNING *`;
-                    const values = [idAd, idWorker,offerValue,pending];
+                    const query = `INSERT INTO public."WorkersOffers" ("idAd", "idWorker", "offerValue") VALUES ($1, $2, $3) RETURNING *`;
+                    const values = [idAd, idWorker,offerValue];
 
                     const res = await db.query(query,values);
 
@@ -27,4 +27,25 @@ function createNewOffer(offer) {
     })
 }
 
-export {createNewOffer};
+function getOffers(idAd) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const db = await getConnectionDb();
+
+            db.connect()
+            .then(async ()=> {
+                const query = `SELECT * from public."WorkersOffers" where "idAd"=${idAd};`;
+
+                const res = await db.query(query);
+
+                resolve(res.rows);
+            })
+            .catch((error) => console.log(error)) 
+        } catch (error) {
+            console.log(error);
+            reject(error);
+        }
+    })
+}
+
+export {createNewOffer, getOffers};
