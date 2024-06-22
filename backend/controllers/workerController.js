@@ -6,6 +6,8 @@ async function putDetails(req, res) {
     try {
         const {contact, description, img} = await getBodyData(req);
 
+        //console.log(contact + " " + description + " " + img);
+
         if (!req.headers.authorization) {
             throw new Error('Authorization header missing');
         }
@@ -42,7 +44,7 @@ async function getDetails(req, res) {
         const id_client = decodedToken.id;
 
         const detail = await getDetailsById(id_client);
-        console.log("Worker details:", detail);
+        //console.log("Worker details:", detail);
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(detail));
@@ -110,7 +112,7 @@ async function getSkills(req, res) {
         const id_client = decodedToken.id;
 
         const detail = await getSkillsById(id_client);
-        console.log("Worker skills:", detail);
+        //console.log("Worker skills:", detail);
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(detail));
