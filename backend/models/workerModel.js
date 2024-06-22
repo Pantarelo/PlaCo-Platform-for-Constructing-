@@ -145,5 +145,25 @@ function getSkillsById(id_client) {
     })
 }
 
+function getAllWorkers() {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const client = await getConnectionDb();
 
-export { details, getDetailsById, skills, getSkillsById };
+            client.connect()
+            .then(async () => {
+                const query = `SELECT * FROM public."WorkerDetails";`;
+                const res = await client.query(query);
+
+                resolve(res.rows);
+
+                await client.end();
+            })
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
+
+export { details, getDetailsById, skills, getSkillsById, getAllWorkers };

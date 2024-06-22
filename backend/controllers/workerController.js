@@ -1,4 +1,4 @@
-import { details, getDetailsById, skills, getSkillsById } from "../models/workerModel.js";
+import { details, getDetailsById, skills, getSkillsById, getAllWorkers } from "../models/workerModel.js";
 import { getBodyData } from "../utils/getBodyData.js";
 import jwt from 'jsonwebtoken';
 
@@ -139,4 +139,16 @@ async function getSkillsByWorkerId(req, res, id) {
     }
 }
 
-export { putDetails, getDetails, newSkill, getSkills , getDetailsByPathParam, getSkillsByWorkerId };
+async function getWorkersWithDetails(req, res) {
+    try {
+        const workers = await getAllWorkers();
+
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(JSON.stringify(workers));
+    } catch (error) {
+        res.writeHead(400, {"Content-Type" : "application/json"});
+        res.end(JSON.stringify({message: "Workers was not find!"}));
+    }
+}
+
+export { getWorkersWithDetails, putDetails, getDetails, newSkill, getSkills , getDetailsByPathParam, getSkillsByWorkerId };
