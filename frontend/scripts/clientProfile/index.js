@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function populateAds(ads) {
         ads.forEach((ad, index) => {
+            
             const adElement = document.createElement('div');
             adElement.className = "ad";
             adElement.id = ad.id_add;
