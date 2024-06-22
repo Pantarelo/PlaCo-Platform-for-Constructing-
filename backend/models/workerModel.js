@@ -10,20 +10,26 @@ function details(addDetails) {
             const addDB = await getConnectionDb();
             const { contact, description, img, id_client } = addDetails;
 
+            //console.log("Asta e imaginea" + img);
+
+            const imgBuffer = Buffer.from(img, 'base64');
+
+            //console.log("Asta e imaginea cu buffer" + imgBuffer);
+
             addDB.connect()
                 .then(async () => {
                     try {
                         const res = await addDB.query('SELECT 1 FROM public."WorkerDetails" WHERE id_client = $1', [id_client]);
-                        console.log(res);
+                        //console.log(res);
 
                         if (res.rows.length > 0) {
                             await addDB.query(
                                 'UPDATE public."WorkerDetails" SET img = $1, contact = $2, description = $3 WHERE id_client = $4',
-                                [img, contact, description, id_client]
+                                [imgBuffer, contact, description, id_client]
                             );
                         } else {
                             const text = `INSERT INTO public."WorkerDetails" (img, contact, description, id_client) VALUES ($1, $2, $3, $4) RETURNING *`;
-                            const values = [img, contact, description, id_client];
+                            const values = [imgBuffer, contact, description, id_client];
                             const insertedProfile = await addDB.query(text, values);
                         }
 
@@ -62,7 +68,9 @@ function getDetailsById(id_client) {
                 }
 
                 const workerDetails = res.rows[0];
-                const imgBase64 = workerDetails.img ? workerDetails.img.toString('base64') : null;
+                const imgBase64 = workerDetails.img.toString('base64');
+
+                //console.log("Asta e imaginea din GET" + imgBase64);
 
                 const details = {
                     ...workerDetails,
