@@ -11,11 +11,13 @@ function addAd(add) {
 
             const { title, description, category, id_client, img } = add;
 
+            const imgBuffer = Buffer.from(img, 'base64');
+
             addDB.connect()
             .then(async () => {
 
                 const query = `INSERT INTO public."ClientAdd" (title, description, category, id_client, img) VALUES ($1, $2, $3, $4, $5) RETURNING *`;
-                const values = [title, description, category, id_client, img];
+                const values = [title, description, category, id_client, imgBuffer];
 
                 const res = await addDB.query(query, values);
                 const newAd = res.rows[0];
@@ -43,12 +45,11 @@ function getAdsByClientId(id_client) {
                 const values = [id_client];
 
                 const res = await adDB.query(query, values);
-                //const ads = res.rows;
+            
                 const ads = res.rows.map(ad => ({
                     ...ad,
-                    img: ad.img ? `data:image/png;base64,${byteArrayToBase64(ad.img)}` : null
+                    img: ad.img ? ad.img.toString('base64') : null
                 }));
-                console.log(ads);
 
                 await adDB.end();
 

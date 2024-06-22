@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const imgAd = document.createElement('img');
             imgAd.className = "img_ad";
-            imgAd.src = ad.img;  
+            imgAd.src = `data:image/jpeg;base64,${ad.img}`; 
 
             const titleAd = document.createElement('h1');
             titleAd.className = "title_ad";
