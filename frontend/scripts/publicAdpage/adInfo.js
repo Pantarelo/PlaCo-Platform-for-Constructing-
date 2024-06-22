@@ -28,8 +28,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const makeOffer = async () => {
         const idAd = searchParams.get('id');
         const idWorker = getCookie('userId');
-        const pending = false;
-        console.log(offer);
         const offerValue = parseInt(offer.value);
 
         console.log(offerValue);
@@ -38,7 +36,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             "idAd" : idAd,
             "idWorker": idWorker,
             "offerValue": offerValue,
-            "pending" : pending
         }
 
         const response = await fetch(`http://localhost:3000/api/offer`, {
@@ -49,13 +46,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 'Authorization': `Bearer ${token}`
             }
         })
-
-        console.log(response);
     }
 
     const adInfo = await getAdInfo();
 
-    console.log(adInfo);
     description.textContent = adInfo[0].description;
     title.textContent = adInfo[0].title;
 

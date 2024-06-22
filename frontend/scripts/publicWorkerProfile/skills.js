@@ -1,22 +1,53 @@
+import { getCookie } from "../utils/cookies.js";
+
 const skillsList = document.getElementById("skills_list");
 
-for(let i = 0; i < 5; i++) {
-    const skill = document.createElement('div');
-    skill.className = "skill"
+document.addEventListener("DOMContentLoaded", async () => {
 
-    const category = document.createElement('h2');
-    category.innerText = "Category";
+    const searchParams = new URLSearchParams(window.location.search);
+    const workerId = searchParams.get("id");
+    const token = getCookie("token");
 
-    const description = document.createElement('p');
-    description.innerText = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem hic sint quia. Obcaecati quaerat accusamus alias nostrum molestias praesentium dignissimos quibusdam veniam, aliquid cumque, quis iusto animi placeat odit suscipit!"
+    const getSkills = async () => {
+        
+        const response = await fetch(`http://localhost:3000/api/worker/skills/${workerId}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
 
-    const img = document.createElement('img');
-    img.className = "workImg";
-    img.src="../assets/images/ad_4.jpg";
+        return response.json();
+    }
 
-    skill.appendChild(category);
-    skill.appendChild(description);
-    skill.appendChild(img);
+    const skills = await getSkills();
 
-    skillsList.appendChild(skill);
-}
+    console.log(skills);
+
+    skills.map((skill) => {
+        
+        const skillContainer = document.createElement('div');
+        skillContainer.className = "skill"
+        skillContainer.id = skill.id_client;
+
+        const category = document.createElement('h2');
+        category.innerText = skill.category;
+
+        const description = document.createElement('p');
+        description.innerText = skill.description;
+
+        const img = document.createElement('img');
+        img.className = "workImg";
+        img.src="../assets/images/ad_4.jpg";
+
+        skillContainer.appendChild(category);
+        skillContainer.appendChild(description);
+        skillContainer.appendChild(img);
+
+        skillsList.appendChild(skillContainer);
+    
+    })
+
+    
+})
