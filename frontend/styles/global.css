@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: roboto-slab;
-    /* src: url(/assets/fonts/RobotoSlab-VariableFont_wght.ttf); */
+    src: url(/frontend/assets/fonts/Montserrat-VariableFont_wght.ttf);
 }
 
 body {

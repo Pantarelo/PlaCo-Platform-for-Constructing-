@@ -1,8 +1,8 @@
 import {createServer} from "node:http";
 import { createAccount, authenticate, userLogout } from "./controllers/authController.js";
 import { createAdClient, getClientAds,getAllAds, getAdById } from "./controllers/adClientController.js";
-import { getClients, getWorkers, changePassword } from "./controllers/userController.js";
-import { putDetails, getDetails, newSkill, getSkills, getDetailsByPathParam, getSkillsByWorkerId } from "./controllers/workerController.js";
+import { getClients, changePassword } from "./controllers/userController.js";
+import { getWorkersWithDetails, putDetails, getDetails, newSkill, getSkills, getDetailsByPathParam, getSkillsByWorkerId } from "./controllers/workerController.js";
 import corsMiddleware from "./middleware/crosMiddleware.js";
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken';
@@ -15,7 +15,7 @@ const port = 3000;
 const server = createServer(async (req,res) => {
     corsMiddleware(req, res, () => {
         if(req.url === "/api/user/worker" && req.method === "GET") {
-            getWorkers(req,res);
+            getWorkersWithDetails(req,res);
         }
         else if(req.url === "/api/user/client" && req.method === "GET")
         {

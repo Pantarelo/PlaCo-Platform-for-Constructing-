@@ -60,7 +60,7 @@
     font-weight: bold;
 }
 
-.accept_button, .reject_button {
+.accept_button, .reject_button, .pending_button {
     cursor: pointer;
     height: 50px;
     width: 50px;
@@ -83,5 +83,13 @@
 }
 
 .reject_button:hover {
+    opacity: 90%;
+}
+
+.pending_button {
+    background-color: var(--dark-gray);
+}
+
+.pending_button:hover {
     opacity: 90%;
 }
