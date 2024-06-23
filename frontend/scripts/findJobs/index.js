@@ -23,10 +23,7 @@ getAllJobs("http://localhost:3000/api/client/ads").then((data)=> {
             announcement.appendChild(view);
             
             const img = document.createElement('img');
-            let imgUrl = "/";
-            // console.log(job.img);
-            // console.log(imgUrl);
-            img.src= imgUrl;
+            img.src= job.img;
             img.alt="img";
 
             const infoContainer = document.createElement('div');

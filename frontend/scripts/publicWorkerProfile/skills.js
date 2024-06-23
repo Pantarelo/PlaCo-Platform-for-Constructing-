@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const img = document.createElement('img');
         img.className = "workImg";
-        img.src="../assets/images/ad_4.jpg";
+        img.src= `data:image/jpeg;base64,${skill.img}`;
 
         skillContainer.appendChild(category);
         skillContainer.appendChild(description);
@@ -48,6 +48,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         skillsList.appendChild(skillContainer);
     
     })
-
-    
 })
