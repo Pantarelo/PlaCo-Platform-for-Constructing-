@@ -62,6 +62,31 @@ document.addEventListener("DOMContentLoaded", async () => {
             iconReject.className ="fa-solid fa-eraser fa-2xl";
         
             const rejectButton = document.createElement('button'); 
+            rejectButton.onclick = async () => {
+                await fetch(`http://localhost:3000/api/offer/${offer.idOffer}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                }).then( async ()  => {   
+                    await fetch(`http://localhost:3000/api/notifications`, {
+                    
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            worker_id: offer.idWorker,
+                            created_at: new Date(),
+                            accepted_status: false
+                        })
+                    })
+                    window.location.reload();
+                 })
+                 .catch((error) => { console.error('Error:', error); });
+            }
         
             rejectButton.className = "reject_button";
             rejectButton.appendChild(iconReject);
