@@ -30,7 +30,7 @@
       <button class="tablink" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
       <button class="tablink" onclick="openPage('DETAILS', this)" id="defaultOpen">DETAILS</button>
       <button class="tablink" onclick="openPage('SKILLS', this)">SKILLS</button>
-      <button class="tablink" onclick="openPage('MY_WORK', this)" id="defaultOpenHamburger">MY WORK</button>
+      <button class="tablink" onclick="openPage('MY_WORK', this)">MY WORK</button>
       <button class="tablink" onclick="openPage('NOTIFICATIONS', this)">NOTIFICATIONS</button>
       <button class="tablink" onclick="openPage('SETTING', this)">SETTINGS</button>
     </div>
@@ -60,10 +60,6 @@
           <h1 style="margin-bottom: 50px;">Skills</h1>
           <div id="skills_list">
               <script type="module" src="../scripts/workerSkills/getSkills.js"></script>
-              <!-- <div class="skill">
-                  <h2>Category</h2>
-                  <p>Description</p>
-              </div> -->
           </div>
         </section>
 
@@ -85,7 +81,7 @@
           <i class='bx bx-search search_icon'></i>
         </div>
         <div id="ads_list" class="center_work all_mails">
-            <script src="./../scripts/clientProfile/index.js"></script>
+            <script type="module" src="./../scripts/workerWork/index.js"></script>
         </div>
         <button class="btn_help_work">Help</button>
       </div>

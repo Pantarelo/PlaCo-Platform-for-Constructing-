@@ -33,6 +33,7 @@ addProjectButton.addEventListener('click', async () => {
                     worker_id: workerId,
                     created_at: new Date(),
                     id_offer: data.offer.idOffer,
+                    ad_id: projectId
                 }),
             }).then(response => response.json())
             .then((data) => {

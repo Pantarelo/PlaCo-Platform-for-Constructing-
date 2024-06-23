@@ -6,8 +6,8 @@ import { getWorkersWithDetails, putDetails, getDetails, newSkill, getSkills, get
 import corsMiddleware from "./middleware/crosMiddleware.js";
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken';
-import { createNewWorkOffer, getAdOffersList, deleteOfferFromList } from "./controllers/offerController.js";
-import { getNotificationsController, createNewNotificationController } from "./controllers/notificationController.js";
+import { createNewWorkOffer, getAdOffersList, deleteOfferFromList, updateOfferStatus, updateOfferValueController, getWorkerWork } from "./controllers/offerController.js";
+import { getNotificationsController, createNewNotificationController, deleteNotificationAfterSendOffer } from "./controllers/notificationController.js";
 import { putReview, getReviewsById } from "./controllers/reviewController.js";
 
 //env.config();
@@ -24,6 +24,10 @@ const server = createServer(async (req,res) => {
         }
         else if(req.url === "/api/notifications" && req.method === "POST") {
             createNewNotificationController(req,res);
+        }
+        else if(req.url.startsWith("/api/notifications") && req.method === "DELETE") {
+            const id = req.url.split("/")[3];
+            deleteNotificationAfterSendOffer(req,res,id);
         }
         else if(req.url.startsWith("/api/review") && req.method === "POST") {
             const id = req.url.split("/")[3];
@@ -44,6 +48,10 @@ const server = createServer(async (req,res) => {
         else if(req.url === "/api/worker/details" && req.method === "GET")
         { 
             getDetails(req,res);
+        }
+        else if(req.url === "/api/worker/work" && req.method === "GET")
+        {
+            getWorkerWork(req,res);
         }
         else if(req.url.startsWith("/api/worker/details") && req.method === "GET")
         {
@@ -114,6 +122,9 @@ const server = createServer(async (req,res) => {
         else if(req.url === "/api/offer" && req.method === "PUT") {
             createNewWorkOffer(req,res);
         }
+        else if(req.url === "/api/offer/value" && req.method === "PATCH") {
+            updateOfferValueController(req,res);
+        }
         else if(req.url.startsWith("/api/offer") && req.method === "GET")
         {
             const id = req.url.split("/")[3];
@@ -123,6 +134,11 @@ const server = createServer(async (req,res) => {
         {
             const id = req.url.split("/")[3];
             deleteOfferFromList(req,res,id);   
+        }
+        else if(req.url.startsWith("/api/offer/accept") && req.method === "PATCH")
+        {
+            const id = req.url.split("/")[4];
+            updateOfferStatus(req,res,id);   
         }
         else 
         {
