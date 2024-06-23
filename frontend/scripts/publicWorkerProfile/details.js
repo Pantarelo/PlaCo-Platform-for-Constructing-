@@ -27,8 +27,7 @@ document.addEventListener("DOMContentLoaded" ,async () => {
 
     const details = await getWorkerDetails();
 
-    console.log(details);
-
     contact.textContent = details.contact;
     description.textContent = details.description;
+    workerImg.src = `data:image/jpeg;base64,${details.img}`;
 })
