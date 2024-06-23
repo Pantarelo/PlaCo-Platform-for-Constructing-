@@ -149,9 +149,14 @@ function getAllWorkers() {
                 const query = `SELECT * FROM public."WorkerDetails";`;
                 const res = await client.query(query);
 
-                resolve(res.rows);
+                const getWorkerDetails = res.rows.map(workerDetails => ({
+                    ...workerDetails,
+                    img: workerDetails.img ? workerDetails.img.toString('base64') : null
+                }))
 
                 await client.end();
+
+                resolve(getWorkerDetails);
             })
         } catch (error) {
             reject(error);

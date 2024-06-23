@@ -24,8 +24,8 @@ getAllJobs("http://localhost:3000/api/user/worker").then((data)=> {
             
             const img = document.createElement('img');
 
-            img.src = "../assets/images/logo.png";
-            img.alt="img";
+            img.src = worker.img ? `data:image/jpeg;base64,${worker.img}` : "../assets/images/logo.png";
+            img.alt = "img";
     
             view.appendChild(img);
 
