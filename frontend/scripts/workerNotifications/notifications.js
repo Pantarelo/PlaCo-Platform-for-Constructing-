@@ -42,10 +42,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         notificationTitle.classList.add("notification_title");
         notificationTitle.innerText = notification.id_offer ? "New Offer" : notification.accepted_status ? "Offer Accepted" : "Offer Rejected";
 
+        
         const notificationText = document.createElement("p");
         notificationText.classList.add("notification_text");
-        // notificationText.innerText = notification.id_offer ? "You received a new offer" : notification.accepted_status ? "Your offer has been accepted!" : "Your offer has been rejected.";
-        notificationText.innerText = notification.id_offer ? notification.id_offer : 0;
+        notificationText.innerText = notification.id_offer ? "You received a new offer! " : notification.accepted_status ? "Your offer has been accepted! " : "Your offer has been rejected! ";
+        
+        const pageLink = document.createElement("a");
+        pageLink.textContent = "View Ad";
+        pageLink.href = `/frontend/pages/public_adpage.html?id=${notification.ad_id}`;
+
+        notificationText.appendChild(pageLink);
         notificationContent.appendChild(notificationTitle);
         notificationContent.appendChild(notificationText);
 
@@ -55,12 +61,35 @@ document.addEventListener("DOMContentLoaded", async () => {
             const notificationOffer = document.createElement("input");
             notificationOffer.classList.add("notification_offer");
             notificationOffer.style.marginRight = "10px";
+            
 
             const notificationButton = document.createElement("button");
             notificationButton.classList.add("solid-button");
             notificationButton.innerText = "Send Offer";
-            notificationButton.addEventListener("click", () => {
-                // window.location.href = `/offer/${notification.id_offer}`;
+            notificationButton.addEventListener("click", async () => {
+                const offerDetails = {
+                    idOffer: notification.id_offer,
+                    offerValue: notificationOffer.value
+                };
+                await fetch("http://localhost:3000/api/offer/value", {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify(offerDetails)
+                }).then( async() => {
+                        await fetch(`http://localhost:3000/api/notifications/${notification.notification_id}`, {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${token}`
+                            }
+                        })
+
+                        window.location.reload();
+                    }
+                );
             });
 
             notificationDiv.appendChild(notificationOffer);

@@ -69,4 +69,68 @@ function deleteOffer(idOffer) {
     })
 }
 
-export {createNewOffer, getOffers, deleteOffer};
+function updateOfferAcceptedStatus(idOffer) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const db = await getConnectionDb();
+
+            db.connect()
+            .then(async () => {
+                const query = `UPDATE public."WorkersOffers" SET accepted_status=true WHERE "idOffer"=${idOffer} RETURNING *;`;
+
+                const res = await db.query(query);
+
+                resolve(res.rows[0]);
+            })
+            .catch((error) => console.log(error))
+        } catch (error) {
+            console.log(error);
+            reject(error);
+        }
+    })
+}
+
+ function updateOfferValue(offer) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const db = await getConnectionDb();
+            const {idOffer, offerValue} = offer;
+
+            db.connect()
+            .then(async () => {
+                const query = `UPDATE public."WorkersOffers" SET "offerValue"=${offerValue} WHERE "idOffer"=${idOffer} RETURNING *;`;
+
+                const res = await db.query(query);
+
+                resolve(res.rows[0]);
+            })
+            .catch((error) => console.log(error))
+        } catch (error) {
+            console.log(error);
+            reject(error);
+        }
+
+    });
+}
+
+function getWorkerOffers(idWorker) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const db = await getConnectionDb();
+
+            db.connect()
+            .then(async ()=> {const query = `SELECT DISTINCT on ("idAd") * from public."WorkersOffers" where "idWorker"=${idWorker} and accepted_status=true;`;
+                
+                const res = await db.query(query);
+
+                resolve(res.rows);
+            })
+            .catch((error) => console.log(error)) 
+        } catch (error) {
+            console.log(error);
+            reject(error);
+        }
+    })
+}
+
+export {createNewOffer, getOffers, deleteOffer, updateOfferAcceptedStatus, updateOfferValue, getWorkerOffers};
