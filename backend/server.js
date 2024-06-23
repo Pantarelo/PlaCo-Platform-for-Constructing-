@@ -7,6 +7,7 @@ import corsMiddleware from "./middleware/crosMiddleware.js";
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken';
 import { createNewWorkOffer, getAdOffersList } from "./controllers/offerController.js";
+import { getNotificationsController, createNewNotificationController } from "./controllers/notificationController.js";
 
 //env.config();
 dotenv.config();
@@ -16,6 +17,12 @@ const server = createServer(async (req,res) => {
     corsMiddleware(req, res, () => {
         if(req.url === "/api/user/worker" && req.method === "GET") {
             getWorkersWithDetails(req,res);
+        }
+        else if(req.url === "/api/notifications" && req.method === "GET") {
+            getNotificationsController(req,res);
+        }
+        else if(req.url === "/api/notifications" && req.method === "POST") {
+            createNewNotificationController(req,res);
         }
         else if(req.url === "/api/user/client" && req.method === "GET")
         {
