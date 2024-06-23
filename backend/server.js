@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import jwt from 'jsonwebtoken';
 import { createNewWorkOffer, getAdOffersList, deleteOfferFromList, updateOfferStatus, updateOfferValueController, getWorkerWork } from "./controllers/offerController.js";
 import { getNotificationsController, createNewNotificationController, deleteNotificationAfterSendOffer } from "./controllers/notificationController.js";
+import { putReview, getReviewsById } from "./controllers/reviewController.js";
 
 //env.config();
 dotenv.config();
@@ -27,6 +28,13 @@ const server = createServer(async (req,res) => {
         else if(req.url.startsWith("/api/notifications") && req.method === "DELETE") {
             const id = req.url.split("/")[3];
             deleteNotificationAfterSendOffer(req,res,id);
+        else if(req.url.startsWith("/api/review") && req.method === "POST") {
+            const id = req.url.split("/")[3];
+            putReview(req,res, id);
+        }
+        else if(req.url.startsWith("/api/review") && req.method === "GET") {
+            const id = req.url.split("/")[3];
+            getReviewsById(req,res, id);
         }
         else if(req.url === "/api/user/client" && req.method === "GET")
         {
