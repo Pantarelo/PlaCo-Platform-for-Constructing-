@@ -94,6 +94,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             divButtons.appendChild(acceptButton);
             divButtons.appendChild(rejectButton);
             workerContainer.appendChild(divButtons);
+
+            const viewButton = document.createElement('a');
+            viewButton.className = "solid-button";
+            viewButton.innerText = "Review";
+            viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
+            workerContainer.appendChild(viewButton);
         }
         else {
             const iconPending = document.createElement('i');
@@ -107,6 +113,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         
             divButtons.appendChild(pendingButton);
             workerContainer.appendChild(divButtons);
+
+            const viewButton = document.createElement('a');
+            viewButton.className = "solid-button";
+            viewButton.innerText = "Review";
+            viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
+            workerContainer.appendChild(viewButton);
         }
     
         workerList.appendChild(workerContainer);
