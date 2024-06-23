@@ -6,7 +6,7 @@ import { getWorkersWithDetails, putDetails, getDetails, newSkill, getSkills, get
 import corsMiddleware from "./middleware/crosMiddleware.js";
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken';
-import { createNewWorkOffer, getAdOffersList } from "./controllers/offerController.js";
+import { createNewWorkOffer, getAdOffersList, deleteOfferFromList } from "./controllers/offerController.js";
 import { getNotificationsController, createNewNotificationController } from "./controllers/notificationController.js";
 
 //env.config();
@@ -109,6 +109,11 @@ const server = createServer(async (req,res) => {
         {
             const id = req.url.split("/")[3];
             getAdOffersList(req,res,id);
+        }
+        else if(req.url.startsWith("/api/offer") && req.method === "DELETE")
+        {
+            const id = req.url.split("/")[3];
+            deleteOfferFromList(req,res,id);   
         }
         else 
         {

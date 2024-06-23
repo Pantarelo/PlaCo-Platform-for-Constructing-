@@ -48,4 +48,25 @@ function getOffers(idAd) {
     })
 }
 
-export {createNewOffer, getOffers};
+function deleteOffer(idOffer) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const db = await getConnectionDb();
+
+            db.connect()
+            .then(async () => {
+                const query = `DELETE FROM public."WorkersOffers" WHERE "idOffer"=${idOffer};`;
+
+                const res = await db.query(query);
+
+                resolve(res.rows[0]);
+            })
+            .catch((error) => console.log(error))
+        } catch (error) {
+            console.log(error);
+            reject(error);
+        }
+    })
+}
+
+export {createNewOffer, getOffers, deleteOffer};

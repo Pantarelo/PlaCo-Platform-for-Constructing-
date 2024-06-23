@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const notificationText = document.createElement("p");
         notificationText.classList.add("notification_text");
-        notificationText.innerText = notification.id_offer ? "You received a new offer" : notification.accepted_status ? "Your offer has been accepted!" : "Your offer has been rejected.";
-
+        // notificationText.innerText = notification.id_offer ? "You received a new offer" : notification.accepted_status ? "Your offer has been accepted!" : "Your offer has been rejected.";
+        notificationText.innerText = notification.id_offer ? notification.id_offer : 0;
         notificationContent.appendChild(notificationTitle);
         notificationContent.appendChild(notificationText);
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             notificationButton.classList.add("solid-button");
             notificationButton.innerText = "Send Offer";
             notificationButton.addEventListener("click", () => {
-                window.location.href = `/offer/${notification.id_offer}`;
+                // window.location.href = `/offer/${notification.id_offer}`;
             });
 
             notificationDiv.appendChild(notificationOffer);
