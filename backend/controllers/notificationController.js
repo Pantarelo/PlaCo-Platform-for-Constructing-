@@ -1,4 +1,4 @@
-import { getNotifications, createNewNotification } from "../models/notificationModel.js";
+import { getNotifications, createNewNotification, deleteNotification } from "../models/notificationModel.js";
 import { getBodyData } from "../utils/getBodyData.js";
 import jwt from 'jsonwebtoken';
 
@@ -30,6 +30,7 @@ async function createNewNotificationController(req, res) {
             worker_id: body.worker_id,
             created_at: body.created_at,
             id_offer: body.id_offer,
+            ad_id: body.ad_id,
             accepted_status: body.accepted_status ? body.accepted_status : false
         };
 
@@ -42,4 +43,21 @@ async function createNewNotificationController(req, res) {
     }
 }
 
-export {getNotificationsController, createNewNotificationController};
+async function deleteNotificationAfterSendOffer(req, res, id) {
+    try {
+        if (!req.headers.authorization) {
+            throw new Error('Authorization header missing');
+        }
+
+        const notificationDeleted = await deleteNotification(id);
+
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(JSON.stringify(notificationDeleted));
+    } catch (error) {
+        res.writeHead(400, {"Content-Type": "application/json"});
+        res.end(JSON.stringify({message: "Error deleting notification!"}));
+    }
+
+}
+
+export {getNotificationsController, createNewNotificationController,deleteNotificationAfterSendOffer};
