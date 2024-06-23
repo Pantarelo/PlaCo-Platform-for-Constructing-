@@ -18,10 +18,6 @@ getAllJobs("http://localhost:3000/api/user/worker").then((data)=> {
             profile.id = worker.id_client;
             profile.className = "profile";
             
-            //profile
-            //- view
-            //- info
-            //- button
             const view = document.createElement('div');
             view.className = "view";
             profile.appendChild(view);
