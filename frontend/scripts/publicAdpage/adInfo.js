@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     description.textContent = adInfo[0].description;
     title.textContent = adInfo[0].title;
+    adImg.src = adInfo[0].img;
 
     makeOfferButton.onclick = makeOffer;
-    // adImg.src = adInfo[0].img;
 
 })
 

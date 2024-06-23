@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const adInfo = await getAdInfo();
-
-    console.log(adInfo);
     description.textContent = adInfo[0].description;
     title.value = adInfo[0].title;
     adImg.src = adInfo[0].img;
