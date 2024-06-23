@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../styles/reviews/review.css">
+    <script src="https://kit.fontawesome.com/135aab77de.js" crossorigin="anonymous"></script>
+    <title>Review Page</title>
+</head>
+<body>
+    <div class="review-container">
+        <h2>Review</h2>
+        <div class="star-rating">
+            <i class="fa-regular fa-star" id="star1"></i>
+            <i class="fa-regular fa-star" id="star2"></i>
+            <i class="fa-regular fa-star" id="star3"></i>
+            <i class="fa-regular fa-star" id="star4"></i>
+            <i class="fa-regular fa-star" id="star5"></i>
+        </div>
+        <h3>Comments</h3>
+        <textarea id="comments" rows="4" cols="50"></textarea>
+        <br>
+        <button id="saveButton">Save</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const stars = document.querySelectorAll('.star-rating .fa-star');
+            let rating = 0;
+
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    rating = index + 1;
+                    stars.forEach((s, i) => {
+                        if (i < rating) {
+                            s.classList.remove('fa-regular');
+                            s.classList.add('fa-solid');
+                        } else {
+                            s.classList.remove('fa-solid');
+                            s.classList.add('fa-regular');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
