@@ -139,6 +139,13 @@
     object-fit: cover;
 }
 
+@media screen and (max-width: 400px){
+    .grid-details .cell2{
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .ad_2 img, .ad_3 img, .ad_4 img, .ad_5 img {
         width: 200px;

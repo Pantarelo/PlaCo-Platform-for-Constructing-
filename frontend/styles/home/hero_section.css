@@ -50,7 +50,34 @@ h2 {
 
     .buttons {
         flex-direction: column;
-        margin-left: 20px;
+        /* margin-left: 20px; */
         /* width: 70%; */
     }
+
+    .buttons a {
+        margin-bottom: 20px;
+    };
 }
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    .buttons {
+        flex-direction: column;
+        margin-left: 2px;
+        /* width: 70%; */
+    }
+
+    .buttons a {
+        padding-left: 4px;
+        padding-right: 4px;
+        margin-bottom: 4px;
+    };
+}
+
