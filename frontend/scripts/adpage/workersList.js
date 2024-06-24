@@ -46,100 +46,79 @@ document.addEventListener("DOMContentLoaded", async () => {
         workerContainer.appendChild(workerOffer);
     
         const divButtons = document.createElement('div');
-        if(offer.accepted_status === false) {
-            if(offer.offerValue !== null) {
-            
-                const iconAccept = document.createElement('i');
-                iconAccept.className = "fa-solid fa-circle-check fa-2xl";
-                iconAccept.style = "color: #ffffff;"
-            
-                const acceptButton = document.createElement('button');
-                
-                acceptButton.onclick = async () => {
-                    await fetch(`http://localhost:3000/api/offer/accept/${offer.idOffer}`, {
-                        method: 'PATCH',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
+        if(offer.offerValue !== null) {
+        
+            const iconAccept = document.createElement('i');
+            iconAccept.className = "fa-solid fa-circle-check fa-2xl";
+            iconAccept.style = "color: #ffffff;"
+        
+            const acceptButton = document.createElement('button');
+            acceptButton.className = "accept_button";
+            acceptButton.appendChild(iconAccept);
+        
+        
+            const iconReject = document.createElement('i');
+            iconReject.style = "color: #ffffff;"
+            iconReject.className ="fa-solid fa-eraser fa-2xl";
+        
+            const rejectButton = document.createElement('button'); 
+            rejectButton.onclick = async () => {
+                await fetch(`http://localhost:3000/api/offer/${offer.idOffer}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                }).then( async ()  => {   
+                    await fetch(`http://localhost:3000/api/notifications`, {
                     
-                        }
-                    }).then( async () => {
-                        await fetch(`http://localhost:3000/api/notifications`, {
-                        
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${token}`
-                            },
-                            body: JSON.stringify({
-                                worker_id: offer.idWorker,
-                                created_at: new Date(),
-                                accepted_status: true,
-                                ad_id: offer.idAd
-                            })
-                        })
-                        window.location.reload();
-                    })
-                }
-                
-                acceptButton.className = "accept_button";
-                acceptButton.appendChild(iconAccept);
-
-
-            
-            
-                const iconReject = document.createElement('i');
-                iconReject.style = "color: #ffffff;"
-                iconReject.className ="fa-solid fa-eraser fa-2xl";
-            
-                const rejectButton = document.createElement('button'); 
-                rejectButton.onclick = async () => {
-                    await fetch(`http://localhost:3000/api/offer/${offer.idOffer}`, {
-                        method: 'DELETE',
+                        method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
-                        }
-                    }).then( async ()  => {   
-                        await fetch(`http://localhost:3000/api/notifications`, {
-                        
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${token}`
-                            },
-                            body: JSON.stringify({
-                                worker_id: offer.idWorker,
-                                created_at: new Date(),
-                                accepted_status: false,
-                                ad_id: offer.idAd
-                            })
+                        },
+                        body: JSON.stringify({
+                            worker_id: offer.idWorker,
+                            created_at: new Date(),
+                            accepted_status: false
                         })
-                        window.location.reload();
                     })
-                    .catch((error) => { console.error('Error:', error); });
-                }
-            
-                rejectButton.className = "reject_button";
-                rejectButton.appendChild(iconReject);
-            
-                divButtons.appendChild(acceptButton);
-                divButtons.appendChild(rejectButton);
-                workerContainer.appendChild(divButtons);
+                    window.location.reload();
+                 })
+                 .catch((error) => { console.error('Error:', error); });
             }
-            else {
-                const iconPending = document.createElement('i');
-                iconPending.style = "color: #ffffff;"
-                iconPending.className ="fa-solid fa-clock fa-2xl";
-            
-                const pendingButton = document.createElement('button');
-            
-                pendingButton.className = "pending_button";
-                pendingButton.appendChild(iconPending);
-            
-                divButtons.appendChild(pendingButton);
-                workerContainer.appendChild(divButtons);
-            }
+        
+            rejectButton.className = "reject_button";
+            rejectButton.appendChild(iconReject);
+        
+            divButtons.appendChild(acceptButton);
+            divButtons.appendChild(rejectButton);
+            workerContainer.appendChild(divButtons);
+
+            const viewButton = document.createElement('a');
+            viewButton.className = "solid-button";
+            viewButton.innerText = "Review";
+            viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
+            workerContainer.appendChild(viewButton);
+        }
+        else {
+            const iconPending = document.createElement('i');
+            iconPending.style = "color: #ffffff;"
+            iconPending.className ="fa-solid fa-clock fa-2xl";
+        
+            const pendingButton = document.createElement('button');
+        
+            pendingButton.className = "pending_button";
+            pendingButton.appendChild(iconPending);
+        
+            divButtons.appendChild(pendingButton);
+            workerContainer.appendChild(divButtons);
+
+            const viewButton = document.createElement('a');
+            viewButton.className = "solid-button";
+            viewButton.innerText = "Review";
+            viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
+            workerContainer.appendChild(viewButton);
         }
     
         workerList.appendChild(workerContainer);
