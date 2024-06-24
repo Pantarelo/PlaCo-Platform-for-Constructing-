@@ -83,6 +83,15 @@ form .input_box {
     cursor: pointer;
 }
 
+form .forgot_password a{
+    display: flex;
+    justify-content: right;
+    margin-right: 2.8em;
+    margin-top: -20px;
+    text-decoration: none;
+    color: var(--white);
+}
+
 form .btn {
     display: flex;
     flex-direction: column;
