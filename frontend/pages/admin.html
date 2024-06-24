@@ -12,205 +12,38 @@
 <body class="admin_body">
 
     <button class="tablinkadmin" onclick="openPage('Home', this)"><i class='bx bxs-home'></i></button>
-    <button class="tablinkadmin" onclick="openPage('WORK', this)" id="defaultOpen">WORK</button>
-    <button class="tablinkadmin" onclick="openPage('INBOX', this)">INBOX</button>
+    <button class="tablinkadmin" onclick="openPage('DASHBOARD', this)" id="defaultOpen">DASHBOARD</button>
+    <button class="tablinkadmin" onclick="openPage('SETTINGS', this)">SETTINGS</button>
 
-    <div id="WORK" class="tabcontentadmin work_admin">
-        <div class="center_work_admin">
+    <div id="DASHBOARD" class="tabcontentadmin work_admin">
+        <div id="dashboard">
             <div class="search_bar_admin all_mails_admin">
               <input type="text" placeholder="Search work" class="search_input_admin">
               <i class='bx bx-search search_icon_admin'></i>
-            </div >
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-            <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
-              <div class="mail_admin">
-                <div class="three_things">
-                  <h3 class="mail_subject_admin">Company: Marius Andrei</h3>
-                  <p class="mail_description_admin">Job: Oferta noua</p>
-                  <p class="mail_date_admin">Date: April 13, 2024</p>
-                </div>
-                <div class="two_things">
-                  <button class="btn_admin_work_delete">Delete</button>
-                  <button class="btn_admin_work_view">View</button>
-                </div>
-              </div>
+            </div>
+            <script type="module" src="../scripts/admin/users.js"></script>
+        </div>  
+             
+    </div>
+
+    <div id="SETTINGS" class="tabcontentadmin inbox_admin">
+        <div class="profile_details">
+          <div class="input_settings">
+            <label for="changeEmail" class="email">Email</label>
+            <input type="email" placeholder="Enter new email" class="changeEmail" id="email-input">
           </div>
+          <div class="input_settings">
+            <label for="currentPass" class="changePassword">Change Password</label>
+            <input type="text" placeholder="Enter your current password" class="currentPass" id="currentPass-input">
+            <input type="text" placeholder="Enter your new password" class="newPass" id="newPass-input">
+          </div>
+          <button class="solid-button" id="btnSave">Save Changes</button>
+        </div>
+        <button class="logoutbutton" id="logoutButton">Logout</button>
     </div>
 
-    <div id="INBOX" class="tabcontentadmin inbox_admin">
-        <div class="left_side_admin">
-            <div class="search_bar_inbox_admin">
-                <input type="text" placeholder="Search chat" class="search_input_admin_inbox">
-                <i class='bx bx-search search_icon_admin_inbox'></i>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-            <div class="user_admin">
-                <h5 class="name_of_user">Pantaziu Andrei</h5>
-                <button class="btn_admin_inbox_delete">Delete</button>
-                <button class="btn_admin_inbox_view">View</button>
-            </div>
-        </div>
-        <div class="right_side_admin">
-            <div class="profile_info_admin">
-                <img src="../assets/images/profile_image.png" alt="Profile Picture" class="profile_image">
-                <h2 class="profile_name">Pantaziu Andrei</h2>
-            </div>
-            <div class="user_info">
-                <div class="user_info_details">
-                    <p class="details">Email: example@yahoo.com</p>
-                    <p class="details">Password: gigel123(.)</p>
-                    <p class="details">Register date: 12/06/2022</p>
-                    <p class="details">Number of posts.</p>
-                </div>
-                <div class="chat_admin">
-                    <input type="text" placeholder="Type your message..." class="message_input_field_admin">
-                    <button class="send_button_admin">Send</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <script type="module" src="../scripts/changePass/client/index.js"></script>
+    <script type="module" src="../scripts/logout/index.js"></script>
 
     <script>
         function openPage(pageName,elmnt) {

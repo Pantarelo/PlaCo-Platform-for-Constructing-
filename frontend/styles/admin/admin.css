@@ -1,3 +1,38 @@
+@import '../colors.css';
+@import '../global.css';
+@import '../common/button.css';
+
+input, textarea {
+    padding: 20px;
+    height: 30px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px -15px var(--dark-blue);
+}
+
+input:focus, textarea:focus {
+    box-shadow: 2px 2px 20px -10px var(--dark-blue);;
+}
+
+textarea {
+    resize: vertical;
+    max-height: 500px;
+    min-height: 30px;
+}
+
+.logoutbutton {
+    position: fixed;
+    bottom: 20px; 
+    right: 70px; 
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
 .tablinkadmin {
     background-color: var(--dark-blue);
     color: var(--white);
