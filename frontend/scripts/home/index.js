@@ -32,7 +32,7 @@ else {
 
     if(logged == 1)
     {
-        if(typeOfUser == userType.CLIENT || typeOfUser == userType.WORKER)
+        if(typeOfUser == userType.CLIENT || typeOfUser == userType.WORKER || typeOfUser == userType.ADMIN)
         {
             const heroSection = document.getElementsByClassName("hero-section")[0];
             heroSection.style.display = 'none';
@@ -95,6 +95,28 @@ else {
             findWorkers.innerText = "Find jobs";
             linksHomePage[0].append(findWorkers);
             linksHomePage[0].append(profile);
+        }
+
+        if(typeOfUser == userType.ADMIN)
+        {
+            const welcomeSection = document.getElementById("welcome-section");
+            welcomeSection.style.display = "flex";
+
+            const welcomeMsg = document.getElementById("welcome-msg");
+
+            welcomeMsg.innerText = "Welcome " + "admin!"; 
+
+            const exploreTitle = document.getElementsByClassName("title-explore");
+
+            exploreTitle[0].innerHTML = 'Dashboard';
+
+            const linksHomePage = document.getElementsByClassName("linksHomePage");
+
+            const dashboard = document.createElement("a");
+            dashboard.href = "./pages/admin.html";
+            dashboard.innerText = "Dashboard";
+
+            linksHomePage[0].append(dashboard);
         }
     }
 }
