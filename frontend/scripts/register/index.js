@@ -14,10 +14,12 @@ async function createNewAccount(url, data) {
     return res;
 }
 
+function containsOnlyDigits(str) {
+    return /^\d+$/.test(str);
+}
+
 function handleSuccessfulAuth(res) {
     document.cookie = 'token='+ res.token + "; path=/";
-    console.log('Autentificare reusita:', res);
-
     const tokenData = JSON.parse(atob(res.token.split('.')[1]));
     document.cookie = 'userId='+ tokenData.id + "; path=/";
     document.cookie = 'logged='+ 1 + "; path=/";
@@ -38,13 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const password2Text = password2.value;
         const selectedType = selectType.value;
 
-        let typeValue;
+        let typeValue = 1;
         if (selectedType === 'Client') {
             typeValue = 1;
         } else if (selectedType === 'Worker') {
             typeValue = 2;
         }
-        console.log(typeValue);
+
+        if(containsOnlyDigits(phoneText) === false) {
+            alert('Numarul de telefon trebuie sa contina doar cifre!');
+            return;
+        }
+
+        if(password1Text !== password2Text) {
+            alert('Parolele nu coincid!');
+            return;
+        }
 
         if(emailText && phoneText && password1Text && password2Text && selectedType) {
             const data = {
@@ -55,13 +66,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 "type": typeValue
             }
 
-            const res = await createNewAccount("http://localhost:3000/api/register", data);
-
-            if (res.token) {
-                handleSuccessfulAuth(res);
-            } else {
-                console.error('Autentificare esuata:', res);
+            try {
+                const res = await createNewAccount("http://localhost:3000/api/register", data);
+                console.log(res);
+                if (res.token) {
+                    handleSuccessfulAuth(res);
+                } else {
+                    alert('Autentificare esuata: ' + res.error);
+                }
             }
+            catch (err) {
+                alert('Autentificare esuata: ' + err);
+            }
+        }
+        else 
+        {
+            alert('Toate campurile sunt obligatorii!');
         }
     });
 });

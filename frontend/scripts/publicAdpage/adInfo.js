@@ -38,14 +38,23 @@ document.addEventListener("DOMContentLoaded", async () => {
             "offerValue": offerValue,
         }
 
-        const response = await fetch(`http://localhost:3000/api/offer`, {
-            method: "PUT",
-            body: JSON.stringify(offerDetails),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        try
+        {
+            await fetch(`http://localhost:3000/api/offer`, {
+                method: "PUT",
+                body: JSON.stringify(offerDetails),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            alert('Oferta a fost facuta cu succes!');
+            window.location.reload();
+        } 
+        catch (error) {
+            alert('Oferta nu a putut fi facuta!');
+        }
+        
     }
 
     const adInfo = await getAdInfo();

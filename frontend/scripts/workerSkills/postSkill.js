@@ -41,7 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     "img": imgBase64
                 }
 
-                const res = await skillsWorker("http://localhost:3000/api/worker/skills", data);
+                try {
+                    await skillsWorker("http://localhost:3000/api/worker/skills", data);
+                    alert('Skill-ul a fost adaugat cu succes!')
+                    window.location.reload();
+                } catch (error) {
+                    alert('Skill-ul nu a putut fi adaugat!');
+                }
             };
             reader.readAsDataURL(imgFile);
         }

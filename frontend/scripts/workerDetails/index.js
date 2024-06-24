@@ -41,9 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     "img": imgBase64
                 }
 
-                const res = await detailsWorker("http://localhost:3000/api/worker/details", data);
+                try {
+                    await detailsWorker("http://localhost:3000/api/worker/details", data);
+                    alert('Informatiile au fost modificate cu succes!')
+                } catch (error) {
+                    alert('Informatiile nu au putut fi modificate!');
+                }
             };
             reader.readAsDataURL(imgFile);
+        }
+        else {
+            alert('Completati toate campurile!');
         }
     })
 });

@@ -11,7 +11,7 @@ function getNotifications(workerId) {
             const query = `SELECT * FROM public."WorkerNotifications" ORDER BY created_at DESC; `;
             const response = await db.query(query);
 
-
+            await db.end(); 
             resolve(response.rows);
         })
         .catch((error) => {console.log(error); reject(error);});
@@ -34,12 +34,16 @@ function createNewNotification(notification) {
                 {
                   const query = `INSERT INTO public."WorkerNotifications" (worker_id, created_at, ad_id, accepted_status) VALUES ('${worker_id}', '${created_at}', ${ad_id}, '${accepted_status}') RETURNING *`;
                   const response = await db.query(query);
+
+                  await db.end();
                   resolve(response.rows[0]);
                 }
                 else 
                 {
                   const query = `INSERT INTO public."WorkerNotifications" (worker_id, created_at, id_offer, ad_id, accepted_status) VALUES ('${worker_id}', '${created_at}', '${id_offer}', '${ad_id}', '${accepted_status}') RETURNING *`;
                   const response = await db.query(query);
+
+                  await db.end(); 
                   resolve(response.rows[0]);
                 }
 

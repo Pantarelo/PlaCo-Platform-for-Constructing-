@@ -7,8 +7,6 @@ const addPhoto = document.getElementById("upload-photo");
 
 async function createNewAd(url, data) {
     const token = getCookie('token');
-
-    console.log(data.img);
     const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -17,6 +15,11 @@ async function createNewAd(url, data) {
         },
         body: JSON.stringify(data),
     });
+
+    if(response.status === 401 || response.status === 403 || response.status === 500) {
+        window.location.href = '/frontend/pages/index.html';
+        return null;
+    }
 
     return response.json();
 }
@@ -46,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     "img" : imgBase64
                 }
 
-                const res = await createNewAd("http://localhost:3000/api/client", data);
+                await createNewAd("http://localhost:3000/api/client", data)
+                .then(() => {alert('Anuntul a fost creat cu succes!'); window.location.reload(); }).catch(() => {alert('Anuntul nu a putut fi creat!')});
             };
             reader.readAsDataURL(imageInput);
         }
