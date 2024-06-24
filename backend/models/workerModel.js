@@ -58,7 +58,7 @@ function getDetailsById(id_client) {
                 const res = await adDB.query(query, values);
                 
                 if (res.rows.length === 0) {
-                    reject(new Error('No details found for the given client ID'));
+                    resolve({});
                     return;
                 }
 
@@ -119,7 +119,7 @@ function getSkillsById(id_client) {
                 const res = await adDB.query(query, values);
                 
                 if (res.rows.length === 0) {
-                    reject(new Error('No details found for the given client ID'));
+                    resolve({});
                     return;
                 }
 
