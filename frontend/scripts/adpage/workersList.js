@@ -46,79 +46,115 @@ document.addEventListener("DOMContentLoaded", async () => {
         workerContainer.appendChild(workerOffer);
     
         const divButtons = document.createElement('div');
-        if(offer.offerValue !== null) {
-        
-            const iconAccept = document.createElement('i');
-            iconAccept.className = "fa-solid fa-circle-check fa-2xl";
-            iconAccept.style = "color: #ffffff;"
-        
-            const acceptButton = document.createElement('button');
-            acceptButton.className = "accept_button";
-            acceptButton.appendChild(iconAccept);
-        
-        
-            const iconReject = document.createElement('i');
-            iconReject.style = "color: #ffffff;"
-            iconReject.className ="fa-solid fa-eraser fa-2xl";
-        
-            const rejectButton = document.createElement('button'); 
-            rejectButton.onclick = async () => {
-                await fetch(`http://localhost:3000/api/offer/${offer.idOffer}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    }
-                }).then( async ()  => {   
-                    await fetch(`http://localhost:3000/api/notifications`, {
-                    
-                        method: 'POST',
+        if(offer.accepted_status === false) {
+            if(offer.offerValue !== null) {
+            
+                const iconAccept = document.createElement('i');
+                iconAccept.className = "fa-solid fa-circle-check fa-2xl";
+                iconAccept.style = "color: #ffffff;"
+            
+                const acceptButton = document.createElement('button');
+                acceptButton.className = "accept_button";
+                acceptButton.appendChild(iconAccept);
+                acceptButton.onclick = async () => {
+                    await fetch(`http://localhost:3000/api/offer/accept/${offer.idOffer}`, {
+                        method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
-                        },
-                        body: JSON.stringify({
-                            worker_id: offer.idWorker,
-                            created_at: new Date(),
-                            accepted_status: false
+                        }
+                    }).then( async ()  => {   
+                        await fetch(`http://localhost:3000/api/notifications`, {
+                        
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({
+                                worker_id: offer.idWorker,
+                                created_at: new Date(),
+                                accepted_status: true
+                            })
                         })
+                        window.location.reload();
                     })
-                    window.location.reload();
-                 })
-                 .catch((error) => { console.error('Error:', error); });
+                    .catch((error) => { console.error('Error:', error); });
+                }
+            
+            
+                const iconReject = document.createElement('i');
+                iconReject.style = "color: #ffffff;"
+                iconReject.className ="fa-solid fa-eraser fa-2xl";
+            
+                const rejectButton = document.createElement('button'); 
+                rejectButton.onclick = async () => {
+                    await fetch(`http://localhost:3000/api/offer/${offer.idOffer}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        }
+                    }).then( async ()  => {   
+                        await fetch(`http://localhost:3000/api/notifications`, {
+                        
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({
+                                worker_id: offer.idWorker,
+                                created_at: new Date(),
+                                accepted_status: false
+                            })
+                        })
+                        window.location.reload();
+                    })
+                    .catch((error) => { console.error('Error:', error); });
+                }
+            
+                rejectButton.className = "reject_button";
+                rejectButton.appendChild(iconReject);
+            
+                divButtons.appendChild(acceptButton);
+                divButtons.appendChild(rejectButton);
+                workerContainer.appendChild(divButtons);
             }
-        
-            rejectButton.className = "reject_button";
-            rejectButton.appendChild(iconReject);
-        
-            divButtons.appendChild(acceptButton);
-            divButtons.appendChild(rejectButton);
-            workerContainer.appendChild(divButtons);
-
-            const viewButton = document.createElement('a');
-            viewButton.className = "solid-button";
-            viewButton.innerText = "Review";
-            viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
-            workerContainer.appendChild(viewButton);
+            else {
+                const iconPending = document.createElement('i');
+                iconPending.style = "color: #ffffff;"
+                iconPending.className ="fa-solid fa-clock fa-2xl";
+            
+                const pendingButton = document.createElement('button');
+            
+                pendingButton.className = "pending_button";
+                pendingButton.appendChild(iconPending);
+            
+                divButtons.appendChild(pendingButton);
+                workerContainer.appendChild(divButtons);
+            }
         }
-        else {
-            const iconPending = document.createElement('i');
-            iconPending.style = "color: #ffffff;"
-            iconPending.className ="fa-solid fa-clock fa-2xl";
-        
-            const pendingButton = document.createElement('button');
-        
-            pendingButton.className = "pending_button";
-            pendingButton.appendChild(iconPending);
-        
-            divButtons.appendChild(pendingButton);
-            workerContainer.appendChild(divButtons);
+        else 
+        {
+        // {
+        //     const viewButton = document.createElement('a');
+        //     viewButton.className = "solid-button";
+        //     viewButton.innerText = "Review";
+        //     viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
 
-            const viewButton = document.createElement('a');
-            viewButton.className = "solid-button";
-            viewButton.innerText = "Review";
-            viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
-            workerContainer.appendChild(viewButton);
+            const iconReview = document.createElement('i');
+            iconReview.className = "fa-solid fa-handshake fa-2xl";
+            iconReview.style = "color: #090834;"
+            
+            const reviewButton = document.createElement('a');
+            reviewButton.className = "review_button";
+            reviewButton.href = `./reviws_client.html?id=${offer.idWorker}&idOffer=${offer.idOffer}&idAd=${offer.idAd}`;
+            reviewButton.appendChild(iconReview);
+
+            console.log(reviewButton);
+
+            workerContainer.appendChild(reviewButton);
         }
     
         workerList.appendChild(workerContainer);

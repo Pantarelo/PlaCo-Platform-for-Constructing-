@@ -5,10 +5,6 @@ const reviewsContainer = document.getElementById('reviews');
 
 console.log(reviewsContainer);
 
-
-
-
-
 for(let i = 0; i < totalRating / reviewsNumber; i++)
 {
     const fullStar = document.createElement('i');
