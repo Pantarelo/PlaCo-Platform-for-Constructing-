@@ -21,7 +21,6 @@ function addAd(add) {
 
                 const res = await addDB.query(query, values);
                 const newAd = res.rows[0];
-                console.log(newAd);
 
                 await addDB.end();
 
@@ -80,7 +79,7 @@ function getAllClientAds() {
                     img: ad.img ? `data:image/png;base64,${byteArrayToBase64(ad.img)}` : null
                 }));
 
-                console.log(ads[0].img);
+                await adsDb.end();
 
                 resolve(ads);
             })
@@ -105,6 +104,7 @@ function getClientAdById(adId) {
                     img: ad.img ? `data:image/png;base64,${byteArrayToBase64(ad.img)}` : null
                 }));
 
+                await adDb.end();
                 resolve(ads);
 
             })

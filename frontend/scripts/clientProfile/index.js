@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
+        if(response.status === 401 || response.status === 403 || response.status === 500) {
+            window.location.href = '/frontend/pages/index.html';
+            return null;
+        }
+        
         const ads = await response.json();
         return ads;
     }

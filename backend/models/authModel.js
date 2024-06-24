@@ -16,26 +16,19 @@ function register(user) {
             client
             .connect()
             .then(async () => {
-
-                console.log("The connection was established!")
-
                 const text = `INSERT INTO public."User" (email, phone, password, type) VALUES ($1, $2, $3, $4) RETURNING *`;
                 const values = [email, phone, hashPasword, type];
 
                 const res = await client.query(text, values);
                 const newUser = res.rows[0];
-                console.log(res.rows[0]);
     
                 const token = jwt.sign(
                     { id: newUser.id, email: newUser.email, type: newUser.type },
                     process.env.JWT_SECRET,
                     { expiresIn: process.env.JWT_EXPIRES_IN }
                 );
-                console.log(token);
 
                 await client.end();
-    
-                console.log('Connection to PostgreSQL closed');
     
                 //resolve(res.rows[0]);
                 resolve({ user: newUser, token });
@@ -55,7 +48,6 @@ function login(user) {
             const query = `SELECT * FROM public."User" WHERE email = $1`;
             const values = [email];
 
-            console.log(email);
 
             client
             .connect()
@@ -78,10 +70,11 @@ function login(user) {
                                 process.env.JWT_SECRET,
                                 { expiresIn: process.env.JWT_EXPIRES_IN }
                             );
-                            console.log(token);
+
+
+                            client.end();
 
                             resolve({ user, token });
-                            //resolve(user);
                         } else {
                             reject("Parola incorecta.");
                         }
@@ -103,8 +96,6 @@ function logout(email) {
             const query = `SELECT * FROM public."User" WHERE email = $1`;
             const values = [email];
 
-            console.log(email);
-
             client.connect().then(async () => {
                 const result = await client.query(query, values);
 
@@ -116,6 +107,8 @@ function logout(email) {
                     const updateQuery = `UPDATE public."User" SET "logStatus" = false WHERE email = $1`;
                     const updateValues = [email];
                     await client.query(updateQuery, updateValues);
+
+                    client.end();
                     resolve(user);
                 }
             })

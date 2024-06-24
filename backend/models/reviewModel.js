@@ -13,7 +13,8 @@ function putReviewModel(review) {
 
                     const res = await db.query(query,values);
 
-                    console.log(res.rows[0]);
+                    await db.end();
+
                     resolve(res.rows[0]);
                 }
             )

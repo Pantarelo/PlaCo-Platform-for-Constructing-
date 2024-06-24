@@ -10,6 +10,12 @@ async function getDetailsWorker(url) {
         },
     });
 
+    console.log(response.status);
+    if (response.status === 401 || response.status === 403 || response.status === 500) {
+        window.location.href = '/frontend/index.html';
+        return null;
+    }
+
     return response.json();
 }
 
@@ -17,16 +23,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const workerDetails = await getDetailsWorker("http://localhost:3000/api/worker/details");
 
-        document.getElementById('contact').value = workerDetails.contact;
-        document.getElementById('description-input').value = workerDetails.description;
+        document.getElementById('contact').value = workerDetails.contact ? workerDetails.contact : '';
+        document.getElementById('description-input').value = workerDetails.description ? workerDetails.description : '';
 
         const dropArea = document.getElementById("drop-area");
-        dropArea.style.backgroundImage = `url(${`data:image/jpeg;base64,${workerDetails.img}`})`;
-
+        const inputImg = document.getElementById("upload-photo");
+        dropArea.style.backgroundImage = workerDetails.img ? `url(${`data:image/jpeg;base64,${workerDetails.img}`})` : '';
+    
         const imgView = document.getElementById("img-view");
-        imgView.textContent = "";
+        if(workerDetails.img)
+            imgView.textContent = "";
 
     } catch (error) {
-        console.error('Error fetching worker details:', error);
+        alert('Informatiile nu au putut fi furnizate!');
     }
 });

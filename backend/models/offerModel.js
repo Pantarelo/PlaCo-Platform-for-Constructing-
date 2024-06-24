@@ -15,9 +15,9 @@ function createNewOffer(offer) {
 
                     const res = await db.query(query,values);
 
-                    console.log(res.rows[0]);
+                    // console.log(res.rows[0]);
+                    await db.end();
                     resolve(res.rows[0]);
-                    // await db.end();
                 }
             )
             .catch((error) => reject(error))
@@ -38,6 +38,7 @@ function getOffers(idAd) {
 
                 const res = await db.query(query);
 
+                await db.end();
                 resolve(res.rows);
             })
             .catch((error) => console.log(error)) 
@@ -59,6 +60,8 @@ function deleteOffer(idOffer) {
 
                 const res = await db.query(query);
 
+                await db.end();
+
                 resolve(res.rows[0]);
             })
             .catch((error) => console.log(error))
@@ -79,6 +82,8 @@ function updateOfferAcceptedStatus(idOffer) {
                 const query = `UPDATE public."WorkersOffers" SET accepted_status=true WHERE "idOffer"=${idOffer} RETURNING *;`;
 
                 const res = await db.query(query);
+
+                await db.end();
 
                 resolve(res.rows[0]);
             })
@@ -102,6 +107,8 @@ function updateOfferAcceptedStatus(idOffer) {
 
                 const res = await db.query(query);
 
+                await db.end();
+
                 resolve(res.rows[0]);
             })
             .catch((error) => console.log(error))
@@ -122,6 +129,8 @@ function getWorkerOffers(idWorker) {
             .then(async ()=> {const query = `SELECT DISTINCT on ("idAd") * from public."WorkersOffers" where "idWorker"=${idWorker} and accepted_status=true;`;
                 
                 const res = await db.query(query);
+                
+                await db.end();
 
                 resolve(res.rows);
             })
