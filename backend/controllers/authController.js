@@ -1,5 +1,5 @@
 import {getBodyData} from "../utils/getBodyData.js"
-import {register, login, logout} from "../models/authModel.js"
+import {register, login, logout, forgot} from "../models/authModel.js"
 
 async function createAccount(req, res) {
     try {
@@ -89,4 +89,26 @@ async function userLogout(req, res) {
     }
 }
 
-export { createAccount, authenticate, userLogout };
+async function forgotPass(req, res) {
+    try {
+        const {email, newPass} = await getBodyData(req);
+
+        const neww = {
+            email, 
+            newPass,
+        };
+
+        console.log(email + " " + newPass);
+
+        const valid = await forgot(neww);
+
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Schimbare a parolei reusita', valid }));
+    } catch(error) {
+        console.error("Eroare la logout: ", error);
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Schimbare a parolei esuata' }));
+    }
+}
+
+export { createAccount, authenticate, userLogout, forgotPass };
