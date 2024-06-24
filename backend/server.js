@@ -1,5 +1,5 @@
 import {createServer} from "node:http";
-import { createAccount, authenticate, userLogout } from "./controllers/authController.js";
+import { createAccount, authenticate, userLogout, forgotPass } from "./controllers/authController.js";
 import { createAdClient, getClientAds,getAllAds, getAdById } from "./controllers/adClientController.js";
 import { getClients, changePassword } from "./controllers/userController.js";
 import { getWorkersWithDetails, putDetails, getDetails, newSkill, getSkills, getDetailsByPathParam, getSkillsByWorkerId } from "./controllers/workerController.js";
@@ -86,6 +86,10 @@ const server = createServer(async (req,res) => {
         else if (req.url === "/api/login" && req.method === "POST")
         {
             authenticate(req, res);
+        }
+        else if (req.url === "/api/forgot" && req.method === "POST")
+        {
+            forgotPass(req, res);
         }
         else if (req.url === "/api/logout" && req.method === "POST")
         {

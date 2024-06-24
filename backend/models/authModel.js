@@ -118,5 +118,37 @@ function logout(email) {
     })
 }
 
-export { register, login, logout };
+function forgot({email, newPass}) {
+    return new Promise (async (resolve, reject) => {
+        try {
+            const client = await getConnectionDb();
+
+            const query = `SELECT * FROM public."User" WHERE email = $1`;
+            const values = [email];
+
+            client.connect().then(async () => {
+                const result = await client.query(query, values);
+
+                if (result.rows.length === 0) {
+                    reject("Emailul nu exista in baza de date.");
+                } else {
+                    const user = result.rows[0];
+
+                    const hashedPassword = await bcrypt.hash(newPass, 10);
+
+                    const updatePasswordQuery = `UPDATE public."User" SET "password" = $1 WHERE email = $2`;
+                    const updatePasswordValues = [hashedPassword, email];
+                    await client.query(updatePasswordQuery, updatePasswordValues);
+
+                    client.end();
+                    resolve(user);
+                }
+            })
+        } catch(error) {
+            reject(error);
+        }
+    })
+}
+
+export { register, login, logout, forgot };
 
