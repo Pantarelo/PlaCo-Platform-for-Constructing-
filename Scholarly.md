@@ -83,7 +83,7 @@ Actions: They can delete accounts, approve or delete job announcements, and acce
 ---
 
 ### 2.5 Design and Implementation Constraints
-* Database: --
+* Database: PostgreSQL
 * Backend: NodeJs
 * Frontend: HTML, CSS, JavaScript
 
