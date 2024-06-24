@@ -83,7 +83,6 @@ function updateOfferAcceptedStatus(idOffer) {
 
                 const res = await db.query(query);
 
-                
                 resolve(res.rows[0]);
                 await db.end();
             })
