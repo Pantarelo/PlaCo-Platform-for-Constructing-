@@ -137,12 +137,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         else 
         {
-        // {
-        //     const viewButton = document.createElement('a');
-        //     viewButton.className = "solid-button";
-        //     viewButton.innerText = "Review";
-        //     viewButton.href = `./reviws_client.html?id=${offer.idWorker}`;
-
             const iconReview = document.createElement('i');
             iconReview.className = "fa-solid fa-handshake fa-2xl";
             iconReview.style = "color: #090834;"
