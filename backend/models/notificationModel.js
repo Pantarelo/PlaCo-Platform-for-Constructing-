@@ -65,6 +65,7 @@ function deleteNotification(idNotification) {
             const query = `DELETE FROM public."WorkerNotifications" WHERE notification_id=${idNotification};`;
 
             const res = await db.query(query);
+            await db.end();
             resolve(res.rows[0]);
         })
         .catch((error) => {console.log(error); reject(error);});

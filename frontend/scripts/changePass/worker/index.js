@@ -35,7 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 "newPass": newPassText
             }
 
-            const res = await changePass("http://localhost:3000/api/user/password", data);
+            try {
+                await changePass("http://localhost:3000/api/user/password", data);
+                alert("Password changed successfully!");
+                window.location.reload();
+            } catch (error) {
+                alert("Failed to change password");
+            }
         }
     })
 });

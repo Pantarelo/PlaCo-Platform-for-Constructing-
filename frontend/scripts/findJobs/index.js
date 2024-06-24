@@ -1,7 +1,3 @@
-
-
-
-
 async function getAllJobs(url) {
     
     const response = await fetch(url, {

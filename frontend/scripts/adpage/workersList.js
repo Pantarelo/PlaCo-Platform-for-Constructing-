@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                             body: JSON.stringify({
                                 worker_id: offer.idWorker,
                                 created_at: new Date(),
-                                accepted_status: true
+                                accepted_status: true,
+                                ad_id: offer.idAd
                             })
                         })
                         window.location.reload();
@@ -120,7 +121,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                             body: JSON.stringify({
                                 worker_id: offer.idWorker,
                                 created_at: new Date(),
-                                accepted_status: false
+                                accepted_status: false,
+                                ad_id: offer.idAd
                             })
                         })
                         window.location.reload();
@@ -159,8 +161,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             reviewButton.className = "review_button";
             reviewButton.href = `./reviws_client.html?id=${offer.idWorker}&idOffer=${offer.idOffer}&idAd=${offer.idAd}`;
             reviewButton.appendChild(iconReview);
-
-            console.log(reviewButton);
 
             workerContainer.appendChild(reviewButton);
         }
