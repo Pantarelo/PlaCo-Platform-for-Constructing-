@@ -28,6 +28,7 @@ const server = createServer(async (req,res) => {
         else if(req.url.startsWith("/api/notifications") && req.method === "DELETE") {
             const id = req.url.split("/")[3];
             deleteNotificationAfterSendOffer(req,res,id);
+        }
         else if(req.url.startsWith("/api/review") && req.method === "POST") {
             const id = req.url.split("/")[3];
             putReview(req,res, id);
