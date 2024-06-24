@@ -35,16 +35,16 @@ addProjectButton.addEventListener('click', async () => {
                     id_offer: data.offer.idOffer,
                     ad_id: projectId
                 }),
-            }).then(response => response.json())
+            }).then(() => alert('Added to the project.'))
             .then((data) => {
                 console.log(data);
             })
             .catch((error) => {
-                console.error('Error:', error);
+                alert('Failed to add to the project.');
             });
         })
         .catch((error) => {
-            console.error('Error:', error);
+            alert('Failed to add to the project.');
         });
 
     

@@ -1,6 +1,9 @@
+html {
+    background-color: var(--gray);
+}
+
 .list-announcements {
     display: flex;
-    flex: 80%;
     height: 100%;
     flex-direction: column;
     align-items: center;

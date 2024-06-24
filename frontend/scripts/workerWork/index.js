@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const viewButton = document.createElement('a');
                 viewButton.className = "solid-button";
                 viewButton.innerText = "View";
-                viewButton.href = `./adpage.html?id=${adElement.id}`;
+                viewButton.href = `./public_adpage.html?id=${adElement.id}`;
 
                 adElement.appendChild(imgAd);
                 adElement.appendChild(titleAd);
