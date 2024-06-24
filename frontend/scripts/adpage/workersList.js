@@ -24,16 +24,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     console.log(offersList);
     
-    offersList.map((offer)=> {
+    offersList.map(async (offer)=> {
+
+        const workerImg = document.createElement('img');
+        workerImg.className="worker_img"
+
+       await fetch(`http://localhost:3000/api/worker/details/${offer.idWorker}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(async (response) => {            
+            const workerDetails = await response.json();
+            workerImg.src = `data:image/jpeg;base64,${workerDetails.img}`;
+        })
+
+
         const workerContainer = document.createElement('div');
         workerContainer.className = "worker_container";
     
         const anchorTag = document.createElement('a');
         anchorTag.href=`../pages/public_worker_profile.html?id=${offer.idWorker}`;
     
-        const workerImg = document.createElement('img');
-        workerImg.className="worker_img"
-        workerImg.src="../assets/images/ad_5.jpg"
+       
         anchorTag.appendChild(workerImg);
     
     

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         if(response.status === 401 || response.status === 403 || response.status === 500) {
-            window.location.href = '/frontend/pages/index.html';
+            window.location.href = '/frontend/index.html';
             return null;
         }
         
