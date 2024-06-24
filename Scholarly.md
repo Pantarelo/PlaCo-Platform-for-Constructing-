@@ -123,8 +123,11 @@ About us page:
 The hardware interface in this project is flexible, not being dependend on anything.
 
 ### 3.3 Software Interfaces
+In the application, Node.js is used for the backend and JavaScript for the frontend. The backend follows an MVC structure, with controllers handling the application logic and models communicating directly with the PostgreSQL database.
+These software interfaces enable efficient interaction between the frontend and the database, ensuring performance and scalability.
 
 ### 3.4 Communications Interfaces
+The communication between the frontend and backend takes place through the API provided by the backend.
 
 ## System Features
 
@@ -142,6 +145,12 @@ The hardware interface in this project is flexible, not being dependend on anyth
  * Create all the user pages.
 
 ### 4.2 Backend
+The backend manages client postings, allowing clients to create, update, and delete ads for their projects. It also facilitates the addition of workers to projects, enabling the acceptance or rejection of workers for specific tasks. This robust management system ensures streamlined operations and effective project handling.
+
+- the user must register with an email address, phone number, password, and user type (client or worker).
+- the client can create ads, view the list of workers, add a worker to their ad, and leave a review for the worker.
+- the worker creates a profile with a description, posts their skills, and makes offers for clients' projects, which clients can accept or reject.
+- users can change their password, or reset it if they forget it during login.
 
 ## Other Nonfunctional Requirements
 
@@ -149,8 +158,10 @@ The hardware interface in this project is flexible, not being dependend on anyth
 Trying to limit the DOM manipulation just for the begginng of page loading. 
 
 ### 5.2 Safety Requirements
+Security
 
 ### 5.3 Security Requirements
+Always use HTTPS with certbot.
 
 ### 5.4 Software Quality Attributes
 Adaptability, availability, maintainability.
