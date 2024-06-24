@@ -83,7 +83,7 @@ Actions: They can delete accounts, approve or delete job announcements, and acce
 ---
 
 ### 2.5 Design and Implementation Constraints
-* Database: --
+* Database: PostgreSQL
 * Backend: NodeJs
 * Frontend: HTML, CSS, JavaScript
 
@@ -109,11 +109,12 @@ Register page:\
 Login page:\
 ![Login](frontend/assets/images/screenshots/login.png)\
 Find jobs page:\
-![FindJobs](frontend/assets/images/screenshots/find-jobs-page.png)\
+![FindJobs](frontend/assets/images/screenshots/find_jobs_page.png)\
 Profile page
-![Profile](frontend/assets/images/screenshots/work-profile.png)\
-![Profile](frontend/assets/images/screenshots/inbox-profile.png)\
-![Profile](frontend/assets/images/screenshots/settings-profile.png)\
+![Profile](frontend/assets/images/screenshots/create_add.png)\
+![Profile](frontend/assets/images/screenshots/skills.png)\
+![Profile](frontend/assets/images/screenshots/settings.png)\
+![Profile](frontend/assets/images/screenshots/notifications.png)\
 Admin profile page:
 ![Admin](frontend/assets/images/screenshots/admin.png)\
 About us page: 
