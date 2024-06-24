@@ -42,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const searchParams = new URLSearchParams(window.location.search);
         const workerId = searchParams.get("id");
+        const offerId = searchParams.get("idOffer");
+        const adId = searchParams.get("idAd");
+
+        console.log(offerId);
 
         const starsNumber = rating;
         const commentText = comments.value;
@@ -52,7 +56,19 @@ document.addEventListener('DOMContentLoaded', () => {
             "comment": commentText
         };
 
-        const response = await review(`http://localhost:3000/api/review/${workerId}`, reviewData);
+        await review(`http://localhost:3000/api/review/${workerId}`, reviewData).then(
+            async () => {
+                await fetch(`http://localhost:3000/api/offer/${offerId}`, {
+                    method: "DELETE", 
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${getCookie('token')}`
+                    }
+                }).then(async () => {
+                    window.location.href = `/frontend/pages/adpage.html?id=${adId}`;
+                })
+            }
+        );
 
     });
 });

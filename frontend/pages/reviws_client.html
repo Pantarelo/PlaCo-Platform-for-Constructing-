@@ -9,18 +9,24 @@
 </head>
 <body>
     <div class="review-container">
-        <h2>Review</h2>
-        <div class="star-rating">
-            <i class="fa-regular fa-star" id="star1"></i>
-            <i class="fa-regular fa-star" id="star2"></i>
-            <i class="fa-regular fa-star" id="star3"></i>
-            <i class="fa-regular fa-star" id="star4"></i>
-            <i class="fa-regular fa-star" id="star5"></i>
+        <div id="sections">
+            <section>
+                <h1>Stars</h1>
+                <div class="star-rating" style="color: #F7C515;">
+                    <i class="fa-regular fa-star fa-2xl" id="star1"></i>
+                    <i class="fa-regular fa-star fa-2xl" id="star2"></i>
+                    <i class="fa-regular fa-star fa-2xl" id="star3"></i>
+                    <i class="fa-regular fa-star fa-2xl" id="star4"></i>
+                    <i class="fa-regular fa-star fa-2xl" id="star5"></i>
+                </div>
+            </section>
+            <section>
+                <h1>Comment</h1>
+                <textarea id="comments" rows="4" cols="50"></textarea>
+                <br>
+            </section>
         </div>
-        <h3>Comments</h3>
-        <textarea id="comments" rows="4" cols="50"></textarea>
-        <br>
-        <button id="saveButton">Save</button>
+        <button id="saveButton" class="solid-button">Save</button>
     </div>
 
     <script>

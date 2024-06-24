@@ -30,13 +30,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     reviews.map((review) => {
         
+        const reviewContainer = document.createElement('div');
+        reviewContainer.className = "comment";
+
         const reviewComment = document.createElement('p');
-        reviewComment.className = "comment"
         reviewComment.innerText = review.comment;
 
         sum += review.stars;
 
-        commentsList.appendChild(reviewComment);
+        const reviewStars = document.createElement('div');
+        reviewStars.className = "stars";
+
+        for (let i = 0; i < review.stars ; i++) {
+            const fullStar = document.createElement('i');
+            fullStar.className = "fa-solid fa-star fa-xl";
+            fullStar.style.color = "#FFD43B";
+            reviewStars.appendChild(fullStar);
+        }
+
+        for (let i = 0; i < 5 - review.stars; i++) {
+            const emptyStar = document.createElement('i');
+            emptyStar.className = "fa-regular fa-star fa-xl";
+            emptyStar.style.color = "#FFD43B";
+            reviewStars.appendChild(emptyStar);
+        }
+
+        
+        reviewContainer.appendChild(reviewStars);
+        reviewContainer.appendChild(reviewComment);
+
+        commentsList.appendChild(reviewContainer);
     
     })
 
